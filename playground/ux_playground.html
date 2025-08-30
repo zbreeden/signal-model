@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FourTwenty • The Signal — UX Playground</title>
+
+  <!-- Replace GTM-XXXXXXX with your container. You can also inject via Tag Assistant. -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <style>
+    html,body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;margin:0;padding:0;background:#0b1220;color:#e6edf3}
+    .wrap{max-width:880px;margin:40px auto;padding:24px}
+    h1{font-size:28px;margin:0 0 8px}
+    p{opacity:.9}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:18px}
+    button{padding:12px 14px;border-radius:14px;border:1px solid #2c3a57;background:#131c2e;color:#e6edf3;cursor:pointer}
+    button:hover{background:#16243a}
+    code{background:#0f1728;border:1px solid #24324f;padding:2px 6px;border-radius:8px}
+    .card{border:1px solid #223052;background:#0f1728;border-radius:16px;padding:16px}
+    .footer{opacity:.75; font-size:12px; margin-top:26px}
+    input,select{width:100%;padding:10px;border-radius:10px;border:1px solid #2b3a59;background:#0e1628;color:#e6edf3}
+    label{font-size:12px;opacity:.85}
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="wrap">
+  <h1>UX Playground</h1>
+  <p>Use the widgets below to push test events into <code>dataLayer</code>. Open GA4 <em>DebugView</em> to verify.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>CTA click</h3>
+      <button onclick="pushCTA('hero_primary','Get Started','hero')">Hero CTA</button>
+      <button onclick="pushCTA('footer_signup','Sign up','footer')">Footer CTA</button>
+    </div>
+
+    <div class="card">
+      <h3>Form submit</h3>
+      <label>Form ID</label>
+      <input id="form_id" value="lead_form_v1"/>
+      <label style="margin-top:8px">Form name</label>
+      <input id="form_name" value="Lead form"/>
+      <button style="margin-top:10px" onclick="pushForm()">Submit (simulate)</button>
+    </div>
+
+    <div class="card">
+      <h3>Search</h3>
+      <label>Query</label>
+      <input id="query" value="pricing"/>
+      <label style="margin-top:8px">Results</label>
+      <input id="results" type="number" value="12"/>
+      <button style="margin-top:10px" onclick="pushSearch()">Search</button>
+    </div>
+
+    <div class="card">
+      <h3>Page view (virtual)</h3>
+      <label>Page ID</label>
+      <input id="page_id" value="pricing"/>
+      <label style="margin-top:8px">Page title</label>
+      <input id="page_title" value="Pricing"/>
+      <button style="margin-top:10px" onclick="pushPage()">View</button>
+    </div>
+  </div>
+
+  <div class="footer">Event names and params mirror <code>/ga4/events.json</code>. Edit this file to match your product.</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function pushCTA(id,text,loc){
+    dataLayer.push({
+      'event':'cta_click',
+      'cta_id': id,
+      'cta_text': text,
+      'location': loc
+    });
+    console.log('cta_click', id, text, loc);
+  }
+
+  function pushForm(){
+    const id = document.getElementById('form_id').value;
+    const name = document.getElementById('form_name').value;
+    dataLayer.push({
+      'event':'form_submit',
+      'form_id': id,
+      'form_name': name,
+      'fields_count': 5
+    });
+    console.log('form_submit', id, name);
+  }
+
+  function pushSearch(){
+    const q = document.getElementById('query').value;
+    const n = parseInt(document.getElementById('results').value,10)||0;
+    dataLayer.push({
+      'event':'nav_search',
+      'query': q,
+      'results_count': n
+    });
+    console.log('nav_search', q, n);
+  }
+
+  function pushPage(){
+    const id = document.getElementById('page_id').value;
+    const title = document.getElementById('page_title').value;
+    dataLayer.push({
+      'event':'page_view',
+      'page_id': id,
+      'page_title': title
+    });
+    console.log('page_view', id, title);
+  }
+</script>
+</body>
+</html>

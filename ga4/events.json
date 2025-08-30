@@ -1,0 +1,38 @@
+{
+  "events": [
+    {
+      "name": "cta_click",
+      "description": "Any primary call-to-action click",
+      "params": {
+        "cta_id": "string",
+        "cta_text": "string",
+        "location": "string"
+      }
+    },
+    {
+      "name": "form_submit",
+      "description": "Successful form submission",
+      "params": {
+        "form_id": "string",
+        "form_name": "string",
+        "fields_count": "integer"
+      }
+    },
+    {
+      "name": "nav_search",
+      "description": "On-site search submission",
+      "params": {
+        "query": "string",
+        "results_count": "integer"
+      }
+    },
+    {
+      "name": "page_view",
+      "description": "SPA/virtual page view",
+      "params": {
+        "page_id": "string",
+        "page_title": "string"
+      }
+    }
+  ]
+}
