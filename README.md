@@ -1,5 +1,5 @@
 # FourTwenty • The Signal
-Semantic trigger layer — detects and propagates glossary‑aligned events across the suite.
+Scheduled pulses and public relations.
 
 ## What's inside
 - **Purpose:** Provide a simple, auditable event taxonomy and a tiny HTML playground to trigger/test events end‑to‑end.
