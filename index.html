@@ -1,118 +1,218 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FourTwenty • The Signal</title>
-  <meta name="description" content="Semantic trigger layer — detects and propagates glossary-aligned events across the suite.">
+  <!--
+    Generic index.html seed for FourTwenty Analytics modules
+    ─────────────────────────────────────────────────────────
+    How to use:
+      1) Replace the placeholders in the MODULE config below (name, emoji, repoUser, repoName).
+      2) Replace GA container and/or GA4 measurement IDs below.
+         • Prefer GTM to deploy GA4. If you also hard‑wire GA4 via gtag, avoid double page_view.
+      3) Push this file to the repo root (works on GitHub Pages).
+      4) Keep README.md in the repo; this page auto-renders it.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Modular dashboard concept seed page with README render and analytics hooks." />
+  <meta name="color-scheme" content="light dark" />
+  <title>🫀 The Archive — FourTwenty Analytics</title>
 
-  <!-- Push context BEFORE GTM so page_view can include it -->
+  <!-- ===================== GTM (recommended) ===================== -->
+  <!-- Replace GTM-XXXXXXX with your container ID. If you plan to use GA4 via GTM, you don't need the GA4 snippet below. -->
+  <script>
+    // Set to false to temporarily disable GTM without removing the snippet
+    const ENABLE_GTM = true;
+    const GTM_ID = 'GTM-WCV4SNLB'; // ← TODO: set your GTM container id
+    if (ENABLE_GTM && GTM_ID && !/GTM-XXXXXXXX/.test(GTM_ID)) {
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[]; w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',GTM_ID);
+    }
+  </script>
+
+  <!-- ===================== GA4 (optional direct gtag) ===================== -->
+  <!-- If you deploy GA4 via GTM, you can keep this block commented to prevent duplicate page_view. -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ site_area: 'signal' });
+    function gtag(){dataLayer.push(arguments);} // reuse dataLayer for coherence
+    gtag('js', new Date());
+    // If you also have a GTM GA4 tag sending page_view, set send_page_view:false here
+    gtag('config', 'G-XXXXXXXXXX', { send_page_view: true }); // ← TODO: set your GA4 ID
   </script>
+  -->
 
-  <!-- Google Tag Manager (GTM only; same container as main site) -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WVC4SNLB');  /* ← your GTM ID */
-  </script>
+  <!-- Marked.js for README rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <style>
-    :root{--bg:#0b1220;--panel:#0f1728;--text:#e6edf3;--muted:#9fb0d1;--border:#223052;--accent:#7aa2ff}
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .shell{max-width:980px;margin:0 auto;padding:28px 20px}
-    header{display:flex;justify-content:space-between;align-items:center;padding:6px 0 18px}
-    .brand{font-weight:700;letter-spacing:.2px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#121b2f;color:var(--text)}
-    .btn:hover{background:#16243a}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;margin:14px 0}
-    .panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:18px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:14px}
-    .muted{color:var(--muted)}
-    @media (max-width:880px){.hero{grid-template-columns:1fr}}
-    code{background:#0f1728;border:1px solid var(--border);padding:2px 6px;border-radius:8px}
-    footer{margin:28px 0;color:var(--muted);font-size:13px}
-  </style>
+    :root { --bg: #0b0b10; --panel: #0f1220; --text: #e9eefb; --muted:#98a2b3; --brand:#5eead4; --accent:#a78bfa; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f7f7fb; --panel:#ffffff; --text:#101828; --muted:#667085; --brand:#0ea5e9; --accent:#7c3aed; }
+    }
+    html, body { height: 100%; }
+    body { margin:0; font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background:var(--bg); color:var(--text); }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px; background:linear-gradient(135deg, var(--panel), transparent 60%); border-radius:16px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.18); }
+    .title { display:flex; align-items:center; gap:12px; }
+    .title .emoji { font-size: 28px; }
+    .title h1 { margin:0; font-size: clamp(20px, 2.6vw, 28px); letter-spacing:0.2px; }
+    .meta { display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size: 14px; }
+    .badges { display:flex; gap:8px; flex-wrap:wrap; }
+    .badge { padding:4px 10px; border-radius:999px; background: rgb(255 255 255 / 0.06); color:var(--text); border:1px solid rgb(255 255 255 / 0.08); font-size:12px; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    main { margin-top: 22px; display:grid; gap:20px; grid-template-columns: 1fr; }
+    .card { background: var(--panel); border:1px solid rgb(255 255 255 / 0.06); border-radius: 16px; padding: 20px; box-shadow: 0 10px 28px rgb(0 0 0 / 0.12); }
+    .card h2 { margin: 0 0 12px; font-size: 18px; }
+    .readme { min-height: 200px; }
+    .readme .md h1 { font-size: 28px; margin-top: 0.4em; }
+    .readme .md h2 { font-size: 22px; border-bottom:1px solid rgb(127 127 127 / 0.25); padding-bottom: 4px; }
+    .readme .md pre { overflow:auto; padding:14px; border-radius:12px; background: #0a0f1a; color:#e6edf3; border: 1px solid rgb(255 255 255 / 0.06); }
+    .readme .md code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; }
+    footer { margin: 22px 0 40px; color: var(--muted); font-size: 14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .links { display:flex; gap:12px; flex-wrap:wrap; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+      .back { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-size:14px; background: rgb(255 255 255 / 0.06); border:1px solid rgb(255 255 255 / 0.08); color: var(--text); }
+    .back:hover { text-decoration:none; filter: brightness(1.05); }
+</style>
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVC4SNLB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- GTM (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCV4SNLB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="shell">
-  <header>
-    <div class="brand">FourTwenty • The Signal</div>
-    <nav>
-      <!-- Back to main site root; works with user/org Pages and custom domains -->
-      <a class="btn" href="https://zbreeden.github.io/FourTwentyAnalytics/" onclick="signalClick('back_to_main','Back to FourTwenty','header')">← Back to FourTwenty</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div>
-      <h1 style="margin:0 0 8px">Semantic trigger layer for clean analytics.</h1>
-      <p class="muted">A tiny site + playground that pushes PII-free events into <code>dataLayer</code>. Map in GTM, verify in GA4 DebugView, and iterate on your taxonomy.</p>
-      <div class="grid">
-        <a class="btn" href="#" onclick="signalClick('cta_get_started','Get Started','hero');return false;">Trigger CTA event</a>
-        <a class="btn" href="#" onclick="pushPage('home','Home');return false;">Trigger virtual page_view</a>
-        <a class="btn" href="./playground/ux_playground.html" onclick="signalClick('open_playground','UX Playground','hero')">Open UX Playground →</a>
+  <div class="wrap">
+    <header>
+      <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/" id="back-home" data-analytics="back_home" aria-label="Back to FourTwenty Analytics"><span id="back-label">Back to FourTwenty Analytics</span></a>
+      <div class="title">
+        <div class="emoji" id="module-emoji" aria-hidden="true">🫀</div>
+        <h1 id="module-name">The Archive</h1>
       </div>
-    </div>
+      <div class="badges">
+        <span class="badge" id="module-version">v0.1</span>
+        <span class="badge" id="module-status">status: seed</span>
+      </div>
+    </header>
 
-    <div class="panel">
-      <h3 style="margin:6px 0 8px">Setup checklist</h3>
-      <ol style="margin:0 0 8px 18px; padding:0; line-height:1.6">
-        <li>Use the same GTM container as your main site (<code>GTM-WVC4SNLB</code>) for unified tagging.</li>
-        <li>Segment by <code>site_area</code> (already pushed as <code>'signal'</code> on this page).</li>
-        <li>Verify events in GA4 <em>DebugView</em> while clicking around.</li>
-      </ol>
-      <p class="muted" style="margin:8px 0 0">Links and buttons below emit sample events: <code>cta_click</code>, <code>nav_search</code>, <code>form_submit</code>, <code>page_view</code>.</p>
-    </div>
-  </section>
+    <main>
+      <section class="card">
+        <h2>README.md</h2>
+        <div class="meta">Rendered from <code>README.md</code> in this repo.</div>
+        <div id="readme" class="readme" aria-live="polite">
+          <div class="md" id="readme-md" aria-busy="true"></div>
+        </div>
+      </section>
 
-  <section class="panel">
-    <h3 style="margin:6px 0 8px">Live test console</h3>
-    <p class="muted">Quick buttons that push events into <code>dataLayer</code> so Tag Assistant can see activity.</p>
-    <div class="grid">
-      <button class="btn" onclick="signalClick('cta_signup','Sign up','console')">CTA: Sign up</button>
-      <button class="btn" onclick="pushForm('lead_form_v1','Lead form')">Form submit</button>
-      <button class="btn" onclick="pushSearch('pricing',12)">Search: pricing</button>
-      <button class="btn" onclick="pushPage('pricing','Pricing')">Virtual page_view: Pricing</button>
-    </div>
-    <div style="margin-top:12px">
-      <a class="btn" href="https://zbreeden.github.io/FourTwentyAnalytics/" onclick="signalClick('back_to_main_footer','Back to FourTwenty','footer')">← Back to FourTwenty</a>
-    </div>
-  </section>
+      <section class="card">
+        <h2>Module Details</h2>
+        <dl>
+          <dt class="sr-only">Name</dt><dd id="detail-name">The Archive</dd>
+          <dt class="sr-only">Orbit</dt><dd id="detail-orbit">Core System</dd>
+          <dt class="sr-only">Glyph</dt><dd id="detail-glyph">🫀</dd>
+        </dl>
+        <div class="links" id="quick-links">
+          <!-- Filled by JS with repo links -->
+        </div>
+      </section>
+    </main>
 
-  <footer>MIT licensed. Built for fast iteration on analytics events.</footer>
-</div>
+    <footer>
+      <div>Last updated: <span id="last-updated"></span></div>
+      <div class="links">
+        <a href="https://github.com/zbreeden/archive-model/edit/main/README.md" id="link-edit-readme" data-analytics="edit_readme">Edit README</a>
+        <a href="https://github.com/zbreeden/archive-model/tree/main" id="link-repo" data-analytics="open_repo">Open Repo</a>
+        <a href="https://github.com/zbreeden/archive-model/issues" id="link-issues" data-analytics="open_issues">Issues</a>
+      </div>
+    </footer>
+  </div>
 
-<script>
-  // Minimal helpers for demo events
-  function signalClick(id,text,loc){
+  <script>
+    // ─────────────── Module config (edit these) ───────────────
+    const MODULE = {
+      name: 'The Archive',          // ← e.g., 'The Evaluator'
+      emoji: '🫀',                  // ← module emoji
+      orbit: 'Core System',        // ← requested orbit
+      version: '0.1.0',
+      status: 'Development',       // ← requested status
+      repoUser: 'zbreeden',        // ← requested user
+      repoName: 'archive-model'     // ← requested repo
+    };
+
+    // ─────────────── Analytics helpers ───────────────
     window.dataLayer = window.dataLayer || [];
-    dataLayer.push({ event:'cta_click', cta_id:id, cta_text:text, location:loc });
-    console.log('cta_click', {id,text,loc});
-  }
-  function pushForm(id,name){
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({ event:'form_submit', form_id:id, form_name:name, fields_count:5 });
-    console.log('form_submit', {id,name});
-  }
-  function pushSearch(q,n){
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({ event:'nav_search', query:q, results_count:n });
-    console.log('nav_search', {q,n});
-  }
-  function pushPage(id,title){
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({ event:'page_view', page_id:id, page_title:title });
-    console.log('page_view', {id,title});
-  }
-</script>
+    function track(eventName, params={}) {
+      const payload = { event: eventName, ...params, module_name: MODULE.name, module_orbit: MODULE.orbit };
+      dataLayer.push(payload);
+      // Optional: forward to gtag if present (direct GA4 setup)
+      if (typeof gtag === 'function') { gtag('event', eventName, payload); }
+    }
+
+    function signalNavClick(action, label, context) {
+      track('nav_click', { action, label, context });
+    }
+
+    // ─────────────── README rendering ───────────────
+    
+async function loadReadme() {
+      try {
+        const res = await fetch('README.md', { cache: 'no-store' });
+        if (!res.ok) throw new Error('README.md not found');
+        const md = await res.text();
+        const html = marked.parse(md, { mangle:false, headerIds:true });
+        document.getElementById('readme-md').innerHTML = html;
+        track('readme_rendered', { ok: true });
+      } catch (err) {
+        document.getElementById('readme-md').innerHTML = '<p>Could not load <code>README.md</code>. Ensure it exists at the repo root.</p>';
+        track('readme_rendered', { ok: false, message: String(err) });
+      }
+    }
+
+
+
+    // ─────────────── Page init ───────────────
+    function initMeta() {
+      const title = `${MODULE.emoji} ${MODULE.name} — FourTwenty Analytics`;
+      document.title = title;
+      document.getElementById('module-name').textContent = MODULE.name;
+      document.getElementById('module-emoji').textContent = MODULE.emoji;
+      document.getElementById('module-version').textContent = `v${MODULE.version}`;
+      document.getElementById('module-status').textContent = `status: ${MODULE.status}`;
+      document.getElementById('detail-name').textContent = `${MODULE.emoji} ${MODULE.name}`;
+      document.getElementById('detail-orbit').textContent = `orbit: ${MODULE.orbit}`;
+      document.getElementById('detail-glyph').textContent = `glyph: ${MODULE.emoji}`;
+
+      const host = location.hostname; // e.g., zbreeden.github.io
+      const pathParts = location.pathname.split('/').filter(Boolean); // ['', 'repo', ''] -> ['repo']
+      const inferredRepo = MODULE.repoName || (pathParts[0] || '');
+      const inferredUser = MODULE.repoUser || host.replace('.github.io','');
+
+      const repoURL   = `https://github.com/${inferredUser}/${inferredRepo}`;
+      const issuesURL = `${repoURL}/issues`;
+      const editReadmeURL = `${repoURL}/edit/main/README.md`;
+
+      const link = (href, text, id, ana) => {
+        const a = document.createElement('a');
+        a.href = href; a.textContent = text; a.id = id; a.dataset.analytics = ana;
+        a.addEventListener('click', () => signalNavClick(ana, href, 'footer')); return a;
+      };
+
+      const ql = document.getElementById('quick-links');
+      ql.innerHTML = '';
+      ql.append(link(repoURL, 'GitHub Repo', 'ql-repo', 'open_repo'));
+      ql.append(link(issuesURL, 'Issues', 'ql-issues', 'open_issues'));
+      ql.append(link(editReadmeURL, 'Edit README', 'ql-edit', 'edit_readme'));
+
+      document.getElementById('link-edit-readme').href = editReadmeURL;
+      document.getElementById('link-repo').href = repoURL;
+      document.getElementById('link-issues').href = issuesURL;
+
+      document.getElementById('last-updated').textContent = new Date(document.lastModified).toLocaleString();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { initMeta(); loadReadme(); track('module_loaded'); const back = document.getElementById('back-home'); if (back) { back.addEventListener('click', () => signalNavClick('back_home','FourTwentyAnalytics','header')); const label = document.getElementById('back-label'); if (label) { label.textContent = `${MODULE.emoji} Back to FourTwenty Analytics`; } } }); 
+  </script>
 </body>
 </html>
