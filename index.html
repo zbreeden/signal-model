@@ -1,218 +1,301 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!--
-    Generic index.html seed for FourTwenty Analytics modules
-    ─────────────────────────────────────────────────────────
-    How to use:
-      1) Replace the placeholders in the MODULE config below (name, emoji, repoUser, repoName).
-      2) Replace GA container and/or GA4 measurement IDs below.
-         • Prefer GTM to deploy GA4. If you also hard‑wire GA4 via gtag, avoid double page_view.
-      3) Push this file to the repo root (works on GitHub Pages).
-      4) Keep README.md in the repo; this page auto-renders it.
+  <!-- The Signal (📡) — Core System: Nerves of the architecture
+       Purpose: UX/marketing telemetry playground with live KPIs powered by the in‑page dataLayer.
+       Notes:
+         • Back button returns to the FourTwenty hub.
+         • Replace GTM ID below with your container if different.
+         • Events follow the repo’s MVP taxonomy: page_view, cta_click, nav_search, form_submit.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Modular dashboard concept seed page with README render and analytics hooks." />
+  <meta name="description" content="FourTwenty • The Signal — UX telemetry playground with live KPIs (GA/GTM ready)." />
   <meta name="color-scheme" content="light dark" />
-  <title>📡 The Signal — FourTwenty Analytics</title>
+  <title>FourTwenty • The Signal 📡</title>
 
-  <!-- ===================== GTM (recommended) ===================== -->
-  <!-- Replace GTM-XXXXXXX with your container ID. If you plan to use GA4 via GTM, you don't need the GA4 snippet below. -->
+  <!-- Google Tag Manager (GTM) — prefer deploying GA4 via GTM. Avoid double page_view in GA4. -->
   <script>
-    // Set to false to temporarily disable GTM without removing the snippet
-    const ENABLE_GTM = true;
-    const GTM_ID = 'GTM-WCV4SNLB'; // ← TODO: set your GTM container id
-    if (ENABLE_GTM && GTM_ID && !/GTM-XXXXXXXX/.test(GTM_ID)) {
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[]; w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl; f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer',GTM_ID);
-    }
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WVC4SNLB');  /* ← replace with your GTM ID if needed */
   </script>
-
-  <!-- ===================== GA4 (optional direct gtag) ===================== -->
-  <!-- If you deploy GA4 via GTM, you can keep this block commented to prevent duplicate page_view. -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} // reuse dataLayer for coherence
-    gtag('js', new Date());
-    // If you also have a GTM GA4 tag sending page_view, set send_page_view:false here
-    gtag('config', 'G-XXXXXXXXXX', { send_page_view: true }); // ← TODO: set your GA4 ID
-  </script>
-  -->
-
-  <!-- Marked.js for README rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <style>
-    :root { --bg: #0b0b10; --panel: #0f1220; --text: #e9eefb; --muted:#98a2b3; --brand:#5eead4; --accent:#a78bfa; }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#f7f7fb; --panel:#ffffff; --text:#101828; --muted:#667085; --brand:#0ea5e9; --accent:#7c3aed; }
+    :root {
+      --bg: color-mix(in oklab, Canvas 95%, #0a0a0a 5%);
+      --card: color-mix(in oklab, Canvas 88%, #0a0a0a 12%);
+      --ink: CanvasText;
+      --muted: color-mix(in oklab, var(--ink) 65%, transparent);
+      --accent: #4f46e5; /* indigo */
+      --ok: #16a34a;
+      --warn: #d97706;
+      --bad: #dc2626;
+      --radius: 18px;
+      --shadow: 0 8px 24px color-mix(in oklab, black 15%, transparent);
     }
+    * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body { margin:0; font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; background:var(--bg); color:var(--text); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
-    header { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:20px; background:linear-gradient(135deg, var(--panel), transparent 60%); border-radius:16px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.18); }
-    .title { display:flex; align-items:center; gap:12px; }
-    .title .emoji { font-size: 28px; }
-    .title h1 { margin:0; font-size: clamp(20px, 2.6vw, 28px); letter-spacing:0.2px; }
-    .meta { display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size: 14px; }
-    .badges { display:flex; gap:8px; flex-wrap:wrap; }
-    .badge { padding:4px 10px; border-radius:999px; background: rgb(255 255 255 / 0.06); color:var(--text); border:1px solid rgb(255 255 255 / 0.08); font-size:12px; }
-    a { color: var(--brand); text-decoration: none; }
+    body {
+      margin: 0; font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg); color: var(--ink);
+    }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    main { margin-top: 22px; display:grid; gap:20px; grid-template-columns: 1fr; }
-    .card { background: var(--panel); border:1px solid rgb(255 255 255 / 0.06); border-radius: 16px; padding: 20px; box-shadow: 0 10px 28px rgb(0 0 0 / 0.12); }
-    .card h2 { margin: 0 0 12px; font-size: 18px; }
-    .readme { min-height: 200px; }
-    .readme .md h1 { font-size: 28px; margin-top: 0.4em; }
-    .readme .md h2 { font-size: 22px; border-bottom:1px solid rgb(127 127 127 / 0.25); padding-bottom: 4px; }
-    .readme .md pre { overflow:auto; padding:14px; border-radius:12px; background: #0a0f1a; color:#e6edf3; border: 1px solid rgb(255 255 255 / 0.06); }
-    .readme .md code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 13px; }
-    footer { margin: 22px 0 40px; color: var(--muted); font-size: 14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .links { display:flex; gap:12px; flex-wrap:wrap; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-      .back { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; font-size:14px; background: rgb(255 255 255 / 0.06); border:1px solid rgb(255 255 255 / 0.08); color: var(--text); }
-    .back:hover { text-decoration:none; filter: brightness(1.05); }
-</style>
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header { display: grid; grid-template-columns: 140px 1fr auto; gap: 16px; align-items: center; margin-bottom: 18px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); }
+    .back span { font-weight: 600; }
+    .title { display: flex; flex-direction: column; gap: 6px; }
+    .title h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
+    .pill { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+    .links { display: flex; gap: 10px; }
+
+    .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .card { background: var(--card); border-radius: var(--radius); padding: 16px 16px; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: .2px; }
+    .card p { margin: 8px 0; color: var(--muted); }
+
+    .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .kpi { background: var(--card); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); }
+    .kpi .label { font-size: 11px; color: var(--muted); }
+    .kpi .value { font-size: 22px; font-weight: 700; letter-spacing: .3px; }
+    .kpi .delta { font-size: 11px; }
+
+    .play { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stack { display: grid; gap: 10px; }
+    .row { display: flex; gap: 8px; }
+    input[type="text"], input[type="email"], input[type="search"], button, .soft-btn {
+      border: 0; background: color-mix(in oklab, var(--card) 86%, #000 14%);
+      color: var(--ink); padding: 10px 12px; border-radius: 12px; box-shadow: var(--shadow);
+    }
+    input::placeholder { color: var(--muted); }
+    button, .soft-btn { cursor: pointer; font-weight: 600; }
+    .cta { background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 60%, #22d3ee)); color: white; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent); vertical-align: top; }
+    thead th { text-align: left; position: sticky; top: 0; background: var(--card); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .kpis { grid-template-columns: repeat(3, 1fr); }
+      .play { grid-template-columns: 1fr; }
+      header { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <!-- GTM (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCV4SNLB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><div style="padding:12px; background:#fee2e2; color:#7f1d1d; text-align:center;">This page uses JavaScript to simulate UX events and compute KPIs.</div></noscript>
 
   <div class="wrap">
     <header>
-      <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/" id="back-home" data-analytics="back_home" aria-label="Back to FourTwenty Analytics"><span id="back-label">Back to FourTwenty Analytics</span></a>
+      <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/" onclick="track('cta_click',{cta_id:'back_to_hub', cta_text:'Back', location:'header'})">
+        <span>← Hub</span>
+      </a>
       <div class="title">
-        <div class="emoji" id="module-emoji" aria-hidden="true">📡</div>
-        <h1 id="module-name">The Signal</h1>
+        <h1>📡 FourTwenty • The Signal</h1>
+        <div class="pill">Core System • Nerves scanning for opportunity • JS/GA/UX‑focused</div>
       </div>
-      <div class="badges">
-        <span class="badge" id="module-version">v0.1</span>
-        <span class="badge" id="module-status">status: seed</span>
+      <div class="links">
+        <a class="soft-btn" href="https://github.com/zbreeden/signal-model" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'open_repo', cta_text:'Open Repo', location:'header'})">Repo</a>
+        <a class="soft-btn" href="https://github.com/zbreeden/signal-model/blob/main/README.md" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'open_readme', cta_text:'Open README', location:'header'})">README</a>
+        <a class="soft-btn" href="https://tagassistant.google.com/" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'tag_assistant', cta_text:'Tag Assistant', location:'header'})">Tag Assistant</a>
       </div>
     </header>
 
-    <main>
+    <!-- KPI band -->
+    <section class="kpis" aria-label="Session KPIs">
+      <div class="kpi"><div class="label">CTR (CTA clicks / views)</div><div id="kpi_ctr" class="value">—</div><div id="kpi_ctr_delta" class="delta"></div></div>
+      <div class="kpi"><div class="label">Form Conversion</div><div id="kpi_conv" class="value">—</div><div id="kpi_conv_delta" class="delta"></div></div>
+      <div class="kpi"><div class="label">Search Utilization</div><div id="kpi_search" class="value">—</div><div id="kpi_search_delta" class="delta"></div></div>
+      <div class="kpi"><div class="label">Avg Scroll Depth</div><div id="kpi_scroll" class="value">0%</div><div class="delta">session</div></div>
+      <div class="kpi"><div class="label">Dwell Time</div><div id="kpi_time" class="value">0s</div><div class="delta">live</div></div>
+      <div class="kpi"><div class="label">Events Seen</div><div id="kpi_events" class="value">0</div><div class="delta">dataLayer</div></div>
+    </section>
+
+    <div class="grid" style="margin-top: 16px;">
+      <!-- Mission + Playground -->
       <section class="card">
-        <h2>README.md</h2>
-        <div class="meta">Rendered from <code>README.md</code> in this repo.</div>
-        <div id="readme" class="readme" aria-live="polite">
-          <div class="md" id="readme-md" aria-busy="true"></div>
+        <h3>Mission & Quick Start</h3>
+        <p>
+          The Signal looks for opportunity: it emits small, typed <span class="mono">dataLayer</span> events and listens for value in return.
+          Use this playground to validate your GTM/GA4 wiring and to demo UX metrics.
+        </p>
+        <ul>
+          <li>Events: <span class="mono">page_view</span>, <span class="mono">cta_click</span>, <span class="mono">nav_search</span>, <span class="mono">form_submit</span>.</li>
+          <li>Verify in GA4 <em>DebugView</em> (via Tag Assistant) and see live events below.</li>
+          <li>KPIs here are computed client‑side for the current session for demos.</li>
+        </ul>
+
+        <div class="play" style="margin-top:10px;">
+          <div class="stack">
+            <h3>Try the Signals</h3>
+            <div class="row">
+              <button class="cta" id="demo_cta">Primary CTA</button>
+              <button class="soft-btn" id="soft_page">Soft Page Change</button>
+            </div>
+            <div class="row">
+              <input id="search_box" type="search" placeholder="Search…" />
+              <button id="search_btn">Search</button>
+            </div>
+            <form id="demo_form" class="stack" onsubmit="return false;">
+              <div class="row">
+                <input type="text" id="name" placeholder="Name" required />
+                <input type="email" id="email" placeholder="Email" required />
+              </div>
+              <button class="cta" id="form_submit_btn">Submit Demo Form</button>
+            </form>
+          </div>
+
+          <div class="stack">
+            <h3>Event Feed (dataLayer)</h3>
+            <div class="card" style="padding:0; overflow:auto; max-height:340px;">
+              <table>
+                <thead><tr><th style="width:120px;">time</th><th style="width:140px;">event</th><th>params</th></tr></thead>
+                <tbody id="feed"></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="card">
-        <h2>Module Details</h2>
-        <dl>
-          <dt class="sr-only">Name</dt><dd id="detail-name">The Signal</dd>
-          <dt class="sr-only">Orbit</dt><dd id="detail-orbit">Core System</dd>
-          <dt class="sr-only">Glyph</dt><dd id="detail-glyph">📡</dd>
-        </dl>
-        <div class="links" id="quick-links">
-          <!-- Filled by JS with repo links -->
-        </div>
-      </section>
-    </main>
+      <!-- Reference -->
+      <aside class="card">
+        <h3>Reference</h3>
+        <p><strong>Event taxonomy (MVP)</strong></p>
+        <table class="mono">
+          <thead><tr><th>event_name</th><th>when it fires</th><th>params</th></tr></thead>
+          <tbody>
+            <tr><td>cta_click</td><td>primary CTA is clicked</td><td>cta_id, cta_text, location</td></tr>
+            <tr><td>form_submit</td><td>lead/contact form submits</td><td>form_id, form_name, fields_count</td></tr>
+            <tr><td>nav_search</td><td>a search query is submitted</td><td>query, results_count</td></tr>
+            <tr><td>page_view</td><td>virtual/soft page change</td><td>page_id, page_title</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;">See repo <span class="mono">/ga4/events.json</span> for the full spec.</p>
+      </aside>
+    </div>
 
-    <footer>
-      <div>Last updated: <span id="last-updated"></span></div>
-      <div class="links">
-        <a href="https://github.com/zbreeden/signal-model/edit/main/README.md" id="link-edit-readme" data-analytics="edit_readme">Edit README</a>
-        <a href="https://github.com/zbreeden/signal-model/tree/main" id="link-repo" data-analytics="open_repo">Open Repo</a>
-        <a href="https://github.com/zbreeden/signal-model/issues" id="link-issues" data-analytics="open_issues">Issues</a>
-      </div>
-    </footer>
+    <section class="card" style="margin-top:16px;">
+      <h3>Notes</h3>
+      <ul>
+        <li>KPIs you might track here for marketing/UX: CTR, form conversion, search utilization, dwell/scroll depth, bounce/engagement, top CTAs and queries.</li>
+        <li>Wire GTM to GA4: map these events to GA4 events and params; validate in DebugView.</li>
+        <li>To avoid a duplicate <span class="mono">page_view</span>, either use this virtual event only or disable auto page_view from your GA4 config.</li>
+      </ul>
+    </section>
   </div>
 
   <script>
-    // ─────────────── Module config (edit these) ───────────────
-    const MODULE = {
-      name: 'The Signal',          // ← e.g., 'The Evaluator'
-      emoji: '📡',                  // ← module emoji
-      orbit: 'Core System',        // ← requested orbit
-      version: '0.1.0',
-      status: 'Development',       // ← requested status
-      repoUser: 'zbreeden',        // ← requested user
-      repoName: 'signal-model'     // ← requested repo
-    };
-
-    // ─────────────── Analytics helpers ───────────────
+    // ──────────────────────────────────────────────
+    // Tiny telemetry helper: window.dataLayer + track
+    // ──────────────────────────────────────────────
     window.dataLayer = window.dataLayer || [];
-    function track(eventName, params={}) {
-      const payload = { event: eventName, ...params, module_name: MODULE.name, module_orbit: MODULE.orbit };
-      dataLayer.push(payload);
-      // Optional: forward to gtag if present (direct GA4 setup)
-      if (typeof gtag === 'function') { gtag('event', eventName, payload); }
-    }
 
-    function signalNavClick(action, label, context) {
-      track('nav_click', { action, label, context });
-    }
-
-    // ─────────────── README rendering ───────────────
-    
-async function loadReadme() {
-      try {
-        const res = await fetch('README.md', { cache: 'no-store' });
-        if (!res.ok) throw new Error('README.md not found');
-        const md = await res.text();
-        const html = marked.parse(md, { mangle:false, headerIds:true });
-        document.getElementById('readme-md').innerHTML = html;
-        track('readme_rendered', { ok: true });
-      } catch (err) {
-        document.getElementById('readme-md').innerHTML = '<p>Could not load <code>README.md</code>. Ensure it exists at the repo root.</p>';
-        track('readme_rendered', { ok: false, message: String(err) });
-      }
-    }
-
-
-
-    // ─────────────── Page init ───────────────
-    function initMeta() {
-      const title = `${MODULE.emoji} ${MODULE.name} — FourTwenty Analytics`;
-      document.title = title;
-      document.getElementById('module-name').textContent = MODULE.name;
-      document.getElementById('module-emoji').textContent = MODULE.emoji;
-      document.getElementById('module-version').textContent = `v${MODULE.version}`;
-      document.getElementById('module-status').textContent = `status: ${MODULE.status}`;
-      document.getElementById('detail-name').textContent = `${MODULE.emoji} ${MODULE.name}`;
-      document.getElementById('detail-orbit').textContent = `orbit: ${MODULE.orbit}`;
-      document.getElementById('detail-glyph').textContent = `glyph: ${MODULE.emoji}`;
-
-      const host = location.hostname; // e.g., zbreeden.github.io
-      const pathParts = location.pathname.split('/').filter(Boolean); // ['', 'repo', ''] -> ['repo']
-      const inferredRepo = MODULE.repoName || (pathParts[0] || '');
-      const inferredUser = MODULE.repoUser || host.replace('.github.io','');
-
-      const repoURL   = `https://github.com/${inferredUser}/${inferredRepo}`;
-      const issuesURL = `${repoURL}/issues`;
-      const editReadmeURL = `${repoURL}/edit/main/README.md`;
-
-      const link = (href, text, id, ana) => {
-        const a = document.createElement('a');
-        a.href = href; a.textContent = text; a.id = id; a.dataset.analytics = ana;
-        a.addEventListener('click', () => signalNavClick(ana, href, 'footer')); return a;
+    // Intercept pushes so we can update the UI feed as events flow
+    (function(){
+      const _push = window.dataLayer.push.bind(window.dataLayer);
+      window.dataLayer.push = function(obj){
+        try { renderEvent(obj); recalc(obj); } catch(e) { console.error(e); }
+        return _push(obj);
       };
+    })();
 
-      const ql = document.getElementById('quick-links');
-      ql.innerHTML = '';
-      ql.append(link(repoURL, 'GitHub Repo', 'ql-repo', 'open_repo'));
-      ql.append(link(issuesURL, 'Issues', 'ql-issues', 'open_issues'));
-      ql.append(link(editReadmeURL, 'Edit README', 'ql-edit', 'edit_readme'));
-
-      document.getElementById('link-edit-readme').href = editReadmeURL;
-      document.getElementById('link-repo').href = repoURL;
-      document.getElementById('link-issues').href = issuesURL;
-
-      document.getElementById('last-updated').textContent = new Date(document.lastModified).toLocaleString();
+    function track(event, params={}){
+      const payload = Object.assign({ event, ts: Date.now() }, params);
+      window.dataLayer.push(payload);
     }
 
-    document.addEventListener('DOMContentLoaded', () => { initMeta(); loadReadme(); track('module_loaded'); const back = document.getElementById('back-home'); if (back) { back.addEventListener('click', () => signalNavClick('back_home','FourTwentyAnalytics','header')); const label = document.getElementById('back-label'); if (label) { label.textContent = `${MODULE.emoji} Back to FourTwenty Analytics`; } } }); 
+    // ──────────────────────────────────────────────
+    // Demo interactions → events
+    // ──────────────────────────────────────────────
+    const byId = (id) => document.getElementById(id);
+    const feed = byId('feed');
+    const metrics = { views: 0, cta: 0, forms: 0, searches: 0, scrollMax: 0, events: 0 };
+
+    // Primary CTA
+    byId('demo_cta').addEventListener('click', () => {
+      track('cta_click', { cta_id: 'primary', cta_text: 'Primary CTA', location: 'playground' });
+    });
+
+    // Soft page change (virtual page_view)
+    byId('soft_page').addEventListener('click', () => {
+      const pid = 'signal_alt_' + Math.floor(Math.random()*1000);
+      track('page_view', { page_id: pid, page_title: 'The Signal • Alt' });
+    });
+
+    // Search
+    byId('search_btn').addEventListener('click', () => {
+      const q = byId('search_box').value.trim();
+      if(!q) return;
+      // Fake result count for demo
+      const results = Math.floor(3 + Math.random()*42);
+      track('nav_search', { query: q, results_count: results });
+    });
+
+    // Form
+    byId('form_submit_btn').addEventListener('click', () => {
+      const name = byId('name').value.trim();
+      const email = byId('email').value.trim();
+      if(!name || !email) return;
+      track('form_submit', { form_id: 'demo_lead', form_name: 'Demo Lead', fields_count: 2 });
+      // clear
+      byId('name').value=''; byId('email').value='';
+    });
+
+    // Scroll depth (session max %)
+    let scrollMax = 0;
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = Math.round(100 * (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1));
+      scrollMax = Math.max(scrollMax, pct);
+      metrics.scrollMax = scrollMax;
+      byId('kpi_scroll').textContent = scrollMax + '%';
+    }, { passive: true });
+
+    // Dwell time
+    const t0 = Date.now();
+    setInterval(() => {
+      const secs = Math.floor((Date.now()-t0)/1000);
+      byId('kpi_time').textContent = secs + 's';
+    }, 1000);
+
+    // Initial virtual page view for this session (if you rely on GTM auto page_view, you can remove this)
+    track('page_view', { page_id:'signal_home', page_title:'The Signal • Home' });
+
+    // ──────────────────────────────────────────────
+    // UI: render feed + recalc KPIs
+    // ──────────────────────────────────────────────
+    function renderEvent(obj){
+      metrics.events++;
+      const tr = document.createElement('tr');
+      const time = new Date(obj.ts || Date.now()).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      tr.innerHTML = `<td class="mono">${time}</td><td class="mono">${obj.event || ''}</td><td class="mono">${escapeHtml(JSON.stringify(obj))}</td>`;
+      feed.prepend(tr);
+      byId('kpi_events').textContent = metrics.events;
+    }
+
+    function recalc(obj){
+      switch(obj.event){
+        case 'page_view': metrics.views++; break;
+        case 'cta_click': metrics.cta++; break;
+        case 'form_submit': metrics.forms++; break;
+        case 'nav_search': metrics.searches++; break;
+      }
+      const pct = (num, den) => den > 0 ? Math.round((1000*num/den))/10 + '%' : '—';
+      byId('kpi_ctr').textContent = pct(metrics.cta, metrics.views);
+      byId('kpi_conv').textContent = pct(metrics.forms, metrics.views);
+      byId('kpi_search').textContent = pct(metrics.searches, metrics.views);
+    }
+
+    function escapeHtml(s){
+      return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    }
   </script>
 </body>
 </html>
