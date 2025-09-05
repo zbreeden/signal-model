@@ -191,6 +191,61 @@
     </section>
   </div>
 
+<div class="card" id="signal-feed">
+  <h3>📡 Broadcasts</h3>
+  <div id="feed-list">Loading…</div>
+</div>
+
+<script>
+  const FEED_URL = 'https://raw.githubusercontent.com/zbreeden/signal-model/main/signals/feed.json';
+
+  async function loadFeed() {
+    const host = document.getElementById('feed-list');
+    try {
+      const res = await fetch(FEED_URL, { cache: 'no-store' });
+      const feed = await res.json();
+      host.innerHTML = feed.items.map(item => {
+        const tags = (item.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
+        const links = (item.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join(' · ');
+        const emoji = item.emoji || "🔔";
+        return `
+          <div class="feed-item">
+            <div class="feed-head">
+              <span class="emoji">${emoji}</span>
+              <strong>${item.title}</strong>
+            </div>
+            <div class="feed-meta">
+              <span>${new Date(item.ts_utc).toLocaleString()}</span>
+              <span>·</span>
+              <a href="${item.source_repo_url}" target="_blank" rel="noopener">${item.source_repo}</a>
+              ${item.pages_url ? `· <a href="${item.pages_url}" target="_blank" rel="noopener">Pages</a>` : ""}
+            </div>
+            <p>${item.summary || ""}</p>
+            <div class="feed-tags">${tags}</div>
+            <div class="feed-links">${links}</div>
+          </div>
+        `;
+      }).join('');
+      // Optional telemetry
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'signal_feed_rendered', ts: Date.now(), count: feed.count });
+    } catch (e) {
+      host.textContent = 'No broadcasts yet.';
+    }
+  }
+  loadFeed();
+  // Optional: refresh every few minutes
+  // setInterval(loadFeed, 180000);
+</script>
+
+<style>
+  .feed-item{padding:12px 0;border-bottom:1px solid var(--border,#3332)}
+  .feed-head{display:flex;gap:8px;align-items:center;font-size:1.05rem}
+  .feed-head .emoji{font-size:1.25rem}
+  .feed-meta{color:#888;font-size:.9rem;margin:.25rem 0 .25rem}
+  .feed-tags .tag{display:inline-block;margin-right:6px;font-size:.85rem;opacity:.9}
+</style>
+
   <script>
     // ──────────────────────────────────────────────
     // Tiny telemetry helper: window.dataLayer + track
