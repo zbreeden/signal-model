@@ -1,0 +1,81 @@
+name: Pull broadcasts (Gambler + Protector)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"    # every 30 minutes
+  workflow_dispatch: {}
+
+jobs:
+  pull-broadcasts:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        source:
+          - name: gambler
+            mode: manifest         # uses manifest.latest.path (your current pattern)
+            owner: zbreeden
+            repo: gambler-model
+            branch: main
+          - name: protector
+            mode: latest           # pulls signals/latest.json directly
+            owner: zbreeden
+            repo: protector-model
+            branch: main
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
+
+      - name: Fetch ${{ matrix.source.name }}
+        env:
+          OWNER:  ${{ matrix.source.owner }}
+          REPO:   ${{ matrix.source.repo }}
+          BRANCH: ${{ matrix.source.branch }}
+          MODE:   ${{ matrix.source.mode }}
+        run: |
+          set -e
+          mkdir -p signals
+
+          if [ "$MODE" = "manifest" ]; then
+            MANIFEST_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/signals/manifest.json"
+            echo "Pulling manifest: $MANIFEST_URL"
+            curl -fsSL "$MANIFEST_URL" -o /tmp/manifest.json
+            jq -e '.latest.path' /tmp/manifest.json > /dev/null
+            DATED_PATH=$(jq -r '.latest.path' /tmp/manifest.json)
+            KEY=$(jq -r '.latest.key' /tmp/manifest.json)
+            RAW_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${DATED_PATH}"
+            echo "Downloading dated payload: $RAW_URL"
+            curl -fsSL "$RAW_URL" -o "signals/${{ matrix.source.name }}_${KEY}.json"
+            cp "signals/${{ matrix.source.name }}_${KEY}.json" "signals/${{ matrix.source.name }}_latest.json"
+          else
+            RAW_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/signals/latest.json"
+            echo "Downloading latest.json: $RAW_URL"
+            curl -fsSL "$RAW_URL" -o "signals/${{ matrix.source.name }}_latest.json"
+          fi
+
+      - name: Synthesize Signal UI latest.json
+        run: |
+          # combine into a single array/object you already render in The Signal
+          jq -s '
+            {"sources": [
+              .[0] as $gambler |
+              {"name":"gambler","payload":$gambler},
+              (try (.[1]) catch null) as $protector |
+              if $protector != null then {"name":"protector","payload":$protector} else empty end
+            ]}
+          ' signals/gambler_latest.json signals/protector_latest.json > signals/latest.json
+
+      - name: Commit updates (if any)
+        run: |
+          if git status --porcelain | grep -E "signals/(latest\.json|.*_latest\.json|gambler_.*\.json|protector_.*\.json)"; then
+            git config user.name "signals-bot"
+            git config user.email "signals-bot@users.noreply.github.com"
+            git add signals/*.json
+            git commit -m "chore(signal): pull broadcasts (gambler + protector)"
+            git push
+          else
+            echo "Nothing to commit."
+          fi
