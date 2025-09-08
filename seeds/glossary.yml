@@ -1234,3 +1234,30 @@
     course: IBM Data Analytics
     module: Module 2 – File Formats
   status: draft
+
+- key: gambler
+  term: "The Gambler"
+  definition: >
+  Portfolio module that estimates outcome probabilities (e.g., Over/Under hit rates) using a simulation layer
+  and flags edges vs. market lines. Outputs ranked picks for broadcasts.
+  examples:
+  - "The Gambler broadcasted Top‑3 Edges at 09:30 ET."
+  see_also: [signal, edge, simulation, monte_carlo]
+
+- key: edge
+  term: "Edge"
+  definition: >
+  The advantage of the model over the market, often measured as the difference between model probability
+  and the market's implied probability at offered odds.
+  examples:
+  - "Model Over% is 57% vs implied 52.4% → +4.6% edge."
+  see_also: [expected_value, probability]
+
+- key: monte_carlo
+  term: "Monte Carlo Simulation"
+  definition: >
+  A method that generates many random outcomes from assumed distributions to approximate probabilities,
+  expected values, and uncertainty.
+  examples:
+  - "Simulated 50k games to estimate Over probability."
+  see_also: [simulation]
