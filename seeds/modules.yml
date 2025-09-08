@@ -118,7 +118,7 @@
   name: Gambler
   emoji: "🎰"
   orbit: growth-experiment
-  status: seed
+  status: active
   tags: [risk, payoff, monte-carlo]
   glyphs: [gambler]
   repo_url: https://github.com/zbreeden/gambler-model
