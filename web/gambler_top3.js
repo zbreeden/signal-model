@@ -2,7 +2,7 @@ async function renderGamblerTop3(elId = 'gambler-top3') {
 const el = document.getElementById(elId);
 if (!el) return;
 try {
-const res = await fetch('./data/broadcasts/gambler/latest.json', { cache: 'no-store' });
+const res = await fetch('.signals/latest.json', { cache: 'no-store' });
 if (!res.ok) throw new Error('fetch failed');
 const { date, sport, items } = await res.json();
 
@@ -37,3 +37,4 @@ window.dataLayer.push({ event: 'signal_broadcast_viewed', source: 'the_gambler',
 el.textContent = 'No Gambler broadcast available yet.';
 }
 }
+
