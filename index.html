@@ -246,6 +246,19 @@
   .feed-tags .tag{display:inline-block;margin-right:6px;font-size:.85rem;opacity:.9}
 </style>
 
+<style>
+.broadcast-header h3 { margin: 0 0 .5rem; }
+.broadcast-list { display:grid; gap:.75rem; }
+.edge-card { display:flex; gap:.75rem; padding:.75rem; border:1px solid #ddd; border-radius:12px; }
+.edge-rank { font-weight:700; font-size:1.25rem; }
+.edge-title { font-weight:600; }
+.edge-signal.over { color:#155e18; }
+.edge-signal.under { color:#5e1515; }
+</style>
+<div id="gambler-top3"></div>
+<script src="./web/gambler_top3.js"></script>
+<script>renderGamblerTop3('gambler-top3');</script>
+  
   <script>
     // ──────────────────────────────────────────────
     // Tiny telemetry helper: window.dataLayer + track
