@@ -210,10 +210,26 @@
 <div id="gambler-top3">Loading…</div>
 
 <!-- Import the single-source renderer -->
-<script type="module">
-  import { renderGamblerTop3 } from './web/gambler_top3.js';   /* or './web/gamber_top3.js' if you kept that name */
-  renderGamblerTop3('gambler-top3');
+<script>
+(async () => {
+  const res = await fetch('./signals/latest.json', {cache:'no-store'});
+  const data = await res.json();
+
+  // New multi-source path
+  if (Array.isArray(data.sources)) {
+    data.sources.forEach(src => renderBroadcast(src.name, src.payload));
+  } else {
+    // Back-compat (old single-object)
+    renderBroadcast('gambler', data);
+  }
+
+  function renderBroadcast(name, payload) {
+    // TODO: replace with your UI painter
+    console.log(`[Signal] ${name}:`, payload.broadcast?.message);
+  }
+})();
 </script>
+
 
   
   <script>
