@@ -210,25 +210,67 @@
 <div id="gambler-top3">Loading…</div>
 
 <!-- Import the single-source renderer -->
+<!-- Pulse panel (optional, for visible status) -->
+<div id="pulse" style="margin:12px 0; color:#9ca3af; font-family:system-ui">Loading broadcasts…</div>
+
 <script>
 (async () => {
-  const res = await fetch('./signals/latest.json', {cache:'no-store'});
-  const data = await res.json();
+  const log = (msg, color='#9ca3af') => {
+    const el = document.getElementById('pulse');
+    if (el) { el.style.color = color; el.textContent = msg; }
+    console.log('[Signal]', msg);
+  };
 
-  // New multi-source path
+  // Candidate URLs (relative, pages-absolute, raw fallback)
+  const CANDIDATES = [
+    './signals/latest.json',
+    'https://zbreeden.github.io/signal-model/signals/latest.json',
+    'https://raw.githubusercontent.com/zbreeden/signal-model/main/signals/latest.json'
+  ];
+
+  let data = null, lastError = null;
+
+  for (const url of CANDIDATES) {
+    try {
+      log(`Fetching ${url} …`);
+      const res = await fetch(url + `?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      }
+      const text = await res.text();
+      try {
+        data = JSON.parse(text); // ensure it is *valid* JSON (no comments/trailing commas)
+        log(`Loaded ${url}`, '#10b981');
+        break;
+      } catch (e) {
+        throw new Error(`JSON parse error: ${e.message}`);
+      }
+    } catch (e) {
+      console.error('[Signal] fetch error:', e);
+      lastError = e;
+    }
+  }
+
+  if (!data) {
+    log(`Failed to load latest.json (${lastError ? lastError.message : 'unknown error'})`, '#ef4444');
+    return;
+  }
+
+  // Multi-source aware + back-compat
   if (Array.isArray(data.sources)) {
     data.sources.forEach(src => renderBroadcast(src.name, src.payload));
   } else {
-    // Back-compat (old single-object)
-    renderBroadcast('gambler', data);
+    renderBroadcast('default', data); // single-object fallback
   }
 
+  // Replace this with your UI painter
   function renderBroadcast(name, payload) {
-    // TODO: replace with your UI painter
-    console.log(`[Signal] ${name}:`, payload.broadcast?.message);
+    const msg = payload?.broadcast?.message || '(no message)';
+    console.log(`[Signal] ${name}:`, msg);
   }
 })();
 </script>
+
 
 
   
