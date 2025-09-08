@@ -193,76 +193,28 @@
 
 <div class="card" id="signal-feed">
   <h3>📡 Broadcasts</h3>
-  <div id="feed-list">Loading…</div>
 </div>
 
-<script>
-  const FEED_URL = 'https://raw.githubusercontent.com/zbreeden/signal-model/main/signals/latest.json';
-
-  async function loadFeed() {
-    const host = document.getElementById('feed-list');
-    try {
-      const res = await fetch(FEED_URL, { cache: 'no-store' });
-      const feed = await res.json();
-      host.innerHTML = feed.items.map(item => {
-        const tags = (item.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
-        const links = (item.links || []).map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join(' · ');
-        const emoji = item.emoji || "🔔";
-        return `
-          <div class="feed-item">
-            <div class="feed-head">
-              <span class="emoji">${emoji}</span>
-              <strong>${item.title}</strong>
-            </div>
-            <div class="feed-meta">
-              <span>${new Date(item.ts_utc).toLocaleString()}</span>
-              <span>·</span>
-              <a href="${item.source_repo_url}" target="_blank" rel="noopener">${item.source_repo}</a>
-              ${item.pages_url ? `· <a href="${item.pages_url}" target="_blank" rel="noopener">Pages</a>` : ""}
-            </div>
-            <p>${item.summary || ""}</p>
-            <div class="feed-tags">${tags}</div>
-            <div class="feed-links">${links}</div>
-          </div>
-        `;
-      }).join('');
-      // Optional telemetry
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'signal_feed_rendered', ts: Date.now(), count: feed.count });
-    } catch (e) {
-      host.textContent = 'No broadcasts yet.';
-    }
-  }
-  loadFeed();
-  // Optional: refresh every few minutes
-  // setInterval(loadFeed, 180000);
-</script>
-
+<!-- Styles (keep or adapt to your theme) -->
 <style>
-  .feed-item{padding:12px 0;border-bottom:1px solid var(--border,#3332)}
-  .feed-head{display:flex;gap:8px;align-items:center;font-size:1.05rem}
-  .feed-head .emoji{font-size:1.25rem}
-  .feed-meta{color:#888;font-size:.9rem;margin:.25rem 0 .25rem}
-  .feed-tags .tag{display:inline-block;margin-right:6px;font-size:.85rem;opacity:.9}
+  .broadcast-list { display:grid; gap:.75rem; }
+  .edge-card { display:flex; gap:.75rem; padding:.75rem; border:1px solid #ddd; border-radius:12px; }
+  .edge-rank { font-weight:700; font-size:1.25rem; }
+  .edge-title { font-weight:600; }
+  .edge-signal.over { color:#155e18; }
+  .edge-signal.under { color:#5e1515; }
+  .muted { opacity:.8; }
 </style>
 
-<style>
-.broadcast-header h3 { margin: 0 0 .5rem; }
-.broadcast-list { display:grid; gap:.75rem; }
-.edge-card { display:flex; gap:.75rem; padding:.75rem; border:1px solid #ddd; border-radius:12px; }
-.edge-rank { font-weight:700; font-size:1.25rem; }
-.edge-title { font-weight:600; }
-.edge-signal.over { color:#155e18; }
-.edge-signal.under { color:#5e1515; }
-</style>
-<div id="gambler-top3"></div>
+<!-- Mount point -->
+<div id="gambler-top3">Loading…</div>
+
+<!-- Import the single-source renderer -->
 <script type="module">
-  import { renderGamblerTop3 } from './gambler_top3.js';
-  // Option A: prefer latest.json (recommended)
+  import { renderGamblerTop3 } from './web/gambler_top3.js';   /* or './web/gamber_top3.js' if you kept that name */
   renderGamblerTop3('gambler-top3');
-  // Option B: if you don’t keep latest.json, pass a week hint:
-  // renderGamblerTop3('gambler-top3', { weekHint: '2025-w01' });
 </script>
+
   
   <script>
     // ──────────────────────────────────────────────
