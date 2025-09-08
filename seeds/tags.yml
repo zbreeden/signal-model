@@ -312,3 +312,17 @@
   kind: governance
   gloss_ref: requirements_lifecycle_management
   deprecated: false
+
+- key: gambler_top3
+  label: "Gambler: Top‑3 Edges"
+  description: "Daily broadcast of three highest‑EV opportunities from The Gambler model vs market totals."
+  kind: broadcast
+  gloss_ref: gambler
+  deprecated: false
+
+- key: betting_edge
+  label: "Betting Edge"
+  description: "Difference between model probability and market implied probability, used to rank opportunities."
+  kind: metric
+  gloss_ref: edge
+  deprecated: false
