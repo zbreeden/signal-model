@@ -193,85 +193,78 @@
 
 <div class="card" id="signal-feed">
   <h3>📡 Broadcasts</h3>
+  <div id="pulse" style="margin:6px 0 14px 0; color:#9ca3af; font:14px system-ui">Loading…</div>
+  <div id="cards" style="display:grid;grid-template-columns:repeat(12,1fr);gap:12px"></div>
 </div>
-
-<!-- Styles (keep or adapt to your theme) -->
-<style>
-  .broadcast-list { display:grid; gap:.75rem; }
-  .edge-card { display:flex; gap:.75rem; padding:.75rem; border:1px solid #ddd; border-radius:12px; }
-  .edge-rank { font-weight:700; font-size:1.25rem; }
-  .edge-title { font-weight:600; }
-  .edge-signal.over { color:#155e18; }
-  .edge-signal.under { color:#5e1515; }
-  .muted { opacity:.8; }
-</style>
-
-<!-- Mount point -->
-<div id="gambler-top3">Loading…</div>
-
-<!-- Import the single-source renderer -->
-<!-- Pulse panel (optional, for visible status) -->
-<div id="pulse" style="margin:12px 0; color:#9ca3af; font-family:system-ui">Loading broadcasts…</div>
 
 <script>
 (async () => {
-  const log = (msg, color='#9ca3af') => {
-    const el = document.getElementById('pulse');
-    if (el) { el.style.color = color; el.textContent = msg; }
-    console.log('[Signal]', msg);
-  };
+  const status = (t,c='#9ca3af') => { const el = document.getElementById('pulse'); if (el){ el.textContent=t; el.style.color=c; } };
 
-  // Candidate URLs (relative, pages-absolute, raw fallback)
-  const CANDIDATES = [
+  const urls = [
     './signals/latest.json',
-    'https://zbreeden.github.io/signal-model/signals/latest.json',
-    'https://raw.githubusercontent.com/zbreeden/signal-model/main/signals/latest.json'
+    'https://zbreeden.github.io/signal-model/signals/latest.json'
   ];
 
-  let data = null, lastError = null;
-
-  for (const url of CANDIDATES) {
+  let data=null, lastErr=null;
+  for (const u of urls) {
     try {
-      log(`Fetching ${url} …`);
-      const res = await fetch(url + `?t=${Date.now()}`, { cache: 'no-store' });
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status} ${res.statusText}`);
-      }
-      const text = await res.text();
-      try {
-        data = JSON.parse(text); // ensure it is *valid* JSON (no comments/trailing commas)
-        log(`Loaded ${url}`, '#10b981');
-        break;
-      } catch (e) {
-        throw new Error(`JSON parse error: ${e.message}`);
-      }
-    } catch (e) {
-      console.error('[Signal] fetch error:', e);
-      lastError = e;
-    }
+      const r = await fetch(u + '?t=' + Date.now(), {cache:'no-store'});
+      if (!r.ok) throw new Error('HTTP '+r.status);
+      data = await r.json();
+      status('Loaded ' + u, '#10b981');
+      break;
+    } catch (e) { lastErr = e; }
+  }
+  if (!data) { status('Failed to load latest.json (' + (lastErr?.message||'unknown') + ')', '#ef4444'); return; }
+
+  const sources = Array.isArray(data.sources) ? data.sources : [{ name: 'default', payload: data }];
+
+  const grid = document.getElementById('cards');
+  grid.innerHTML = '';
+  sources.forEach(src => grid.appendChild(cardFor(src)));
+
+  function cardFor({name, payload}) {
+    const b = payload?.broadcast || {};
+    const o = payload?.origin || {};
+    const card = document.createElement('article');
+    card.style.cssText = `
+      grid-column: span 6; padding:14px 16px; border:1px solid #1f2937; border-radius:12px;
+      background:#0f1623; color:#e5e7eb; font:14px/1.4 system-ui; min-height:110px;
+    `;
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-weight:700">${o.emoji||'🔔'} ${o.label||capitalize(name)}</div>
+        <span style="padding:2px 8px;border:1px solid #1f2937;border-radius:999px;color:#9ca3af">
+          ${b.kind||'broadcast'}
+        </span>
+      </div>
+      <div style="font-size:15px;margin:4px 0 8px 0">${escapeHTML(b.message||'(no message)')}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+        ${(b.tags||[]).map(t=>pill(t)).join('')}
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        ${(b.links||[]).map(l=>linkBtn(l.label,l.url)).join('')}
+        ${o.pages_url ? linkBtn('Open Module', o.pages_url) : ''}
+      </div>
+      <div style="color:#9ca3af;margin-top:8px">ts: ${payload.ts_utc||'-'}</div>
+    `;
+    return card;
   }
 
-  if (!data) {
-    log(`Failed to load latest.json (${lastError ? lastError.message : 'unknown error'})`, '#ef4444');
-    return;
+  function pill(t) {
+    return `<span style="padding:2px 8px;border:1px solid #1f2937;border-radius:999px;color:#9ca3af">${escapeHTML(t)}</span>`;
   }
-
-  // Multi-source aware + back-compat
-  if (Array.isArray(data.sources)) {
-    data.sources.forEach(src => renderBroadcast(src.name, src.payload));
-  } else {
-    renderBroadcast('default', data); // single-object fallback
+  function linkBtn(label, url) {
+    if (!url) return '';
+    return `<a href="${url}" target="_blank" rel="noopener"
+              style="display:inline-block;padding:6px 10px;border-radius:8px;background:#60a5fa;color:#0b0f14;text-decoration:none;font-weight:600">
+              ${escapeHTML(label||'Open')}</a>`;
   }
-
-  // Replace this with your UI painter
-  function renderBroadcast(name, payload) {
-    const msg = payload?.broadcast?.message || '(no message)';
-    console.log(`[Signal] ${name}:`, msg);
-  }
+  function capitalize(s){ return (s||'').charAt(0).toUpperCase() + (s||'').slice(1); }
+  function escapeHTML(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 })();
 </script>
-
-
 
   
   <script>
