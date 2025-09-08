@@ -7,24 +7,8 @@
       "payload": {
         "version": 1,
         "ts_utc": "2025-09-08T00:00:00Z",
-        "origin": {
-          "repo": "gambler-model",
-          "module_key": "gambler",
-          "label": "Gambler",
-          "emoji": "🎰",
-          "pages_url": "https://zbreeden.github.io/gambler-model/"
-        },
-        "broadcast": {
-          "key": "gambler_top3_update",
-          "kind": "model_update",
-          "message": "Top 3 picks refreshed from latest slate.",
-          "tags": ["risk", "picks", "nfl"],
-          "status": "published",
-          "links": [
-            {"label": "Face (index.html)", "url": "https://zbreeden.github.io/gambler-model/"},
-            {"label": "README", "url": "https://github.com/zbreeden/gambler-model/blob/main/README.md"}
-          ]
-        }
+        "origin": { "repo": "gambler-model" },
+        "broadcast": { "key": "gambler_top3_update", "message": "Top 3 picks refreshed." }
       }
     },
     {
@@ -32,24 +16,8 @@
       "payload": {
         "version": 1,
         "ts_utc": "2025-09-08T00:00:00Z",
-        "origin": {
-          "repo": "protector-model",
-          "module_key": "protector",
-          "label": "The Protector",
-          "emoji": "🛡️",
-          "pages_url": "https://zbreeden.github.io/protector-model/"
-        },
-        "broadcast": {
-          "key": "protector_core_init",
-          "kind": "module_announce",
-          "message": "Initialized The Protector as a Core System (Guardian). Fire & Safety lens available for demo.",
-          "tags": ["system_security", "fire_security"],
-          "status": "published",
-          "links": [
-            {"label": "Face (index.html)", "url": "https://zbreeden.github.io/protector-model/"},
-            {"label": "README", "url": "https://github.com/zbreeden/protector-model/blob/main/README.md"}
-          ]
-        }
+        "origin": { "repo": "protector-model" },
+        "broadcast": { "key": "protector_core_init", "message": "Protector initialized (Guardian)." }
       }
     }
   ]
