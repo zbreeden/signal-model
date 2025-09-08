@@ -1,0 +1,56 @@
+name: Pull Gambler (manifest → newest dated file)
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch: {}
+jobs:
+  pull-latest-dated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
+
+      - name: Fetch Gambler manifest.json
+        env:
+          OWNER: "<OWNER>"             # e.g., zbreeden
+          REPO: "<GAMBLER_REPO>"       # e.g., gambler-model
+          BRANCH: "<BRANCH>"           # e.g., main
+        run: |
+          set -e
+          mkdir -p signals
+          MANIFEST_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/signals/manifest.json"
+          echo "Pulling: ${MANIFEST_URL}"
+          curl -fsSL "$MANIFEST_URL" -o /tmp/manifest.json
+
+          # Verify it has a latest pointer
+          jq -e '.latest.path' /tmp/manifest.json > /dev/null
+
+          # Get the dated path and key
+          DATED_PATH=$(jq -r '.latest.path' /tmp/manifest.json)
+          KEY=$(jq -r '.latest.key' /tmp/manifest.json)
+          echo "Latest dated path: $DATED_PATH"
+          echo "Key: $KEY"
+
+          # Download the dated file
+          RAW_URL="https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${DATED_PATH}"
+          echo "Downloading: ${RAW_URL}"
+          curl -fsSL "$RAW_URL" -o "signals/top3_${KEY}.json"
+
+          # Also write/update local latest.json for the UI
+          cp "signals/top3_${KEY}.json" "signals/latest.json"
+
+      - name: Commit updates (if any)
+        run: |
+          if git status --porcelain | grep -E "signals/(latest\.json|top3_.*\.json)"; then
+            git config user.name "signals-bot"
+            git config user.email "signals-bot@users.noreply.github.com"
+            git add signals/latest.json signals/top3_*.json
+            git commit -m "chore(signal): pull newest dated payload from Gambler"
+            git push
+          else
+            echo "Nothing to commit."
+          fi
