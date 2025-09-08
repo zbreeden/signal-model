@@ -256,8 +256,13 @@
 .edge-signal.under { color:#5e1515; }
 </style>
 <div id="gambler-top3"></div>
-<script src="./web/gambler_top3.js"></script>
-<script>renderGamblerTop3('gambler-top3');</script>
+<script type="module">
+  import { renderGamblerTop3 } from './gambler_top3.js';
+  // Option A: prefer latest.json (recommended)
+  renderGamblerTop3('gambler-top3');
+  // Option B: if you don’t keep latest.json, pass a week hint:
+  // renderGamblerTop3('gambler-top3', { weekHint: '2025-w01' });
+</script>
   
   <script>
     // ──────────────────────────────────────────────
