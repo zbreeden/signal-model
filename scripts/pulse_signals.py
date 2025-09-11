@@ -194,8 +194,8 @@ def main():
         if not repo: 
             continue
         url = f"https://raw.githubusercontent.com/{OWNER}/{repo}/main/signals/latest.json"
-        latest_list = fetch_latest_list(url)  # may be 0..N items
-        for obj in latest_list:
+latest_list = fetch_latest_list(url)  # may be 0..N items
+for obj in latest_list:
     ensure_date(obj)
     ensure_checksum(obj)
     _id = obj.get("id") or f"{obj.get('ts_utc', utcnow_iso())}-{repo}-latest"
