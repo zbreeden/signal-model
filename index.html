@@ -1,377 +1,306 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- The Signal (📡) — Core System: Nerves of the architecture
-       Purpose: UX/marketing telemetry playground with live KPIs powered by the in‑page dataLayer.
-       Notes:
-         • Back button returns to the FourTwenty hub.
-         • Replace GTM ID below with your container if different.
-         • Events follow the repo’s MVP taxonomy: page_view, cta_click, nav_search, form_submit.
-  -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="FourTwenty • The Signal — UX telemetry playground with live KPIs (GA/GTM ready)." />
-  <meta name="color-scheme" content="light dark" />
-  <title>FourTwenty • The Signal 📡</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>The Signal — Constellation Broadcasts</title>
 
-  <!-- Google Tag Manager (GTM) — prefer deploying GA4 via GTM. Avoid double page_view in GA4. -->
+  <!-- GTM Data Layer -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WVC4SNLB');  /* ← replace with your GTM ID if needed */
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      event: "signal_page_view",
+      page: "signal_index",
+      ts_utc: new Date().toISOString()
+    });
   </script>
-
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX'); /* <- replace */
+  </script>
+  <!-- End GTM -->
   <style>
     :root {
-      --bg: color-mix(in oklab, Canvas 95%, #0a0a0a 5%);
-      --card: color-mix(in oklab, Canvas 88%, #0a0a0a 12%);
-      --ink: CanvasText;
-      --muted: color-mix(in oklab, var(--ink) 65%, transparent);
-      --accent: #4f46e5; /* indigo */
-      --ok: #16a34a;
-      --warn: #d97706;
-      --bad: #dc2626;
-      --radius: 18px;
-      --shadow: 0 8px 24px color-mix(in oklab, black 15%, transparent);
+      --bg: #0f1224;
+      --card: #161a33;
+      --ink: #e8ebff;
+      --ink-dim: #aeb4d9;
+      --accent: #7f8cff;
+      --ok: #8bd3a3;
+      --warn: #ffd166;
+      --crit: #ff6b6b;
+      --mund: #8792c2;
+      --grid: 12px;
+      --radius: 12px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body {
-      margin: 0; font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg); color: var(--ink);
+      margin: 0; background: linear-gradient(180deg,#0c1020,#0f1224 25%);
+      color: var(--ink); font-family: var(--font);
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
-    header { display: grid; grid-template-columns: 140px 1fr auto; gap: 16px; align-items: center; margin-bottom: 18px; }
-    .back { display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); }
-    .back span { font-weight: 600; }
-    .title { display: flex; flex-direction: column; gap: 6px; }
-    .title h1 { margin: 0; font-size: 22px; letter-spacing: .2px; }
-    .pill { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
-    .links { display: flex; gap: 10px; }
-
-    .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
-    .card { background: var(--card); border-radius: var(--radius); padding: 16px 16px; box-shadow: var(--shadow); }
-    .card h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: .2px; }
-    .card p { margin: 8px 0; color: var(--muted); }
-
-    .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
-    .kpi { background: var(--card); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); }
-    .kpi .label { font-size: 11px; color: var(--muted); }
-    .kpi .value { font-size: 22px; font-weight: 700; letter-spacing: .3px; }
-    .kpi .delta { font-size: 11px; }
-
-    .play { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stack { display: grid; gap: 10px; }
-    .row { display: flex; gap: 8px; }
-    input[type="text"], input[type="email"], input[type="search"], button, .soft-btn {
-      border: 0; background: color-mix(in oklab, var(--card) 86%, #000 14%);
-      color: var(--ink); padding: 10px 12px; border-radius: 12px; box-shadow: var(--shadow);
+    header, footer {
+      padding: calc(var(--grid)*2) calc(var(--grid)*3);
     }
-    input::placeholder { color: var(--muted); }
-    button, .soft-btn { cursor: pointer; font-weight: 600; }
-    .cta { background: linear-gradient(135deg, var(--accent), color-mix(in oklab, var(--accent) 60%, #22d3ee)); color: white; }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #202447;
+    }
+    a.back {
+      color: var(--ink); text-decoration: none; padding: 8px 12px; border: 1px solid #2a2f61; border-radius: 8px;
+    }
+    main {
+      display: grid; gap: calc(var(--grid)*2);
+      grid-template-columns: 1fr 360px;
+      padding: calc(var(--grid)*3);
+    }
+    .panel {
+      background: rgba(22,26,51,0.6); backdrop-filter: blur(6px);
+      border: 1px solid #1f2350; border-radius: var(--radius);
+      padding: calc(var(--grid)*2);
+    }
+    .filters {
+      display: grid; gap: var(--grid);
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: calc(var(--grid)*2);
+    }
+    select, input[type="date"] {
+      width: 100%; padding: 10px 12px; background: #121636; color: var(--ink);
+      border: 1px solid #2a2f61; border-radius: 8px;
+    }
+    .cards { display: grid; gap: calc(var(--grid)*2); }
+    .card {
+      background: var(--card); border: 1px solid #232859; border-radius: var(--radius);
+      padding: calc(var(--grid)*2);
+    }
+    .card h3 { margin: 0 0 6px 0; font-size: 18px; }
+    .meta {
+      color: var(--ink-dim); font-size: 12px; margin-bottom: 10px; display:flex; gap:10px; flex-wrap: wrap;
+    }
+    .badge {
+      padding: 2px 8px; border-radius: 999px; font-size: 11px; border: 1px solid #334;
+    }
+    .b-critical { background: rgba(255,107,107,0.12); border-color: #ff6b6b; color: #ffb0b0; }
+    .b-high     { background: rgba(127,140,255,0.12); border-color: #7f8cff; color: #c4caff; }
+    .b-normal   { background: rgba(139,211,163,0.12); border-color: #8bd3a3; color: #c8f1d7; }
+    .b-mundane  { background: rgba(135,146,194,0.12); border-color: #8792c2; color: #c0c8e6; }
 
-    table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    th, td { padding: 8px 10px; border-bottom: 1px solid color-mix(in oklab, var(--ink) 10%, transparent); vertical-align: top; }
-    thead th { text-align: left; position: sticky; top: 0; background: var(--card); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-
+    .kpi h4 { margin: 0 0 8px 0; }
+    .row { display: flex; align-items: center; justify-content: space-between; margin: 6px 0; font-size: 14px; }
+    progress { width: 100%; height: 10px; }
+    .mono { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); }
+    footer { color: var(--ink-dim); border-top: 1px solid #202447; }
     @media (max-width: 980px) {
-      .grid { grid-template-columns: 1fr; }
-      .kpis { grid-template-columns: repeat(3, 1fr); }
-      .play { grid-template-columns: 1fr; }
-      header { grid-template-columns: 1fr; }
+      main { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <noscript><div style="padding:12px; background:#fee2e2; color:#7f1d1d; text-align:center;">This page uses JavaScript to simulate UX events and compute KPIs.</div></noscript>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <div class="wrap">
-    <header>
-      <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/" onclick="track('cta_click',{cta_id:'back_to_hub', cta_text:'Back', location:'header'})">
-        <span>← Hub</span>
-      </a>
-      <div class="title">
-        <h1>📡 FourTwenty • The Signal</h1>
-        <div class="pill">Core System • Nerves scanning for opportunity • JS/GA/UX‑focused</div>
-      </div>
-      <div class="links">
-        <a class="soft-btn" href="https://github.com/zbreeden/signal-model" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'open_repo', cta_text:'Open Repo', location:'header'})">Repo</a>
-        <a class="soft-btn" href="https://github.com/zbreeden/signal-model/blob/main/README.md" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'open_readme', cta_text:'Open README', location:'header'})">README</a>
-        <a class="soft-btn" href="https://tagassistant.google.com/" target="_blank" rel="noopener" onclick="track('cta_click',{cta_id:'tag_assistant', cta_text:'Tag Assistant', location:'header'})">Tag Assistant</a>
-      </div>
-    </header>
-
-    <!-- KPI band -->
-    <section class="kpis" aria-label="Session KPIs">
-      <div class="kpi"><div class="label">CTR (CTA clicks / views)</div><div id="kpi_ctr" class="value">—</div><div id="kpi_ctr_delta" class="delta"></div></div>
-      <div class="kpi"><div class="label">Form Conversion</div><div id="kpi_conv" class="value">—</div><div id="kpi_conv_delta" class="delta"></div></div>
-      <div class="kpi"><div class="label">Search Utilization</div><div id="kpi_search" class="value">—</div><div id="kpi_search_delta" class="delta"></div></div>
-      <div class="kpi"><div class="label">Avg Scroll Depth</div><div id="kpi_scroll" class="value">0%</div><div class="delta">session</div></div>
-      <div class="kpi"><div class="label">Dwell Time</div><div id="kpi_time" class="value">0s</div><div class="delta">live</div></div>
-      <div class="kpi"><div class="label">Events Seen</div><div id="kpi_events" class="value">0</div><div class="delta">dataLayer</div></div>
-    </section>
-
-    <div class="grid" style="margin-top: 16px;">
-      <!-- Mission + Playground -->
-      <section class="card">
-        <h3>Mission & Quick Start</h3>
-        <p>
-          The Signal looks for opportunity: it emits small, typed <span class="mono">dataLayer</span> events and listens for value in return.
-          Use this playground to validate your GTM/GA4 wiring and to demo UX metrics.
-        </p>
-        <ul>
-          <li>Events: <span class="mono">page_view</span>, <span class="mono">cta_click</span>, <span class="mono">nav_search</span>, <span class="mono">form_submit</span>.</li>
-          <li>Verify in GA4 <em>DebugView</em> (via Tag Assistant) and see live events below.</li>
-          <li>KPIs here are computed client‑side for the current session for demos.</li>
-        </ul>
-
-        <div class="play" style="margin-top:10px;">
-          <div class="stack">
-            <h3>Try the Signals</h3>
-            <div class="row">
-              <button class="cta" id="demo_cta">Primary CTA</button>
-              <button class="soft-btn" id="soft_page">Soft Page Change</button>
-            </div>
-            <div class="row">
-              <input id="search_box" type="search" placeholder="Search…" />
-              <button id="search_btn">Search</button>
-            </div>
-            <form id="demo_form" class="stack" onsubmit="return false;">
-              <div class="row">
-                <input type="text" id="name" placeholder="Name" required />
-                <input type="email" id="email" placeholder="Email" required />
-              </div>
-              <button class="cta" id="form_submit_btn">Submit Demo Form</button>
-            </form>
-          </div>
-
-          <div class="stack">
-            <h3>Event Feed (dataLayer)</h3>
-            <div class="card" style="padding:0; overflow:auto; max-height:340px;">
-              <table>
-                <thead><tr><th style="width:120px;">time</th><th style="width:140px;">event</th><th>params</th></tr></thead>
-                <tbody id="feed"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Reference -->
-      <aside class="card">
-        <h3>Reference</h3>
-        <p><strong>Event taxonomy (MVP)</strong></p>
-        <table class="mono">
-          <thead><tr><th>event_name</th><th>when it fires</th><th>params</th></tr></thead>
-          <tbody>
-            <tr><td>cta_click</td><td>primary CTA is clicked</td><td>cta_id, cta_text, location</td></tr>
-            <tr><td>form_submit</td><td>lead/contact form submits</td><td>form_id, form_name, fields_count</td></tr>
-            <tr><td>nav_search</td><td>a search query is submitted</td><td>query, results_count</td></tr>
-            <tr><td>page_view</td><td>virtual/soft page change</td><td>page_id, page_title</td></tr>
-          </tbody>
-        </table>
-        <p style="margin-top:8px;">See repo <span class="mono">/ga4/events.json</span> for the full spec.</p>
-      </aside>
+  <header>
+    <div>
+      <div style="font-size:14px;color:#aeb4d9;">FourTwenty Analytics</div>
+      <h1 style="margin:4px 0 0 0; font-size:22px;">📡 The Signal — Constellation Broadcasts</h1>
     </div>
+    <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/">← Back to the Hub</a>
+  </header>
 
-    <section class="card" style="margin-top:16px;">
-      <h3>Notes</h3>
-      <ul>
-        <li>KPIs you might track here for marketing/UX: CTR, form conversion, search utilization, dwell/scroll depth, bounce/engagement, top CTAs and queries.</li>
-        <li>Wire GTM to GA4: map these events to GA4 events and params; validate in DebugView.</li>
-        <li>To avoid a duplicate <span class="mono">page_view</span>, either use this virtual event only or disable auto page_view from your GA4 config.</li>
-      </ul>
+  <main>
+    <!-- Left: Broadcast Renderer -->
+    <section class="panel">
+      <div class="filters">
+        <select id="moduleFilter">
+          <option value="">All modules</option>
+        </select>
+        <input id="dateFilter" type="date"/>
+      </div>
+      <div class="cards" id="cards"></div>
     </section>
-  </div>
 
-<div class="card" id="signal-feed">
-  <h3>📡 Broadcasts</h3>
-  <div id="pulse" style="margin:6px 0 14px 0; color:#9ca3af; font:14px system-ui">Loading…</div>
-  <div id="cards" style="display:grid;grid-template-columns:repeat(12,1fr);gap:12px"></div>
-</div>
+    <!-- Right: KPI panel -->
+    <aside class="panel kpi">
+      <h3 style="margin-top:0;">System KPIs</h3>
+      <div id="kpi-summary" class="mono">Loading KPIs…</div>
 
-<script>
-(async () => {
-  const status = (t,c='#9ca3af') => { const el = document.getElementById('pulse'); if (el){ el.textContent=t; el.style.color=c; } };
+      <h4 style="margin-top:18px;">Criticality Mix (latest)</h4>
+      <div id="kpi-criticality"></div>
 
-  const urls = [
-    './signals/latest.json',
-    'https://zbreeden.github.io/signal-model/signals/latest.json'
-  ];
+      <h4 style="margin-top:18px;">Stalest Stars</h4>
+      <div id="kpi-stale"></div>
 
-  let data=null, lastErr=null;
-  for (const u of urls) {
-    try {
-      const r = await fetch(u + '?t=' + Date.now(), {cache:'no-store'});
-      if (!r.ok) throw new Error('HTTP '+r.status);
-      data = await r.json();
-      status('Loaded ' + u, '#10b981');
-      break;
-    } catch (e) { lastErr = e; }
-  }
-  if (!data) { status('Failed to load latest.json (' + (lastErr?.message||'unknown') + ')', '#ef4444'); return; }
+      <h4 style="margin-top:18px;">Playground</h4>
+      <div class="mono">GTM events fire on filter changes & card opens.</div>
+    </aside>
+  </main>
 
-  const sources = Array.isArray(data.sources) ? data.sources : [{ name: 'default', payload: data }];
+  <footer>
+    © <span id="year"></span> FourTwenty Analytics — The Signal. All rights reserved.
+  </footer>
 
-  const grid = document.getElementById('cards');
-  grid.innerHTML = '';
-  sources.forEach(src => grid.appendChild(cardFor(src)));
-
-  function cardFor({name, payload}) {
-    const b = payload?.broadcast || {};
-    const o = payload?.origin || {};
-    const card = document.createElement('article');
-    card.style.cssText = `
-      grid-column: span 6; padding:14px 16px; border:1px solid #1f2937; border-radius:12px;
-      background:#0f1623; color:#e5e7eb; font:14px/1.4 system-ui; min-height:110px;
-    `;
-    card.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div style="font-weight:700">${o.emoji||'🔔'} ${o.label||capitalize(name)}</div>
-        <span style="padding:2px 8px;border:1px solid #1f2937;border-radius:999px;color:#9ca3af">
-          ${b.kind||'broadcast'}
-        </span>
-      </div>
-      <div style="font-size:15px;margin:4px 0 8px 0">${escapeHTML(b.message||'(no message)')}</div>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
-        ${(b.tags||[]).map(t=>pill(t)).join('')}
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        ${(b.links||[]).map(l=>linkBtn(l.label,l.url)).join('')}
-        ${o.pages_url ? linkBtn('Open Module', o.pages_url) : ''}
-      </div>
-      <div style="color:#9ca3af;margin-top:8px">ts: ${payload.ts_utc||'-'}</div>
-    `;
-    return card;
-  }
-
-  function pill(t) {
-    return `<span style="padding:2px 8px;border:1px solid #1f2937;border-radius:999px;color:#9ca3af">${escapeHTML(t)}</span>`;
-  }
-  function linkBtn(label, url) {
-    if (!url) return '';
-    return `<a href="${url}" target="_blank" rel="noopener"
-              style="display:inline-block;padding:6px 10px;border-radius:8px;background:#60a5fa;color:#0b0f14;text-decoration:none;font-weight:600">
-              ${escapeHTML(label||'Open')}</a>`;
-  }
-  function capitalize(s){ return (s||'').charAt(0).toUpperCase() + (s||'').slice(1); }
-  function escapeHTML(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-})();
-</script>
-
-  
   <script>
-    // ──────────────────────────────────────────────
-    // Tiny telemetry helper: window.dataLayer + track
-    // ──────────────────────────────────────────────
-    window.dataLayer = window.dataLayer || [];
+    const state = {
+      broadcasts: [],
+      kpis: null
+    };
 
-    // Intercept pushes so we can update the UI feed as events flow
-    (function(){
-      const _push = window.dataLayer.push.bind(window.dataLayer);
-      window.dataLayer.push = function(obj){
-        try { renderEvent(obj); recalc(obj); } catch(e) { console.error(e); }
-        return _push(obj);
+    const el = sel => document.querySelector(sel);
+    const elc = sel => document.querySelector(sel) || { innerHTML: "", appendChild: ()=>{} };
+
+    function badgeForRating(r) {
+      const map = {
+        "critical": "b-critical",
+        "high": "b-high",
+        "normal": "b-normal",
+        "mundane": "b-mundane"
       };
-    })();
-
-    function track(event, params={}){
-      const payload = Object.assign({ event, ts: Date.now() }, params);
-      window.dataLayer.push(payload);
+      return map[r] || "b-normal";
     }
 
-    // ──────────────────────────────────────────────
-    // Demo interactions → events
-    // ──────────────────────────────────────────────
-    const byId = (id) => document.getElementById(id);
-    const feed = byId('feed');
-    const metrics = { views: 0, cta: 0, forms: 0, searches: 0, scrollMax: 0, events: 0 };
-
-    // Primary CTA
-    byId('demo_cta').addEventListener('click', () => {
-      track('cta_click', { cta_id: 'primary', cta_text: 'Primary CTA', location: 'playground' });
-    });
-
-    // Soft page change (virtual page_view)
-    byId('soft_page').addEventListener('click', () => {
-      const pid = 'signal_alt_' + Math.floor(Math.random()*1000);
-      track('page_view', { page_id: pid, page_title: 'The Signal • Alt' });
-    });
-
-    // Search
-    byId('search_btn').addEventListener('click', () => {
-      const q = byId('search_box').value.trim();
-      if(!q) return;
-      // Fake result count for demo
-      const results = Math.floor(3 + Math.random()*42);
-      track('nav_search', { query: q, results_count: results });
-    });
-
-    // Form
-    byId('form_submit_btn').addEventListener('click', () => {
-      const name = byId('name').value.trim();
-      const email = byId('email').value.trim();
-      if(!name || !email) return;
-      track('form_submit', { form_id: 'demo_lead', form_name: 'Demo Lead', fields_count: 2 });
-      // clear
-      byId('name').value=''; byId('email').value='';
-    });
-
-    // Scroll depth (session max %)
-    let scrollMax = 0;
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement;
-      const pct = Math.round(100 * (h.scrollTop)/(h.scrollHeight - h.clientHeight || 1));
-      scrollMax = Math.max(scrollMax, pct);
-      metrics.scrollMax = scrollMax;
-      byId('kpi_scroll').textContent = scrollMax + '%';
-    }, { passive: true });
-
-    // Dwell time
-    const t0 = Date.now();
-    setInterval(() => {
-      const secs = Math.floor((Date.now()-t0)/1000);
-      byId('kpi_time').textContent = secs + 's';
-    }, 1000);
-
-    // Initial virtual page view for this session (if you rely on GTM auto page_view, you can remove this)
-    track('page_view', { page_id:'signal_home', page_title:'The Signal • Home' });
-
-    // ──────────────────────────────────────────────
-    // UI: render feed + recalc KPIs
-    // ──────────────────────────────────────────────
-    function renderEvent(obj){
-      metrics.events++;
-      const tr = document.createElement('tr');
-      const time = new Date(obj.ts || Date.now()).toLocaleTimeString([], { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-      tr.innerHTML = `<td class="mono">${time}</td><td class="mono">${obj.event || ''}</td><td class="mono">${escapeHtml(JSON.stringify(obj))}</td>`;
-      feed.prepend(tr);
-      byId('kpi_events').textContent = metrics.events;
+    function pushEvent(evt, payload={}) {
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push(Object.assign({
+        event: evt,
+        ts_utc: new Date().toISOString()
+      }, payload));
     }
 
-    function recalc(obj){
-      switch(obj.event){
-        case 'page_view': metrics.views++; break;
-        case 'cta_click': metrics.cta++; break;
-        case 'form_submit': metrics.forms++; break;
-        case 'nav_search': metrics.searches++; break;
+    async function loadJSON(path) {
+      const res = await fetch(path, { cache: "no-store" });
+      if (!res.ok) return null;
+      return await res.json();
+    }
+
+    function unique(arr) { return Array.from(new Set(arr)); }
+
+    function renderFilters() {
+      const modules = unique(state.broadcasts.map(b => b.module).filter(Boolean)).sort();
+      const sel = el("#moduleFilter");
+      sel.innerHTML = `<option value="">All modules</option>` + modules.map(m => `<option>${m}</option>`).join("");
+    }
+
+    function renderCards() {
+      const mod = el("#moduleFilter").value;
+      const date = el("#dateFilter").value; // YYYY-MM-DD
+      const cards = el("#cards");
+      cards.innerHTML = "";
+
+      let list = state.broadcasts.slice().sort((a,b) => (b.ts_utc||"").localeCompare(a.ts_utc||""));
+
+      if (mod) list = list.filter(b => b.module === mod);
+      if (date) list = list.filter(b => (b.date||"").startsWith(date));
+
+      if (!list.length) {
+        cards.innerHTML = `<div class="mono">No broadcasts match your filters.</div>`;
+        return;
       }
-      const pct = (num, den) => den > 0 ? Math.round((1000*num/den))/10 + '%' : '—';
-      byId('kpi_ctr').textContent = pct(metrics.cta, metrics.views);
-      byId('kpi_conv').textContent = pct(metrics.forms, metrics.views);
-      byId('kpi_search').textContent = pct(metrics.searches, metrics.views);
+
+      list.forEach(b => {
+        const wrap = document.createElement("article");
+        wrap.className = "card";
+        const ratingCls = badgeForRating(b.rating);
+        wrap.innerHTML = `
+          <h3>${b.origin?.emoji || "📡"} ${b.title}</h3>
+          <div class="meta">
+            <span class="badge ${ratingCls}">${b.rating||"normal"}</span>
+            <span>Module: <b>${b.module||""}</b></span>
+            <span>Repo: <span class="mono">${b.repo||""}</span></span>
+            <span>UTC: <span class="mono">${b.ts_utc||""}</span></span>
+          </div>
+          <p>${b.summary||""}</p>
+          <div class="mono" style="margin-top:8px;">
+            <a href="${b.links?.page||'#'}" target="_blank">Module page</a>
+            ${b.links?.readme ? ` · <a href="${b.links.readme}" target="_blank">README</a>` : ""}
+            ${b.links?.data ? ` · <a href="${b.links.data}" target="_blank">Data</a>` : ""}
+            ${b.links?.runbook ? ` · <a href="${b.links.runbook}" target="_blank">Runbook</a>` : ""}
+          </div>
+        `;
+        wrap.addEventListener("click", () => {
+          pushEvent("signal_broadcast_viewed", {
+            module: b.module,
+            repo: b.repo,
+            rating: b.rating
+          });
+        });
+        cards.appendChild(wrap);
+      });
     }
 
-    function escapeHtml(s){
-      return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    function renderKPIs() {
+      const box = el("#kpi-summary");
+      if (!state.kpis) { box.textContent = "No KPI data."; return; }
+      const today = state.kpis.today;
+      const repos = state.kpis.repos || [];
+      const stale = state.kpis.stale_repos || [];
+
+      const todays = state.broadcasts.filter(b => (b.date||"") === today);
+      const criticals = state.broadcasts.filter(b => b.rating === "critical");
+
+      box.innerHTML = `
+        <div class="row"><span>Broadcasts (today)</span><b>${todays.length}</b></div>
+        <div class="row"><span>Total (latest file)</span><b>${state.broadcasts.length}</b></div>
+        <div class="row"><span>Critical (latest file)</span><b>${criticals.length}</b></div>
+      `;
+
+      const critBox = el("#kpi-criticality");
+      critBox.innerHTML = "";
+      (repos || []).forEach(r => {
+        const dist = state.kpis.rating_distribution?.[r.repo];
+        const pctCrit = dist?.pct_critical ?? 0;
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `
+          <span>${r.module||r.repo}</span>
+          <span>${pctCrit}% critical</span>
+        `;
+        critBox.appendChild(row);
+      });
+
+      const staleBox = el("#kpi-stale");
+      staleBox.innerHTML = "";
+      stale.slice(0, 5).forEach(s => {
+        const row = document.createElement("div");
+        row.className = "row";
+        row.innerHTML = `
+          <span>${s.module||s.repo}</span>
+          <span>${s.days_since_last ?? "—"} days</span>
+        `;
+        staleBox.appendChild(row);
+      });
     }
+
+    async function boot() {
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const [latest, kpis] = await Promise.all([
+        loadJSON("signals/latest.json"),
+        loadJSON("signals/kpis.json")
+      ]);
+
+      state.broadcasts = Array.isArray(latest) ? latest : (latest || []);
+      state.kpis = kpis || null;
+
+      renderFilters();
+      renderCards();
+      renderKPIs();
+
+      el("#moduleFilter").addEventListener("change", () => {
+        pushEvent("signal_filter_changed", { filter: "module", value: el("#moduleFilter").value });
+        renderCards();
+      });
+      el("#dateFilter").addEventListener("change", () => {
+        pushEvent("signal_filter_changed", { filter: "date", value: el("#dateFilter").value });
+        renderCards();
+      });
+    }
+    boot();
   </script>
 </body>
 </html>
