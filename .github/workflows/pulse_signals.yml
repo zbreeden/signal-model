@@ -2,8 +2,17 @@ name: pulse-signals
 
 on:
   schedule:
-    - cron: "07 04 * * *"  # 04:07 UTC nightly (00:07 ET or adjust as you like)
+    - cron: "07 04 * * *"   # 04:07 UTC nightly (00:07 ET)
   workflow_dispatch: {}
+
+# Allow this workflow to commit to the repo
+permissions:
+  contents: write
+
+# Prevent overlapping runs
+concurrency:
+  group: pulse-signals
+  cancel-in-progress: false
 
 jobs:
   pulse:
@@ -11,6 +20,10 @@ jobs:
     steps:
       - name: Checkout The Signal
         uses: actions/checkout@v4
+        with:
+          # Explicit for clarity; this is the default token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -24,16 +37,37 @@ jobs:
 
       - name: Run pulse_signals.py
         env:
-          HUB_OWNER: ${{ secrets.HUB_OWNER }}
-          HUB_PAT: ${{ secrets.HUB_PAT }}
-          TODAY: ${{ github.event.schedule }} # not always set; script computes date too
+          HUB_OWNER: ${{ github.repository_owner }}   # falls back to your user/org
         run: |
           python scripts/pulse_signals.py
 
+      # Commit only if files changed
       - name: Commit & push if changed
         run: |
-          git config user.name "zbreeden"
-          git config user.email "zachbreeden1976@icloud.com"
+          set -euo pipefail
+          git config user.name  "suitekeeper"
+          git config user.email "suitekeeper@users.noreply.github.com"
+
           git add signals/latest.json signals/kpis.json || true
-          git diff --quiet && echo "No changes" || git commit -m "Nightly pulse: refresh signals/latest.json & KPIs"
-          git push || true
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+
+          git commit -m "Nightly pulse: refresh signals/latest.json & KPIs"
+          # actions/checkout already configured origin with GITHUB_TOKEN
+          git push
+
+      # --- If main is protected and direct pushes are blocked, use this PR step instead ---
+      # - name: Create or update PR (use if branch protections block pushes)
+      #   if: failure()  # or comment out the previous step and remove this condition
+      #   uses: peter-evans/create-pull-request@v6
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     commit-message: "Nightly pulse: refresh signals/latest.json & KPIs"
+      #     branch: chore/pulse-signals
+      #     title: "Nightly pulse: refresh signals & KPIs"
+      #     body: "Automated update from pulse_signals.yml"
+      #     add-paths: |
+      #       signals/latest.json
+      #       signals/kpis.json
