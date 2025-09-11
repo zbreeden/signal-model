@@ -57,3 +57,6 @@ constellation:
   - module: "The Mirror"
     repo: "mirror-model"
     page: "https://zbreeden.github.io/mirror-model/"
+  - module: "FourTwenty Analytics"
+    repo: "fourtwentyanalytics"
+    page: "https://zbreeden.github.io/fourtwentyanalytics/"
