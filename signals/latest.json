@@ -3,7 +3,7 @@
     "id": "2025-09-10T20:00:00Z-archive-broadcast-seed",
     "ts_utc": "2025-09-10T20:00:00Z",
     "date": "2025-09-10",
-    "module": "archive-model",
+    "module": "The Archive",
     "repo": "archive-model",
     "title": "Master star broadcast seed initialized",
     "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
