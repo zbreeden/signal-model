@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2025-09-11T05:53:14Z",
+  "generated_utc": "2025-09-11T05:57:27Z",
   "today": "2025-09-11",
   "repos": [
     {
@@ -147,14 +147,6 @@
       "page": "https://zbreeden.github.io/fourtwentyanalytics/"
     },
     {
-      "repo": "signal-model",
-      "module": "The Signal",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/signal-model/"
-    },
-    {
       "repo": "protector-model",
       "module": "The Protector",
       "last_ts_utc": "2025-09-10T20:00:00Z",
@@ -272,12 +264,6 @@
       },
       "pct_critical": 0.0
     },
-    "signal-model": {
-      "counts": {
-        "high": 1
-      },
-      "pct_critical": 0.0
-    },
     "protector-model": {
       "counts": {
         "high": 1
@@ -287,7 +273,7 @@
   },
   "totals": {
     "broadcasts_today": 0,
-    "broadcasts_total": 20,
+    "broadcasts_total": 19,
     "critical_total": 0
   },
   "stale_repos": [
@@ -434,14 +420,6 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/fourtwentyanalytics/"
-    },
-    {
-      "repo": "signal-model",
-      "module": "The Signal",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/signal-model/"
     },
     {
       "repo": "protector-model",
