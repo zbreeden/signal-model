@@ -26,6 +26,52 @@ CONSTELLATION_PATH = os.path.join(ROOT, "seeds", "constellation.yml")
 
 OWNER = os.environ.get("HUB_OWNER", "zbreeden")
 
+def parse_latest_variants(raw_text: str):
+    """
+    Accepts:
+      1) single object: {...}
+      2) array: [{...}, {...}]
+      3) NDJSON: {...}\n{...}\n...
+    Returns a list[dict].
+    """
+    raw_text = (raw_text or "").strip()
+    if not raw_text:
+        return []
+
+    # Try as proper JSON
+    try:
+        data = json.loads(raw_text)
+        if isinstance(data, dict):
+            return [data]
+        if isinstance(data, list):
+            return [x for x in data if isinstance(x, dict)]
+    except json.JSONDecodeError:
+        pass
+
+    # Try NDJSON (one JSON object per line)
+    items = []
+    for line in raw_text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = json.loads(line)
+            if isinstance(obj, dict):
+                items.append(obj)
+        except json.JSONDecodeError:
+            # ignore malformed lines
+            continue
+    return items
+
+def fetch_latest_list(url: str):
+    try:
+        import urllib.request
+        with urllib.request.urlopen(url, timeout=20) as r:
+            txt = r.read().decode("utf-8", errors="replace")
+            return parse_latest_variants(txt)
+    except Exception:
+        return []
+
 def utcnow_iso():
     return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -148,22 +194,18 @@ def main():
         if not repo: 
             continue
         url = f"https://raw.githubusercontent.com/{OWNER}/{repo}/main/signals/latest.json"
-        obj = fetch_json(url)
-        if not obj or not isinstance(obj, dict):
-            continue
-        # normalize minimal fields
-        ensure_date(obj)
-        ensure_checksum(obj)
-        _id = obj.get("id")
-        if not _id:
-            # synthesize an id if missing (repo + ts_utc)
-            ts = obj.get("ts_utc", utcnow_iso())
-            _id = f"{ts}-{repo}-latest"
-            obj["id"] = _id
-        # append if new
-        if _id not in seen_ids:
-            history.append(obj)
-            seen_ids.add(_id)
+        latest_list = fetch_latest_list(url)  # may be 0..N items
+        for obj in latest_list:
+    ensure_date(obj)
+    ensure_checksum(obj)
+    _id = obj.get("id") or f"{obj.get('ts_utc', utcnow_iso())}-{repo}-latest"
+    obj["id"] = _id
+    if _id not in seen_ids:
+        history.append(obj)
+        seen_ids.add(_id)
+      
+           
+        
 
     # sort full history by ts_utc desc for rendering
     history_sorted = sorted(history, key=lambda x: x.get("ts_utc",""), reverse=True)
