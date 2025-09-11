@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2025-09-11T05:35:40Z",
+  "generated_utc": "2025-09-11T05:41:57Z",
   "today": "2025-09-11",
   "repos": [
     {
@@ -153,6 +153,14 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/signal-model/"
+    },
+    {
+      "repo": "protector-model",
+      "module": "The Protector",
+      "last_ts_utc": "2025-09-10T20:00:00Z",
+      "days_since_last": 0,
+      "latest_rating": "high",
+      "page": "https://zbreeden.github.io/protector-model/"
     }
   ],
   "rating_distribution": {
@@ -269,11 +277,17 @@
         "high": 1
       },
       "pct_critical": 0.0
+    },
+    "protector-model": {
+      "counts": {
+        "high": 1
+      },
+      "pct_critical": 0.0
     }
   },
   "totals": {
     "broadcasts_today": 0,
-    "broadcasts_total": 19,
+    "broadcasts_total": 20,
     "critical_total": 0
   },
   "stale_repos": [
@@ -428,6 +442,14 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/signal-model/"
+    },
+    {
+      "repo": "protector-model",
+      "module": "The Protector",
+      "last_ts_utc": "2025-09-10T20:00:00Z",
+      "days_since_last": 0,
+      "latest_rating": "high",
+      "page": "https://zbreeden.github.io/protector-model/"
     }
   ]
 }
