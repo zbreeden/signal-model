@@ -638,5 +638,41 @@
     },
     "checksum": "",
     "version": "1.0.0"
-  }
+  },
+  {
+    "id": "2025-09-10-signal-model-broadcasting-system-live",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Signal",
+    "repo": "signal-model",
+    "title": "Broadcasting System Goes Live — First End-to-End Signal Delivered",
+    "summary": "The Signal is now fully operational: schema, nightly pulse, and renderer all connected. For the first time, constellation broadcasts were harvested and displayed with KPI metrics and GTM events.",
+    "tags": ["broadcasting", "signal", "schema", "pulse", "renderer", "critical"],
+    "rating": "critical",
+    "origin": {
+      "name": "The Signal",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+  },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/",
+      "data": "https://github.com/zbreeden/signal-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/signal-model/blob/main/scripts/pulse_signals.py"
+  },
+    "payload": {
+      "impact": "First constellation-wide pulse collected latest.json files and rendered them in The Signal’s index.html with KPI monitoring.",
+      "mechanism": [
+        "Schema: latest.schema.yml aligned across constellation",
+        "Pulse: pulse_signals.py running via GitHub Actions",
+        "Renderer: index.html with module/date filters + KPI side panel",
+        "GTM playground firing events"
+    ],
+      "features_observed": {
+        "filters": ["module", "date"],
+        "kpis": ["criticality mix", "days since last broadcast", "stale repos"],
+        "gtm_events": ["signal_page_view", "signal_filter_changed", "signal_broadcast_viewed"]
+        },
+    "version": "1.0.0"
+}
 ]
