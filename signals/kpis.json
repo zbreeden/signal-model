@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2025-09-11T04:46:39Z",
+  "generated_utc": "2025-09-11T05:07:48Z",
   "today": "2025-09-11",
   "repos": [
     {
@@ -256,6 +256,11 @@
       },
       "pct_critical": 0.0
     }
+  },
+  "totals": {
+    "broadcasts_today": 0,
+    "broadcasts_total": 18,
+    "critical_total": 0
   },
   "stale_repos": [
     {

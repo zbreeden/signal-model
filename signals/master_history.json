@@ -1,0 +1,578 @@
+[
+  {
+    "id": "2025-09-10T20:00:00Z-archive-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Archive",
+    "repo": "archive-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Archive",
+      "url": "https://zbreeden.github.io/archive-model/",
+      "emoji": "🫀"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/archive-model#readme",
+      "page": "https://zbreeden.github.io/archive-model/",
+      "data": "https://github.com/zbreeden/archive-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/archive-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Archive. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-launch-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Launch",
+    "repo": "launch-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Launch",
+      "url": "https://zbreeden.github.io/launch-model/",
+      "emoji": "🚀"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/launch-model#readme",
+      "page": "https://zbreeden.github.io/launch-model/",
+      "data": "https://github.com/zbreeden/launch-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/launch-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Launch. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-bank-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Bank",
+    "repo": "bank-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Bank",
+      "url": "https://zbreeden.github.io/bank-model/",
+      "emoji": "💳"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/bank-model#readme",
+      "page": "https://zbreeden.github.io/bank-model/",
+      "data": "https://github.com/zbreeden/bank-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/bank-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Bank. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-visualizer-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Visualizer",
+    "repo": "visualizer-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Visualizer",
+      "url": "https://zbreeden.github.io/visualizer-model/",
+      "emoji": "🎨"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/visualizer-model#readme",
+      "page": "https://zbreeden.github.io/visualizer-model/",
+      "data": "https://github.com/zbreeden/visualizer-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/visualizer-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Visualizer. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-accountant-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Accountant",
+    "repo": "accountant-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Accountant",
+      "url": "https://zbreeden.github.io/accountant-model/",
+      "emoji": "💰"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/accountant-model#readme",
+      "page": "https://zbreeden.github.io/accountant-model/",
+      "data": "https://github.com/zbreeden/accountant-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/accountant-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Accountant. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-evaluator-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Evaluator",
+    "repo": "evaluator-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Evaluator",
+      "url": "https://zbreeden.github.io/evaluator-model/",
+      "emoji": "🧮"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/evaluator-model#readme",
+      "page": "https://zbreeden.github.io/evaluator-model/",
+      "data": "https://github.com/zbreeden/evaluator-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/evaluator-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Evaluator. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-story-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Story",
+    "repo": "story-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Story",
+      "url": "https://zbreeden.github.io/story-model/",
+      "emoji": "📖"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/story-model#readme",
+      "page": "https://zbreeden.github.io/story-model/",
+      "data": "https://github.com/zbreeden/story-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/story-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Story. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-grower-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Grower",
+    "repo": "grower-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Grower",
+      "url": "https://zbreeden.github.io/grower-model/",
+      "emoji": "🌱"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/grower-model#readme",
+      "page": "https://zbreeden.github.io/grower-model/",
+      "data": "https://github.com/zbreeden/grower-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/grower-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Grower. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-catalyst-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Catalyst",
+    "repo": "catalyst-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Catalyst",
+      "url": "https://zbreeden.github.io/catalyst-model/",
+      "emoji": "⚙️"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/catalyst-model#readme",
+      "page": "https://zbreeden.github.io/catalyst-model/",
+      "data": "https://github.com/zbreeden/catalyst-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/catalyst-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Catalyst. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-player-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Player",
+    "repo": "player-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Player",
+      "url": "https://zbreeden.github.io/player-model/",
+      "emoji": "🎲"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/player-model#readme",
+      "page": "https://zbreeden.github.io/player-model/",
+      "data": "https://github.com/zbreeden/player-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/player-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Player. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-gambler-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Gambler",
+    "repo": "gambler-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Gambler",
+      "url": "https://zbreeden.github.io/gambler-model/",
+      "emoji": "🎰"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/gambler-model#readme",
+      "page": "https://zbreeden.github.io/gambler-model/",
+      "data": "https://github.com/zbreeden/gambler-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/gambler-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Gambler. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-trainer-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Trainer",
+    "repo": "trainer-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Trainer",
+      "url": "https://zbreeden.github.io/trainer-model/",
+      "emoji": "🏋️"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/trainer-model#readme",
+      "page": "https://zbreeden.github.io/trainer-model/",
+      "data": "https://github.com/zbreeden/trainer-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/trainer-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Trainer. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-coach-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Coach",
+    "repo": "coach-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Coach",
+      "url": "https://zbreeden.github.io/coach-model/",
+      "emoji": "💪"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/coach-model#readme",
+      "page": "https://zbreeden.github.io/coach-model/",
+      "data": "https://github.com/zbreeden/coach-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/coach-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Coach. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-orbiter-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Orbiter",
+    "repo": "orbiter-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Orbiter",
+      "url": "https://zbreeden.github.io/orbiter-model/",
+      "emoji": "🛰️"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/orbiter-model#readme",
+      "page": "https://zbreeden.github.io/orbiter-model/",
+      "data": "https://github.com/zbreeden/orbiter-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/orbiter-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Orbiter. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-anchor-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Anchor",
+    "repo": "anchor-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Anchor",
+      "url": "https://zbreeden.github.io/anchor-model/",
+      "emoji": "⚓️"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/anchor-model#readme",
+      "page": "https://zbreeden.github.io/anchor-model/",
+      "data": "https://github.com/zbreeden/anchor-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/anchor-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Anchor. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-firm-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Firm",
+    "repo": "firm-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Firm",
+      "url": "https://zbreeden.github.io/firm-model/",
+      "emoji": "🏢"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/firm-model#readme",
+      "page": "https://zbreeden.github.io/firm-model/",
+      "data": "https://github.com/zbreeden/firm-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/firm-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Firm. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-mirror-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "The Mirror",
+    "repo": "mirror-model",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Mirror",
+      "url": "https://zbreeden.github.io/mirror-model/",
+      "emoji": "🪞"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/mirror-model#readme",
+      "page": "https://zbreeden.github.io/mirror-model/",
+      "data": "https://github.com/zbreeden/mirror-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/mirror-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Mirror. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-10T20:00:00Z-fourtwentyanalytics-broadcast-seed",
+    "ts_utc": "2025-09-10T20:00:00Z",
+    "date": "2025-09-10",
+    "module": "FourTwenty Analytics",
+    "repo": "fourtwentyanalytics",
+    "title": "Master star broadcast seed initialized",
+    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
+    "tags": [
+      "broadcasting",
+      "schema",
+      "renderer",
+      "pulse"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "FourTwenty Analytics",
+      "url": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "emoji": "🔘"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/fourtwentyanalytics#readme",
+      "page": "https://zbreeden.github.io/fourtwentyanalytics/",
+      "data": "https://github.com/zbreeden/fourtwentyanalytics/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/fourtwentyanalytics/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "This is the top-level aggregator in The Barycenter. Nightly pulse pulls latest.json from each star."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  }
+]
