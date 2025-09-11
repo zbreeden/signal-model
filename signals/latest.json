@@ -674,5 +674,5 @@
         "gtm_events": ["signal_page_view", "signal_filter_changed", "signal_broadcast_viewed"]
         },
       "version": "1.0.0"
-}
+  }
 ]
