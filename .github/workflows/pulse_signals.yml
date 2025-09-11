@@ -1,0 +1,39 @@
+name: pulse-signals
+
+on:
+  schedule:
+    - cron: "07 04 * * *"  # 04:07 UTC nightly (00:07 ET or adjust as you like)
+  workflow_dispatch: {}
+
+jobs:
+  pulse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout The Signal
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Run pulse_signals.py
+        env:
+          HUB_OWNER: ${{ secrets.HUB_OWNER }}
+          HUB_PAT: ${{ secrets.HUB_PAT }}
+          TODAY: ${{ github.event.schedule }} # not always set; script computes date too
+        run: |
+          python scripts/pulse_signals.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "suitekeeper"
+          git config user.email "suitekeeper@users.noreply.github.com"
+          git add signals/latest.json signals/kpis.json || true
+          git diff --quiet && echo "No changes" || git commit -m "Nightly pulse: refresh signals/latest.json & KPIs"
+          git push || true
