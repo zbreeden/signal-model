@@ -1,22 +1,14 @@
 {
-  "generated_utc": "2025-09-11T03:20:55Z",
+  "generated_utc": "2025-09-11T04:09:04Z",
   "today": "2025-09-11",
   "repos": [
     {
       "repo": "archive-model",
-      "module": "archive-model",
+      "module": "The Archive",
       "last_ts_utc": "2025-09-10T20:00:00Z",
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/archive-model/"
-    },
-    {
-      "repo": "signal-model",
-      "module": "The Signal",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/signal-model/"
     },
     {
       "repo": "launch-model",
@@ -156,7 +148,7 @@
     },
     {
       "repo": "fourtwentyanalytics",
-      "module": "FourTwentyAnalytics",
+      "module": "FourTwenty Analytics",
       "last_ts_utc": "2025-09-10T20:00:00Z",
       "days_since_last": 0,
       "latest_rating": "high",
@@ -165,12 +157,6 @@
   ],
   "rating_distribution": {
     "archive-model": {
-      "counts": {
-        "high": 1
-      },
-      "pct_critical": 0.0
-    },
-    "signal-model": {
       "counts": {
         "high": 1
       },
@@ -288,19 +274,11 @@
   "stale_repos": [
     {
       "repo": "archive-model",
-      "module": "archive-model",
+      "module": "The Archive",
       "last_ts_utc": "2025-09-10T20:00:00Z",
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/archive-model/"
-    },
-    {
-      "repo": "signal-model",
-      "module": "The Signal",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/signal-model/"
     },
     {
       "repo": "launch-model",
@@ -440,7 +418,7 @@
     },
     {
       "repo": "fourtwentyanalytics",
-      "module": "FourTwentyAnalytics",
+      "module": "FourTwenty Analytics",
       "last_ts_utc": "2025-09-10T20:00:00Z",
       "days_since_last": 0,
       "latest_rating": "high",
