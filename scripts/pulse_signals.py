@@ -1,19 +1,37 @@
 #!/usr/bin/env python3
-# scripts/pulse_signals.py
+"""
+Nightly pulse (history-first version):
 
-import os, sys, json, datetime, urllib.request, urllib.error
-import yaml
+- Reads seeds/constellation.yml
+- For each star, fetches raw .../<repo>/main/signals/latest.json (single-object broadcast)
+- Appends new (by unique id) into signals/master_history.json (array of all broadcasts, all time)
+- Computes KPIs using the full history
+- Writes:
+    signals/master_history.json  (append-only ledger)
+    signals/latest.json          (full, sorted history array for The Signal renderer)
+    signals/kpis.json            (KPIs computed from full history)
+"""
+
+import os, json, datetime, urllib.request, urllib.error
 from hashlib import sha256
+from collections import defaultdict
+import yaml
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
+SIGNALS_DIR = os.path.join(ROOT, "signals")
+HISTORY_PATH = os.path.join(SIGNALS_DIR, "master_history.json")
+LATEST_PATH  = os.path.join(SIGNALS_DIR, "latest.json")
+KPIS_PATH    = os.path.join(SIGNALS_DIR, "kpis.json")
+CONSTELLATION_PATH = os.path.join(ROOT, "seeds", "constellation.yml")
 
-def today_str_ymd():
-    # Use UTC to match ts_utc behavior
-    return datetime.datetime.utcnow().strftime("%Y-%m-%d")
+OWNER = os.environ.get("HUB_OWNER", "zbreeden")
+
+def utcnow_iso():
+    return datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def fetch_json(url: str):
     try:
-        with urllib.request.urlopen(url, timeout=15) as r:
+        with urllib.request.urlopen(url, timeout=20) as r:
             return json.loads(r.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         if e.code == 404:
@@ -22,80 +40,50 @@ def fetch_json(url: str):
     except Exception:
         return None
 
-def main():
-    seeds_path = os.path.join(ROOT, "seeds", "constellation.yml")
-    with open(seeds_path, "r", encoding="utf-8") as f:
-        config = yaml.safe_load(f)
+def ensure_date(obj):
+    # ensure convenient YYYY-MM-DD date field derived from ts_utc
+    if "date" not in obj and "ts_utc" in obj and isinstance(obj["ts_utc"], str):
+        obj["date"] = obj["ts_utc"][:10]
 
-    stars = config.get("constellation", [])
-    if not stars:
-        print("No stars listed in seeds/constellation.yml")
-        sys.exit(0)
+def ensure_checksum(obj):
+    if "checksum" not in obj:
+        serialized = json.dumps(obj, sort_keys=True, ensure_ascii=False).encode("utf-8")
+        obj["checksum"] = sha256(serialized).hexdigest()
 
-    ymd = today_str_ymd()
-    broadcasts = []
+def load_history():
+    if not os.path.exists(HISTORY_PATH):
+        return []
+    try:
+        with open(HISTORY_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if isinstance(data, list) else []
+    except Exception:
+        return []
 
-    for star in stars:
-        repo = star["repo"]
-        owner = os.environ.get("HUB_OWNER", "zbreeden")  # default to your GH user
-        # Prefer today's dated file
-        dated_path = f"signals/{ymd}.{repo}.latest.json"
-        fallback_path = "signals/latest.json"
+def save_json(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
-        urls = [
-            f"https://raw.githubusercontent.com/{owner}/{repo}/main/{dated_path}",
-            f"https://raw.githubusercontent.com/{owner}/{repo}/main/{fallback_path}",
-        ]
-
-        chosen = None
-        for u in urls:
-            data = fetch_json(u)
-            if data:
-                chosen = data
-                break
-
-        if chosen:
-            # Ensure minimally valid, and compute checksum if missing
-            serialized = json.dumps(chosen, sort_keys=True).encode("utf-8")
-            checksum = sha256(serialized).hexdigest()
-            chosen.setdefault("checksum", checksum)
-            # Ensure date convenience field
-            if "ts_utc" in chosen and "date" not in chosen:
-                try:
-                    chosen_date = chosen["ts_utc"][:10]
-                    chosen["date"] = chosen_date
-                except Exception:
-                    chosen["date"] = ymd
-            broadcasts.append(chosen)
-        else:
-            # star missing; we can skip silently or emit a placeholder
-            pass
-
-    # Write master array
-    os.makedirs(os.path.join(ROOT, "signals"), exist_ok=True)
-    master_path = os.path.join(ROOT, "signals", "latest.json")
-    with open(master_path, "w", encoding="utf-8") as f:
-        json.dump(broadcasts, f, indent=2, ensure_ascii=False)
-
-    # KPIs precompute
-    # - time since last broadcast per star (days)
-    # - rating counts & percentage critical by star
-    # - stars missing broadcasts today
-    from collections import defaultdict
-    last_by_repo = {}
-    rating_counts = defaultdict(lambda: defaultdict(int))
+def compute_kpis(history):
+    """
+    KPIs over full history:
+      - repos: last_ts_utc, days_since_last, last_rating, page link
+      - rating_distribution lifetime + pct_critical per repo
+      - stale_repos sorted by days_since_last
+      - totals for today / total / critical total
+    """
+    kpis = {
+        "generated_utc": utcnow_iso(),
+        "today": datetime.datetime.utcnow().strftime("%Y-%m-%d"),
+        "repos": [],
+        "rating_distribution": {},
+        "totals": {}
+    }
 
     by_repo = defaultdict(list)
-    for b in broadcasts:
+    for b in history:
         by_repo[b.get("repo","")].append(b)
-
-    for repo, items in by_repo.items():
-        # Use max ts_utc
-        def key_ts(x):
-            return x.get("ts_utc","")
-        latest = max(items, key=key_ts)
-        last_by_repo[repo] = latest
-        rating_counts[repo][latest.get("rating","normal")] += 1
 
     def days_since(ts_utc):
         try:
@@ -104,41 +92,92 @@ def main():
         except Exception:
             return None
 
-    kpis = {
-        "generated_utc": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "today": ymd,
-        "repos": [],
-        "rating_distribution": {}
-    }
+    # lifetime distributions
+    for repo, items in by_repo.items():
+        # sort by ts desc
+        items_sorted = sorted(items, key=lambda x: x.get("ts_utc",""), reverse=True)
+        latest = items_sorted[0]
+        # rating counts lifetime
+        counts = defaultdict(int)
+        for it in items:
+            counts[it.get("rating","normal")] += 1
+        total = sum(counts.values()) or 1
+        pct_critical = round(100.0 * counts.get("critical",0) / total, 2)
 
-    for repo, latest in last_by_repo.items():
         kpis["repos"].append({
             "repo": repo,
             "module": latest.get("module",""),
             "last_ts_utc": latest.get("ts_utc"),
             "days_since_last": days_since(latest.get("ts_utc","")),
             "latest_rating": latest.get("rating","normal"),
-            "page": latest.get("links",{}).get("page","")
+            "page": (latest.get("links") or {}).get("page","")
         })
-        rating_map = rating_counts[repo]
-        total = sum(rating_map.values()) or 1
         kpis["rating_distribution"][repo] = {
-            "counts": rating_map,
-            "pct_critical": round(100.0 * rating_map.get("critical",0) / total, 2)
+            "counts": counts,
+            "pct_critical": pct_critical
         }
 
-    # who is stale (sorted by days_since_last desc)
+    # stale list
     kpis["stale_repos"] = sorted(
         [r for r in kpis["repos"] if r["days_since_last"] is not None],
         key=lambda x: x["days_since_last"],
         reverse=True
     )
 
-    with open(os.path.join(ROOT, "signals", "kpis.json"), "w", encoding="utf-8") as f:
-        json.dump(kpis, f, indent=2, ensure_ascii=False)
+    # overall totals
+    today = kpis["today"]
+    kpis["totals"]["broadcasts_today"] = sum(1 for b in history if b.get("date")==today)
+    kpis["totals"]["broadcasts_total"] = len(history)
+    kpis["totals"]["critical_total"]   = sum(1 for b in history if b.get("rating")=="critical")
 
-    print(f"Wrote {master_path} with {len(broadcasts)} broadcasts")
-    print("Wrote signals/kpis.json")
+    return kpis
+
+def main():
+    # load constellation
+    with open(CONSTELLATION_PATH, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f) or {}
+    stars = cfg.get("constellation", [])
+
+    # load existing history (append-only)
+    history = load_history()
+    seen_ids = {b.get("id") for b in history if isinstance(b, dict)}
+
+    # collect this run's entries (one per repo)
+    for star in stars:
+        repo = star.get("repo")
+        if not repo: 
+            continue
+        url = f"https://raw.githubusercontent.com/{OWNER}/{repo}/main/signals/latest.json"
+        obj = fetch_json(url)
+        if not obj or not isinstance(obj, dict):
+            continue
+        # normalize minimal fields
+        ensure_date(obj)
+        ensure_checksum(obj)
+        _id = obj.get("id")
+        if not _id:
+            # synthesize an id if missing (repo + ts_utc)
+            ts = obj.get("ts_utc", utcnow_iso())
+            _id = f"{ts}-{repo}-latest"
+            obj["id"] = _id
+        # append if new
+        if _id not in seen_ids:
+            history.append(obj)
+            seen_ids.add(_id)
+
+    # sort full history by ts_utc desc for rendering
+    history_sorted = sorted(history, key=lambda x: x.get("ts_utc",""), reverse=True)
+
+    # compute KPIs on full history
+    kpis = compute_kpis(history_sorted)
+
+    # write files
+    save_json(HISTORY_PATH, history_sorted)  # append-only master ledger
+    save_json(LATEST_PATH,  history_sorted)  # dashboard now reads full history array
+    save_json(KPIS_PATH,    kpis)
+
+    print(f"History size: {len(history_sorted)} broadcasts")
+    print(f"Wrote: {HISTORY_PATH}, {LATEST_PATH}, {KPIS_PATH}")
 
 if __name__ == "__main__":
     main()
