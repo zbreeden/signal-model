@@ -74,6 +74,51 @@
     "version": "1.0.0"
   },
   {
+    "id": "2025-09-11T15:00:00Z-catalyst-ticket-broadcast-system",
+    "ts_utc": "2025-09-11T15:00:00Z",
+    "date": "2025-09-11",
+    "module": "The Catalyst",
+    "repo": "catalyst-model",
+    "title": "Catalyst launches constellation-wide ticket & broadcast system",
+    "summary": "Created schema-driven tickets and broadcasts for new entries. Implemented in The Catalyst (⚡) with a plan to replicate across all stars, keeping data molded by schemas within seeds/, scripts/, and signals/.",
+    "tags": [
+      "catalyst",
+      "tickets",
+      "broadcasts",
+      "schemas",
+      "constellation",
+      "automation"
+    ],
+    "rating": "critical",
+    "origin": {
+      "name": "FourTwenty • The Catalyst",
+      "url": "https://zbreeden.github.io/catalyst-model/",
+      "emoji": "⚡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/catalyst-model#readme",
+      "page": "https://zbreeden.github.io/catalyst-model/",
+      "data": "https://github.com/zbreeden/catalyst-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/catalyst-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "notes": "Initial rollout of ticketing & broadcasting primitives; The Signal will ingest per-star latest.json. Nightly pulse appends Catalyst ticket snapshots.",
+      "emoji_update": {
+        "module": "The Catalyst",
+        "emoji": "⚡"
+      },
+      "schema_contracts": [
+        "schema/tickets.schema.yml",
+        "seeds/tickets.yml",
+        "signals/tickets.json",
+        "signals/latest.json",
+        "scripts/pulse_tickets.py"
+      ]
+    },
+    "version": "1.0.0",
+    "checksum": "7d48f336e99e1c6bf8a3569d1402b36898e38239b3bac50b617979e53a220b2a"
+  },
+  {
     "id": "2025-09-10T20:00:00Z-archive-broadcast-seed",
     "ts_utc": "2025-09-10T20:00:00Z",
     "date": "2025-09-10",
@@ -347,7 +392,7 @@
     "origin": {
       "name": "The Catalyst",
       "url": "https://zbreeden.github.io/catalyst-model/",
-      "emoji": "⚡"
+      "emoji": "⚙️"
     },
     "links": {
       "readme": "https://github.com/zbreeden/catalyst-model#readme",

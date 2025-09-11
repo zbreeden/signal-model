@@ -1,14 +1,22 @@
 {
-  "generated_utc": "2025-09-11T07:38:51Z",
+  "generated_utc": "2025-09-11T19:04:49Z",
   "today": "2025-09-11",
   "repos": [
     {
       "repo": "protector-model",
       "module": "The Protector",
       "last_ts_utc": "2025-09-11T16:00:00Z",
-      "days_since_last": -1,
+      "days_since_last": 0,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/protector-model/"
+    },
+    {
+      "repo": "catalyst-model",
+      "module": "The Catalyst",
+      "last_ts_utc": "2025-09-11T15:00:00Z",
+      "days_since_last": 0,
+      "latest_rating": "critical",
+      "page": "https://zbreeden.github.io/catalyst-model/"
     },
     {
       "repo": "archive-model",
@@ -73,14 +81,6 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/grower-model/"
-    },
-    {
-      "repo": "catalyst-model",
-      "module": "The Catalyst",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/catalyst-model/"
     },
     {
       "repo": "player-model",
@@ -171,6 +171,13 @@
       },
       "pct_critical": 50.0
     },
+    "catalyst-model": {
+      "counts": {
+        "critical": 1,
+        "high": 1
+      },
+      "pct_critical": 50.0
+    },
     "archive-model": {
       "counts": {
         "high": 1
@@ -214,12 +221,6 @@
       "pct_critical": 0.0
     },
     "grower-model": {
-      "counts": {
-        "high": 1
-      },
-      "pct_critical": 0.0
-    },
-    "catalyst-model": {
       "counts": {
         "high": 1
       },
@@ -288,11 +289,27 @@
     }
   },
   "totals": {
-    "broadcasts_today": 1,
-    "broadcasts_total": 22,
-    "critical_total": 2
+    "broadcasts_today": 2,
+    "broadcasts_total": 23,
+    "critical_total": 3
   },
   "stale_repos": [
+    {
+      "repo": "protector-model",
+      "module": "The Protector",
+      "last_ts_utc": "2025-09-11T16:00:00Z",
+      "days_since_last": 0,
+      "latest_rating": "critical",
+      "page": "https://zbreeden.github.io/protector-model/"
+    },
+    {
+      "repo": "catalyst-model",
+      "module": "The Catalyst",
+      "last_ts_utc": "2025-09-11T15:00:00Z",
+      "days_since_last": 0,
+      "latest_rating": "critical",
+      "page": "https://zbreeden.github.io/catalyst-model/"
+    },
     {
       "repo": "archive-model",
       "module": "The Archive",
@@ -356,14 +373,6 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/grower-model/"
-    },
-    {
-      "repo": "catalyst-model",
-      "module": "The Catalyst",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 0,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/catalyst-model/"
     },
     {
       "repo": "player-model",
@@ -444,14 +453,6 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/signal-model/"
-    },
-    {
-      "repo": "protector-model",
-      "module": "The Protector",
-      "last_ts_utc": "2025-09-11T16:00:00Z",
-      "days_since_last": -1,
-      "latest_rating": "critical",
-      "page": "https://zbreeden.github.io/protector-model/"
     }
   ]
 }
