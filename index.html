@@ -20,7 +20,7 @@
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX'); /* <- replace */
+    })(window,document,'script','dataLayer','GTM-WVC4SNLB'); /* <- replace */
   </script>
   <!-- End GTM -->
   <style>
@@ -102,7 +102,7 @@
 </head>
 <body>
   <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVC4SNLB"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header>
@@ -280,7 +280,7 @@
       document.getElementById("year").textContent = new Date().getFullYear();
 
       const [latest, kpis] = await Promise.all([
-        loadJSON("signals/latest.json"),
+        loadJSON("signals/master_history.json"),
         loadJSON("signals/kpis.json")
       ]);
 
