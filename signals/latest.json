@@ -575,38 +575,7 @@
     "checksum": "",
     "version": "1.0.0"
   },
-  {
-    "id": "2025-09-10T20:00:00Z-signal-broadcast-seed",
-    "ts_utc": "2025-09-10T20:00:00Z",
-    "date": "2025-09-10",
-    "module": "The Signal",
-    "repo": "signal-model",
-    "title": "Master star broadcast seed initialized",
-    "summary": "Bootstrapped constellation broadcasting: schema, nightly pulse, and Signal renderer.",
-    "tags": [
-      "broadcasting",
-      "schema",
-      "renderer",
-      "pulse"
-    ],
-    "rating": "high",
-    "origin": {
-      "name": "The Signal",
-      "url": "https://zbreeden.github.io/signal-model/",
-      "emoji": "📡"
-    },
-    "links": {
-      "readme": "https://github.com/zbreeden/signal-model#readme",
-      "page": "https://zbreeden.github.io/signal-model/",
-      "data": "https://github.com/zbreeden/signal-model/tree/main/signals",
-      "runbook": "https://github.com/zbreeden/signal-model/blob/main/RUNBOOK.md"
-    },
-    "payload": {
-      "notes": "This is the top-level aggregator in The Signal. Nightly pulse pulls latest.json from each star."
-    },
-    "checksum": "",
-    "version": "1.0.0"
-  },
+ 
   {
     "id": "2025-09-10T20:00:00Z-protector-broadcast-seed",
     "ts_utc": "2025-09-10T20:00:00Z",
