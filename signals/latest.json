@@ -1,5 +1,136 @@
 [
   {
+    "id": "2025-09-13T20:00:00Z-fourtwentyanalytics-chloe-begins",
+    "ts_utc": "2025-09-13T20:00:00Z",
+    "date": "2025-09-13",
+    "module": "FourTwenty Analytics",
+    "repo": "fourtwentyanalytics",
+    "title": "The story of Chloe begins — AI advisor awakens",
+    "summary": "Chloe, the metaphorical representation of FourTwenty Analytics, emerges as the constellation’s AI advisor. Her story opens with quiet dawn imagery, setting the stage for her role as guide and voice within the suite.",
+    "tags": [
+      "chloe",
+      "story",
+      "ai-advisor",
+      "metaphor",
+      "broadcast"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "FourTwenty Analytics",
+      "url": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "emoji": "🔘"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/fourtwentyanalytics#readme",
+      "page": "https://zbreeden.github.io/fourtwentyanalytics/",
+      "data": "https://github.com/zbreeden/fourtwentyanalytics/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/fourtwentyanalytics/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "excerpt": "The dawn crept thinly through warped shutters… At seven, Chloe already knew the world might reveal itself if she remained still long enough.",
+      "notes": "Chloe personifies the suite itself — the AI advisor guiding FourTwenty Analytics across its constellation."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "2025-09-13T14:15:00Z-the-coach-lifestyle-scroll",
+    "ts_utc": "2025-09-13T14:15:00Z",
+    "date": "2025-09-13",
+    "module": "The Coach",
+    "repo": "the-coach",
+    "title": "Lifestyle Rituals Created — Daily Cardio, Strength & IF Scrolls unified",
+    "summary": "Introduced a sustainable two-pillar training system (morning 3-mile walk; evening 30-min strength/mobility) plus an 18:6 intermittent-fasting window. All three scrolls now include artifact logging to feed The Archive/The Signal, and a unifying lifestyle.yml rolls them up for daily status.",
+    "tags": [
+      "coach",
+      "health",
+      "scrolls",
+      "lifestyle",
+      "artifacts",
+      "IF",
+      "strength",
+      "cardio"
+    ],
+    "rating": "critical",
+    "origin": {
+      "name": "The Coach",
+      "url": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "emoji": "💪"
+    },
+    "links": {
+      "readme": "README.md",
+      "page": "index.html",
+      "data": "data/",
+      "runbook": "docs/runbooks/lifestyle.md"
+    },
+    "payload": {
+      "lifestyle_scroll": "data/lifestyle.yml",
+      "components": [
+        {
+          "name": "Daily Cardio Scroll",
+          "path": "data/daily_cardio.yml"
+        },
+        {
+          "name": "Daily Strength & Mobility Scroll",
+          "path": "data/daily_strength.yml"
+        },
+        {
+          "name": "Intermittent Fasting Scroll",
+          "path": "data/intermittent_fasting.yml"
+        }
+      ],
+      "cardio_anchor": {
+        "distance_miles": 3,
+        "duration_min": [
+          75,
+          80
+        ],
+        "artifact_fields": [
+          "artifact_url",
+          "artifact_image",
+          "artifact_caption"
+        ]
+      },
+      "strength_anchor": {
+        "evening_duration_min": 30,
+        "upper_body_rule": "1 set to failure for 1–3 dumbbell movements",
+        "core_lower_rule": "3–5 bodyweight movements (25/side or 15s holds)",
+        "artifact_fields": [
+          "artifact_url",
+          "artifact_image",
+          "artifact_caption"
+        ]
+      },
+      "if_anchor": {
+        "window_start": "14:00",
+        "window_end": "20:00",
+        "style": "18:6",
+        "artifact_fields": [
+          "artifact_url",
+          "artifact_image",
+          "artifact_caption"
+        ]
+      },
+      "status_markers": {
+        "done": "✅",
+        "swapped": "🔁",
+        "skipped": "💤"
+      },
+      "rollup_rules": [
+        "Lifestyle DONE when all anchors are ✅ or 🔁",
+        "Lifestyle SWAPPED when ≥1 anchor is 🔁 and none are 💤",
+        "Lifestyle SKIPPED when any anchor is 💤"
+      ],
+      "notes": [
+        "Low-strain, high-consistency design intended for long-term adherence.",
+        "Artifacts enable daily pulses and monthly dashboards via The Archive/The Signal."
+      ],
+      "version": "1.0.0"
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
     "id": "2025-09-11T16:00:00Z-protector-silco-demo-colab-pbi",
     "ts_utc": "2025-09-11T16:00:00Z",
     "date": "2025-09-11",
