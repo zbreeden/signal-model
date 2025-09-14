@@ -93,3 +93,56 @@
   criteria: ["final_release_tag", "replacement_or_redirect_noted", "archive_or_readonly"]
   allowed_next: []
 
+# XP progression (constellation-wide) — current persona level as a status
+# Source of truth for thresholds remains data/xp_levels.yml in The Signal.
+# These statuses simply mirror “current level” so The Archive & The Signal can broadcast a single emoji/state.
+
+- id: xp_level_1
+  label: "Level 1 — Initiate"
+  emoji: "🎮"
+  order: 200
+  meaning: "XP journey begun; establishing habits and telemetry."
+  criteria: ["lifetime_xp>=0", "ledger_updated<=24h"]
+  allowed_next: ["xp_level_2"]
+
+- id: xp_level_2
+  label: "Level 2 — Builder"
+  emoji: "🎮✨"
+  order: 210
+  meaning: "Consistent contributions across code, study, workouts, and broadcasts."
+  criteria: ["lifetime_xp>=150", "ledger_updated<=24h"]
+  allowed_next: ["xp_level_3"]
+
+- id: xp_level_3
+  label: "Level 3 — Operator"
+  emoji: "🎮⭐"
+  order: 220
+  meaning: "Reliable throughput; demos ship; routine is solid."
+  criteria: ["lifetime_xp>=400", "ledger_updated<=24h"]
+  allowed_next: ["xp_level_4"]
+
+- id: xp_level_4
+  label: "Level 4 — Engineer"
+  emoji: "🎮🌟"
+  order: 230
+  meaning: "Systems thinking evident; pipelines and dashboards steady."
+  criteria: ["lifetime_xp>=800", "ledger_updated<=24h"]
+  allowed_next: ["xp_level_5"]
+
+- id: xp_level_5
+  label: "Level 5 — Architect"
+  emoji: "🎮🚀"
+  order: 240
+  meaning: "Ecosystem shaping; governance and scale patterns in place."
+  criteria: ["lifetime_xp>=1300", "ledger_updated<=24h"]
+  allowed_next: ["xp_level_6"]
+
+- id: xp_level_6
+  label: "Level 6 — Constellation Keeper"
+  emoji: "🎮🛡️"
+  order: 250
+  meaning: "Stewardship across the constellation; excellence maintained."
+  criteria: ["lifetime_xp>=2000", "ledger_updated<=24h"]
+  allowed_next: []
+
+
