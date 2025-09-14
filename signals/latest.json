@@ -1,5 +1,36 @@
 [
   {
+    "id": "2025-09-13T21:30:00Z-evaluator-qa-seed",
+    "ts_utc": "2025-09-13T21:30:00Z",
+    "date": "2025-09-13",
+    "module": "The Evaluator",
+    "repo": "evaluator-model",
+    "title": "Q&A Entry — Using ML as Skill Building",
+    "summary": "Captured the insight that aspiring DAs can use ML not as a shortcut, but as a collaborator to learn and scaffold solutions.",
+    "tags": [
+      "qa",
+      "ml",
+      "learning",
+      "analyst"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Evaluator",
+      "url": "https://zbreeden.github.io/evaluator-model/",
+      "emoji": "🧮"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/evaluator-model#readme",
+      "page": "https://zbreeden.github.io/evaluator-model/",
+      "data": "https://github.com/zbreeden/evaluator-model/tree/main/signals"
+    },
+    "payload": {
+      "notes": "Q&A reflection stored: 'As an aspiring DA, I use ML to build my skillset by shaping outputs into governed, production-ready solutions.'"
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
     "id": "2025-09-13T20:00:00Z-fourtwentyanalytics-chloe-begins",
     "ts_utc": "2025-09-13T20:00:00Z",
     "date": "2025-09-13",

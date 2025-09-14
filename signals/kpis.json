@@ -1,7 +1,15 @@
 {
-  "generated_utc": "2025-09-13T23:42:05Z",
-  "today": "2025-09-13",
+  "generated_utc": "2025-09-14T04:29:21Z",
+  "today": "2025-09-14",
   "repos": [
+    {
+      "repo": "evaluator-model",
+      "module": "The Evaluator",
+      "last_ts_utc": "2025-09-13T21:30:00Z",
+      "days_since_last": 0,
+      "latest_rating": "high",
+      "page": "https://zbreeden.github.io/evaluator-model/"
+    },
     {
       "repo": "fourtwentyanalytics",
       "module": "FourTwenty Analytics",
@@ -73,14 +81,6 @@
       "days_since_last": 3,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/accountant-model/"
-    },
-    {
-      "repo": "evaluator-model",
-      "module": "The Evaluator",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 3,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/evaluator-model/"
     },
     {
       "repo": "story-model",
@@ -172,6 +172,12 @@
     }
   ],
   "rating_distribution": {
+    "evaluator-model": {
+      "counts": {
+        "high": 2
+      },
+      "pct_critical": 0.0
+    },
     "fourtwentyanalytics": {
       "counts": {
         "high": 2
@@ -223,12 +229,6 @@
       "pct_critical": 0.0
     },
     "accountant-model": {
-      "counts": {
-        "high": 1
-      },
-      "pct_critical": 0.0
-    },
-    "evaluator-model": {
       "counts": {
         "high": 1
       },
@@ -303,8 +303,8 @@
     }
   },
   "totals": {
-    "broadcasts_today": 2,
-    "broadcasts_total": 25,
+    "broadcasts_today": 0,
+    "broadcasts_total": 26,
     "critical_total": 4
   },
   "stale_repos": [
@@ -347,14 +347,6 @@
       "days_since_last": 3,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/accountant-model/"
-    },
-    {
-      "repo": "evaluator-model",
-      "module": "The Evaluator",
-      "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 3,
-      "latest_rating": "high",
-      "page": "https://zbreeden.github.io/evaluator-model/"
     },
     {
       "repo": "story-model",
@@ -459,6 +451,14 @@
       "days_since_last": 2,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/catalyst-model/"
+    },
+    {
+      "repo": "evaluator-model",
+      "module": "The Evaluator",
+      "last_ts_utc": "2025-09-13T21:30:00Z",
+      "days_since_last": 0,
+      "latest_rating": "high",
+      "page": "https://zbreeden.github.io/evaluator-model/"
     },
     {
       "repo": "fourtwentyanalytics",
