@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+import json, os, datetime as dt
+
+ROOT = os.path.dirname(os.path.dirname(__file__))
+SIGNALS = os.path.join(ROOT, "signals")
+MERGED_FEED = os.path.join(SIGNALS, "latest.json")   # array of broadcasts (post-Archive sweep)
+LEDGER = os.path.join(SIGNALS, "xp", "latest.json")
+
+def parse_ts(s):
+    # tolerate Z or +00:00
+    return dt.datetime.fromisoformat(s.replace("Z","+00:00"))
+
+def main():
+    try:
+        feed = json.load(open(MERGED_FEED, "r", encoding="utf-8"))
+        if not isinstance(feed, list): feed = []
+    except Exception:
+        feed = []
+
+    now = dt.datetime.now(dt.timezone.utc)
+    # window for last 7 days (UTC)
+    start_7d = now - dt.timedelta(days=7)
+
+    lifetime = 0
+    last7 = 0
+    by_action = {}
+
+    for b in feed:
+        xp = (b.get("payload") or {}).get("xp")
+        if not xp: continue
+        points = float(xp.get("points", 0) or 0)
+        if points <= 0: continue
+        lifetime += points
+
+        try:
+            ts = parse_ts(b.get("ts_utc", "1970-01-01T00:00:00Z"))
+        except Exception:
+            ts = dt.datetime(1970,1,1,tzinfo=dt.timezone.utc)
+        if ts >= start_7d:
+            last7 += points
+
+        ak = xp.get("action_key","broadcast")
+        by_action.setdefault(ak, 0.0)
+        by_action[ak] += points
+
+    ledger = {
+        "as_of_utc": now.isoformat().replace("+00:00","Z"),
+        "lifetime_xp": int(round(lifetime)),
+        "level": { "n": 1, "label": "XP (from broadcasts)" },  # optional: wire to your xp_levels later
+        "next_level_at": 0,
+        "xp_to_next": 0,
+        "last7_total": int(round(last7)),
+        "breakdown_by_action": [
+            {"action_key": k, "label": k, "total_xp": int(round(v)), "units": None}
+            for k, v in sorted(by_action.items(), key=lambda kv: -kv[1])
+        ],
+        "daily_timeseries_7d": []  # can add later if you want a sparkline
+    }
+
+    os.makedirs(os.path.dirname(LEDGER), exist_ok=True)
+    json.dump(ledger, open(LEDGER, "w", encoding="utf-8"), indent=2)
+    print("Wrote", LEDGER, "lifetime_xp=", ledger["lifetime_xp"])
+
+if __name__ == "__main__":
+    main()
