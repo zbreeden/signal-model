@@ -20,8 +20,15 @@
     "runbook": "https://github.com/zbreeden/fourtwentyanalytics/blob/main/RUNBOOK.md"
   },
   "payload": {
-    "notes": "This is the top-level aggregator in FourTwentyAnalytics. Nightly pulse pulls latest.json from each star."
-  },
+  "notes": "This is the top-level aggregator in FourTwentyAnalytics. Nightly pulse pulls latest.json from each star.",
+  "xp": {
+    "points": 25,
+    "action_key": "broadcast",
+    "units": 1,
+    "notes": "Demo shipment credited with XP"
+  }
+}
+
   "checksum": "",
   "version": "1.0.0"
 }
