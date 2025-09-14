@@ -1,7 +1,15 @@
 {
-  "generated_utc": "2025-09-14T04:29:21Z",
+  "generated_utc": "2025-09-14T06:32:41Z",
   "today": "2025-09-14",
   "repos": [
+    {
+      "repo": "the-coach",
+      "module": "The Coach",
+      "last_ts_utc": "2025-09-14T15:30:00Z",
+      "days_since_last": -1,
+      "latest_rating": "high",
+      "page": "index.html"
+    },
     {
       "repo": "evaluator-model",
       "module": "The Evaluator",
@@ -17,14 +25,6 @@
       "days_since_last": 0,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/fourtwentyanalytics/"
-    },
-    {
-      "repo": "the-coach",
-      "module": "The Coach",
-      "last_ts_utc": "2025-09-13T14:15:00Z",
-      "days_since_last": 0,
-      "latest_rating": "critical",
-      "page": "index.html"
     },
     {
       "repo": "protector-model",
@@ -172,6 +172,13 @@
     }
   ],
   "rating_distribution": {
+    "the-coach": {
+      "counts": {
+        "high": 1,
+        "critical": 1
+      },
+      "pct_critical": 50.0
+    },
     "evaluator-model": {
       "counts": {
         "high": 2
@@ -183,12 +190,6 @@
         "high": 2
       },
       "pct_critical": 0.0
-    },
-    "the-coach": {
-      "counts": {
-        "critical": 1
-      },
-      "pct_critical": 100.0
     },
     "protector-model": {
       "counts": {
@@ -303,8 +304,8 @@
     }
   },
   "totals": {
-    "broadcasts_today": 0,
-    "broadcasts_total": 26,
+    "broadcasts_today": 1,
+    "broadcasts_total": 27,
     "critical_total": 4
   },
   "stale_repos": [
@@ -471,9 +472,9 @@
     {
       "repo": "the-coach",
       "module": "The Coach",
-      "last_ts_utc": "2025-09-13T14:15:00Z",
-      "days_since_last": 0,
-      "latest_rating": "critical",
+      "last_ts_utc": "2025-09-14T15:30:00Z",
+      "days_since_last": -1,
+      "latest_rating": "high",
       "page": "index.html"
     }
   ]

@@ -1,5 +1,63 @@
 [
   {
+    "id": "2025-09-14T15:30:00Z-the-coach-journaling-scroll",
+    "ts_utc": "2025-09-14T15:30:00Z",
+    "date": "2025-09-14",
+    "module": "The Coach",
+    "repo": "the-coach",
+    "title": "Journaling Ritual Added — Supporting Memory & Story",
+    "summary": "Introduced a 15-minute daily journaling scroll to complement cardio, strength, and IF rituals. The scroll helps the Suitekeeper address memory issues, while fostering reflection, storytelling, and creative seeds.",
+    "tags": [
+      "coach",
+      "health",
+      "scrolls",
+      "lifestyle",
+      "artifacts",
+      "journaling",
+      "memory"
+    ],
+    "rating": "high",
+    "origin": {
+      "name": "The Coach",
+      "url": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "emoji": "💪"
+    },
+    "links": {
+      "readme": "README.md",
+      "page": "index.html",
+      "data": "data/",
+      "runbook": "docs/runbooks/journaling.md"
+    },
+    "payload": {
+      "journaling_scroll": "data/journaling.yml",
+      "duration_min": 15,
+      "themes": [
+        "reflection",
+        "gratitude",
+        "creative_seed",
+        "planning"
+      ],
+      "artifact_fields": [
+        "artifact_url",
+        "artifact_image",
+        "artifact_caption"
+      ],
+      "status_markers": {
+        "done": "✅",
+        "swapped": "🔁",
+        "skipped": "💤"
+      },
+      "notes": [
+        "Supports memory and story retention for the Suitekeeper.",
+        "Provides a dedicated creative channel within daily rituals.",
+        "Artifacts (quotes, images, notes) feed The Archive for future storytelling."
+      ],
+      "version": "1.0.0"
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
     "id": "2025-09-13T21:30:00Z-evaluator-qa-seed",
     "ts_utc": "2025-09-13T21:30:00Z",
     "date": "2025-09-13",
