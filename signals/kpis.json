@@ -1,12 +1,12 @@
 {
-  "generated_utc": "2025-09-17T04:30:29Z",
-  "today": "2025-09-17",
+  "generated_utc": "2025-09-18T04:30:42Z",
+  "today": "2025-09-18",
   "repos": [
     {
       "repo": "the-coach",
       "module": "The Coach",
       "last_ts_utc": "2025-09-14T15:30:00Z",
-      "days_since_last": 2,
+      "days_since_last": 3,
       "latest_rating": "high",
       "page": "index.html"
     },
@@ -14,7 +14,7 @@
       "repo": "evaluator-model",
       "module": "The Evaluator",
       "last_ts_utc": "2025-09-13T21:30:00Z",
-      "days_since_last": 3,
+      "days_since_last": 4,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/evaluator-model/"
     },
@@ -22,7 +22,7 @@
       "repo": "fourtwentyanalytics",
       "module": "FourTwenty Analytics",
       "last_ts_utc": "2025-09-13T20:00:00Z",
-      "days_since_last": 3,
+      "days_since_last": 4,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/fourtwentyanalytics/"
     },
@@ -30,7 +30,7 @@
       "repo": "protector-model",
       "module": "The Protector",
       "last_ts_utc": "2025-09-11T16:00:00Z",
-      "days_since_last": 5,
+      "days_since_last": 6,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/protector-model/"
     },
@@ -38,7 +38,7 @@
       "repo": "catalyst-model",
       "module": "The Catalyst",
       "last_ts_utc": "2025-09-11T15:00:00Z",
-      "days_since_last": 5,
+      "days_since_last": 6,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/catalyst-model/"
     },
@@ -46,7 +46,7 @@
       "repo": "archive-model",
       "module": "The Archive",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/archive-model/"
     },
@@ -54,7 +54,7 @@
       "repo": "launch-model",
       "module": "The Launch",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/launch-model/"
     },
@@ -62,7 +62,7 @@
       "repo": "bank-model",
       "module": "The Bank",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/bank-model/"
     },
@@ -70,7 +70,7 @@
       "repo": "visualizer-model",
       "module": "The Visualizer",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/visualizer-model/"
     },
@@ -78,7 +78,7 @@
       "repo": "accountant-model",
       "module": "The Accountant",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/accountant-model/"
     },
@@ -86,7 +86,7 @@
       "repo": "story-model",
       "module": "The Story",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/story-model/"
     },
@@ -94,7 +94,7 @@
       "repo": "grower-model",
       "module": "The Grower",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/grower-model/"
     },
@@ -102,7 +102,7 @@
       "repo": "player-model",
       "module": "The Player",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/player-model/"
     },
@@ -110,7 +110,7 @@
       "repo": "gambler-model",
       "module": "The Gambler",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/gambler-model/"
     },
@@ -118,7 +118,7 @@
       "repo": "trainer-model",
       "module": "The Trainer",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/trainer-model/"
     },
@@ -126,7 +126,7 @@
       "repo": "coach-model",
       "module": "The Coach",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/coach-model/"
     },
@@ -134,7 +134,7 @@
       "repo": "orbiter-model",
       "module": "The Orbiter",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/orbiter-model/"
     },
@@ -142,7 +142,7 @@
       "repo": "anchor-model",
       "module": "The Anchor",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/anchor-model/"
     },
@@ -150,7 +150,7 @@
       "repo": "firm-model",
       "module": "The Firm",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/firm-model/"
     },
@@ -158,7 +158,7 @@
       "repo": "mirror-model",
       "module": "The Mirror",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/mirror-model/"
     },
@@ -166,7 +166,7 @@
       "repo": "signal-model",
       "module": "The Signal",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/signal-model/"
     }
@@ -313,7 +313,7 @@
       "repo": "archive-model",
       "module": "The Archive",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/archive-model/"
     },
@@ -321,7 +321,7 @@
       "repo": "launch-model",
       "module": "The Launch",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/launch-model/"
     },
@@ -329,7 +329,7 @@
       "repo": "bank-model",
       "module": "The Bank",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/bank-model/"
     },
@@ -337,7 +337,7 @@
       "repo": "visualizer-model",
       "module": "The Visualizer",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/visualizer-model/"
     },
@@ -345,7 +345,7 @@
       "repo": "accountant-model",
       "module": "The Accountant",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/accountant-model/"
     },
@@ -353,7 +353,7 @@
       "repo": "story-model",
       "module": "The Story",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/story-model/"
     },
@@ -361,7 +361,7 @@
       "repo": "grower-model",
       "module": "The Grower",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/grower-model/"
     },
@@ -369,7 +369,7 @@
       "repo": "player-model",
       "module": "The Player",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/player-model/"
     },
@@ -377,7 +377,7 @@
       "repo": "gambler-model",
       "module": "The Gambler",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/gambler-model/"
     },
@@ -385,7 +385,7 @@
       "repo": "trainer-model",
       "module": "The Trainer",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/trainer-model/"
     },
@@ -393,7 +393,7 @@
       "repo": "coach-model",
       "module": "The Coach",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/coach-model/"
     },
@@ -401,7 +401,7 @@
       "repo": "orbiter-model",
       "module": "The Orbiter",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/orbiter-model/"
     },
@@ -409,7 +409,7 @@
       "repo": "anchor-model",
       "module": "The Anchor",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/anchor-model/"
     },
@@ -417,7 +417,7 @@
       "repo": "firm-model",
       "module": "The Firm",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/firm-model/"
     },
@@ -425,7 +425,7 @@
       "repo": "mirror-model",
       "module": "The Mirror",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/mirror-model/"
     },
@@ -433,7 +433,7 @@
       "repo": "signal-model",
       "module": "The Signal",
       "last_ts_utc": "2025-09-10T20:00:00Z",
-      "days_since_last": 6,
+      "days_since_last": 7,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/signal-model/"
     },
@@ -441,7 +441,7 @@
       "repo": "protector-model",
       "module": "The Protector",
       "last_ts_utc": "2025-09-11T16:00:00Z",
-      "days_since_last": 5,
+      "days_since_last": 6,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/protector-model/"
     },
@@ -449,7 +449,7 @@
       "repo": "catalyst-model",
       "module": "The Catalyst",
       "last_ts_utc": "2025-09-11T15:00:00Z",
-      "days_since_last": 5,
+      "days_since_last": 6,
       "latest_rating": "critical",
       "page": "https://zbreeden.github.io/catalyst-model/"
     },
@@ -457,7 +457,7 @@
       "repo": "evaluator-model",
       "module": "The Evaluator",
       "last_ts_utc": "2025-09-13T21:30:00Z",
-      "days_since_last": 3,
+      "days_since_last": 4,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/evaluator-model/"
     },
@@ -465,7 +465,7 @@
       "repo": "fourtwentyanalytics",
       "module": "FourTwenty Analytics",
       "last_ts_utc": "2025-09-13T20:00:00Z",
-      "days_since_last": 3,
+      "days_since_last": 4,
       "latest_rating": "high",
       "page": "https://zbreeden.github.io/fourtwentyanalytics/"
     },
@@ -473,7 +473,7 @@
       "repo": "the-coach",
       "module": "The Coach",
       "last_ts_utc": "2025-09-14T15:30:00Z",
-      "days_since_last": 2,
+      "days_since_last": 3,
       "latest_rating": "high",
       "page": "index.html"
     }
