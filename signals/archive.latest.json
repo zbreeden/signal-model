@@ -1,0 +1,32 @@
+[
+{
+  "id": "20250923T013736Z-signal-model-genesis",
+  "ts_utc": "2025-09-23T01:37:36Z",
+  "date": "2025-09-23",
+  "module": "Signal Model",
+  "repo": "signal-model", 
+  "title": "New constellation star initialized",
+  "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+  "tags": ["genesis", "scaffold", "module", "core"],
+  "rating": "normal",
+  "origin": {
+    "name": "Signal Model",
+    "url": "https://zbreeden.github.io/signal-model/",
+    "emoji": "📡"
+  },
+  "links": {
+    "readme": "https://github.com/zbreeden/signal-model#readme",
+    "page": "https://zbreeden.github.io/signal-model/",
+    "data": "https://github.com/zbreeden/signal-model/tree/main/signals",
+    "runbook": "https://github.com/zbreeden/signal-model/blob/main/RUNBOOK.md"
+  },
+  "payload": {
+    "orbit": "core",
+    "status": "seed", 
+    "module_key": "signal_model",
+    "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+  },
+  "checksum": "",
+  "version": "1.0.0"
+}
+]
