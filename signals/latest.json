@@ -1,0 +1,25 @@
+{
+  "id": "20250923T081215Z-broadcasting_system_active",
+  "ts_utc": "2025-09-23T08:12:15Z",
+  "module": "Signal Model",
+  "repo": "signal-model",
+  "title": "System Broadcasting System",
+  "summary": "The constellation's broadcasting system is online; the stars can communicate",
+  "rating": "critical",
+  "origin": {
+    "name": "Signal Model",
+    "url": "https://zbreeden.github.io/signal-model/",
+    "emoji": "📡"
+  },
+  "links": {
+    "readme": "https://github.com/zbreeden/signal-model#readme",
+    "page": "https://zbreeden.github.io/signal-model/"
+  },
+  "payload": {
+    "module_key": "signal_model",
+    "broadcast_key": "broadcasting_system_active",
+    "tags": [
+      "signal"
+    ]
+  }
+}
