@@ -1,49 +1,32 @@
-# FourTwenty • The Signal
-Scheduled pulses and public relations.
+# Signal Model
 
-## What's inside
-- **Purpose:** Provide a simple, auditable event taxonomy and a tiny HTML playground to trigger/test events end‑to‑end.
-- **Artifacts:** `/playground` (UX sandbox), `/gtm` (how‑to + templates), `/ga4` (event spec), `/powerbi` (BI notes), `/artifacts` (screens/GIFs).
-- **Telemetry:** GA4 via **GTM** (no PII). Use Tag Assistant & GA4 **DebugView** for verification. Screenshots can live under `/artifacts`.
+> **The Signal is the rhythmic pulse**
 
-## Quick start
-1) Open **`/playground/ux_playground.html`** locally.
-   - Option A: double‑click to open in your browser.
-   - Option B (recommended): serve locally so Tag Assistant works — `python3 -m http.server 5500` from repo root, then visit `http://localhost:5500/playground/ux_playground.html`.
-2) In **GTM**, publish a workspace that contains GA4 Event tags mapping to the events below.
-3) Replace the placeholders in the HTML (`GTM-XXXXXXX`) with your actual GTM container ID (or inject GTM via the Tag Assistant Companion).
+## 🌌 Constellation Information
 
-## Event taxonomy (MVP)
-We keep events small and obvious, with stable names and typed parameters.
+- **Module Key**: `signal_model`  
+- **Repository**: `signal-model`
+- **Orbit**: `core`
+- **Status**: `seed`
+- **Emoji**: 📡
 
-| event_name      | when it fires                             | params                                  |
-|-----------------|-------------------------------------------|-----------------------------------------|
-| `cta_click`     | any primary CTA is clicked                | `cta_id`, `cta_text`, `location`        |
-| `form_submit`   | lead/contact form successfully submitted  | `form_id`, `form_name`, `fields_count`  |
-| `nav_search`    | a search query is submitted               | `query`, `results_count`                |
-| `page_view`     | a virtual/soft page change                | `page_id`, `page_title`                 |
+## 🚀 Quick Start
 
-See the full JSON spec in [`/ga4/events.json`](ga4/events.json).
+1. **Review seeds/**: Adapt seeded data for this module
+2. **Configure schemas/**: Update schema definitions as needed  
+3. **Generate signals/**: Create latest.json broadcast file
+4. **Run validation**: `scripts/validate.sh`
 
-## Highlights
-- **Event taxonomy:** `<event_1>`, `<event_2>` … with params `<param_a>`, `<param_b>`
-- **BI views:** provide a small star schema sketch in `/powerbi` and iterate.
+## 📡 Broadcasting
 
-## Repository layout
-```
-/
-├─ playground/         # tiny HTML app to push dataLayer events
-├─ gtm/                # GTM mapping guide + import templates
-├─ ga4/                # GA4/Measurement spec
-├─ powerbi/            # BI modeling notes (+ PBIX lives outside git)
-├─ docs/               # glossary, contributing, etc.
-├─ artifacts/          # screenshots, GIFs (not tracked by LFS in this starter)
-└─ scripts/            # helpers (local server, lint, etc.)
-```
+This module produces a `signals/latest.json` file conforming to the constellation's broadcast schema. The Signal (📡) aggregates these across all stars.
 
-## Contributing
-- Use feature branches: `feat/<short-name>`, `fix/<short-name>`.
-- Conventional commits are encouraged, e.g. `feat(playground): add search demo`.
+## 🔗 Constellation Links
 
-## License
-MIT — see [LICENSE](LICENSE).
+- **Hub**: [FourTwenty Analytics](https://github.com/zbreeden/FourTwentyAnalytics)
+- **Archive**: Glossary, tags, and canonical definitions
+- **Signal**: Cross-constellation broadcasting and telemetry
+
+---
+
+*This star is part of the FourTwenty Analytics constellation - a modular analytics sandbox where each repository is a specialized "model" within an orbital system.*
