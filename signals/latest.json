@@ -1,0 +1,25 @@
+{
+  "id": "20250923T075746Z-test2",
+  "ts_utc": "2025-09-23T07:57:46Z",
+  "module": "Signal Model",
+  "repo": "signal-model",
+  "title": "Test2",
+  "summary": "This is test number two",
+  "rating": "normal",
+  "origin": {
+    "name": "Signal Model",
+    "url": "https://zbreeden.github.io/signal-model/",
+    "emoji": "📡"
+  },
+  "links": {
+    "readme": "https://github.com/zbreeden/signal-model#readme",
+    "page": "https://zbreeden.github.io/signal-model/"
+  },
+  "payload": {
+    "module_key": "signal_model",
+    "broadcast_key": "test2",
+    "tags": [
+      "testing"
+    ]
+  }
+}
