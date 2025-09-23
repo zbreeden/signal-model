@@ -29,7 +29,7 @@
   name: Signal Model
   emoji: "📡"
   orbit: core
-  status: seed
+  status: developing
   tags: [telemetry, ga4, gtm, ux]
   glyphs: [signal, hub, archive]
   repo_url: https://github.com/zbreeden/signal-model
