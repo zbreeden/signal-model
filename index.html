@@ -1,306 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>The Signal — Constellation Broadcasts</title>
-
-  <!-- GTM Data Layer -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      event: "signal_page_view",
-      page: "signal_index",
-      ts_utc: new Date().toISOString()
-    });
-  </script>
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WVC4SNLB'); /* <- replace */
-  </script>
-  <!-- End GTM -->
-  <style>
-    :root {
-      --bg: #0f1224;
-      --card: #161a33;
-      --ink: #e8ebff;
-      --ink-dim: #aeb4d9;
-      --accent: #7f8cff;
-      --ok: #8bd3a3;
-      --warn: #ffd166;
-      --crit: #ff6b6b;
-      --mund: #8792c2;
-      --grid: 12px;
-      --radius: 12px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: linear-gradient(180deg,#0c1020,#0f1224 25%);
-      color: var(--ink); font-family: var(--font);
-    }
-    header, footer {
-      padding: calc(var(--grid)*2) calc(var(--grid)*3);
-    }
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid #202447;
-    }
-    a.back {
-      color: var(--ink); text-decoration: none; padding: 8px 12px; border: 1px solid #2a2f61; border-radius: 8px;
-    }
-    main {
-      display: grid; gap: calc(var(--grid)*2);
-      grid-template-columns: 1fr 360px;
-      padding: calc(var(--grid)*3);
-    }
-    .panel {
-      background: rgba(22,26,51,0.6); backdrop-filter: blur(6px);
-      border: 1px solid #1f2350; border-radius: var(--radius);
-      padding: calc(var(--grid)*2);
-    }
-    .filters {
-      display: grid; gap: var(--grid);
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: calc(var(--grid)*2);
-    }
-    select, input[type="date"] {
-      width: 100%; padding: 10px 12px; background: #121636; color: var(--ink);
-      border: 1px solid #2a2f61; border-radius: 8px;
-    }
-    .cards { display: grid; gap: calc(var(--grid)*2); }
-    .card {
-      background: var(--card); border: 1px solid #232859; border-radius: var(--radius);
-      padding: calc(var(--grid)*2);
-    }
-    .card h3 { margin: 0 0 6px 0; font-size: 18px; }
-    .meta {
-      color: var(--ink-dim); font-size: 12px; margin-bottom: 10px; display:flex; gap:10px; flex-wrap: wrap;
-    }
-    .badge {
-      padding: 2px 8px; border-radius: 999px; font-size: 11px; border: 1px solid #334;
-    }
-    .b-critical { background: rgba(255,107,107,0.12); border-color: #ff6b6b; color: #ffb0b0; }
-    .b-high     { background: rgba(127,140,255,0.12); border-color: #7f8cff; color: #c4caff; }
-    .b-normal   { background: rgba(139,211,163,0.12); border-color: #8bd3a3; color: #c8f1d7; }
-    .b-mundane  { background: rgba(135,146,194,0.12); border-color: #8792c2; color: #c0c8e6; }
-
-    .kpi h4 { margin: 0 0 8px 0; }
-    .row { display: flex; align-items: center; justify-content: space-between; margin: 6px 0; font-size: 14px; }
-    progress { width: 100%; height: 10px; }
-    .mono { font-family: var(--mono); font-size: 12px; color: var(--ink-dim); }
-    footer { color: var(--ink-dim); border-top: 1px solid #202447; }
-    @media (max-width: 980px) {
-      main { grid-template-columns: 1fr; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signal Model - FourTwenty Analytics</title>
+  <meta name="description" content="The Signal is the rhythmic pulse">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📡</text></svg>">
 </head>
 <body>
-  <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVC4SNLB"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
   <header>
-    <div>
-      <div style="font-size:14px;color:#aeb4d9;">FourTwenty Analytics</div>
-      <h1 style="margin:4px 0 0 0; font-size:22px;">📡 The Signal — Constellation Broadcasts</h1>
-    </div>
-    <a class="back" href="https://zbreeden.github.io/FourTwentyAnalytics/">← Back to the Hub</a>
+    <h1>📡 Signal Model</h1>
+    <p>The Signal is the rhythmic pulse</p>
+    <nav>
+      <a href="https://zbreeden.github.io/FourTwentyAnalytics/">← Back to Hub</a> |
+      <a href="https://github.com/zbreeden/signal-model">Repository</a> |
+      <a href="https://github.com/zbreeden/FourTwentyAnalytics">Hub Source</a>
+    </nav>
   </header>
-
+  
   <main>
-    <!-- Left: Broadcast Renderer -->
-    <section class="panel">
-      <div class="filters">
-        <select id="moduleFilter">
-          <option value="">All modules</option>
-        </select>
-        <input id="dateFilter" type="date"/>
-      </div>
-      <div class="cards" id="cards"></div>
+    <section>
+      <h2>🌌 Constellation Info</h2>
+      <ul>
+        <li><strong>Orbit</strong>: core</li>
+        <li><strong>Status</strong>: seed</li>  
+        <li><strong>Module Key</strong>: <code>signal_model</code></li>
+      </ul>
     </section>
-
-    <!-- Right: KPI panel -->
-    <aside class="panel kpi">
-      <h3 style="margin-top:0;">System KPIs</h3>
-      <div id="kpi-summary" class="mono">Loading KPIs…</div>
-
-      <h4 style="margin-top:18px;">Criticality Mix (latest)</h4>
-      <div id="kpi-criticality"></div>
-
-      <h4 style="margin-top:18px;">Stalest Stars</h4>
-      <div id="kpi-stale"></div>
-
-      <h4 style="margin-top:18px;">Playground</h4>
-      <div class="mono">GTM events fire on filter changes & card opens.</div>
-    </aside>
+    
+    <section>
+      <h2>📡 Latest Signal</h2>
+      <div id="signal-container">
+        <p><em>Loading signal data...</em></p>
+      </div>
+    </section>
   </main>
-
+  
   <footer>
-    © <span id="year"></span> FourTwenty Analytics — The Signal. All rights reserved.
+    <p>Part of the <a href="https://zbreeden.github.io/FourTwentyAnalytics/">FourTwenty Analytics</a> constellation</p>
   </footer>
 
   <script>
-    const state = {
-      broadcasts: [],
-      kpis: null
-    };
-
-    const el = sel => document.querySelector(sel);
-    const elc = sel => document.querySelector(sel) || { innerHTML: "", appendChild: ()=>{} };
-
-    function badgeForRating(r) {
-      const map = {
-        "critical": "b-critical",
-        "high": "b-high",
-        "normal": "b-normal",
-        "mundane": "b-mundane"
-      };
-      return map[r] || "b-normal";
-    }
-
-    function pushEvent(evt, payload={}) {
-      window.dataLayer = window.dataLayer || [];
-      dataLayer.push(Object.assign({
-        event: evt,
-        ts_utc: new Date().toISOString()
-      }, payload));
-    }
-
-    async function loadJSON(path) {
-      const res = await fetch(path, { cache: "no-store" });
-      if (!res.ok) return null;
-      return await res.json();
-    }
-
-    function unique(arr) { return Array.from(new Set(arr)); }
-
-    function renderFilters() {
-      const modules = unique(state.broadcasts.map(b => b.module).filter(Boolean)).sort();
-      const sel = el("#moduleFilter");
-      sel.innerHTML = `<option value="">All modules</option>` + modules.map(m => `<option>${m}</option>`).join("");
-    }
-
-    function renderCards() {
-      const mod = el("#moduleFilter").value;
-      const date = el("#dateFilter").value; // YYYY-MM-DD
-      const cards = el("#cards");
-      cards.innerHTML = "";
-
-      let list = state.broadcasts.slice().sort((a,b) => (b.ts_utc||"").localeCompare(a.ts_utc||""));
-
-      if (mod) list = list.filter(b => b.module === mod);
-      if (date) list = list.filter(b => (b.date||"").startsWith(date));
-
-      if (!list.length) {
-        cards.innerHTML = `<div class="mono">No broadcasts match your filters.</div>`;
-        return;
+    // Load and display latest signal data
+    async function loadSignalData() {
+      try {
+        const response = await fetch('./signals/latest.json');
+        if (!response.ok) {
+          throw new Error('Signal data not available');
+        }
+        
+        const signal = await response.json();
+        const container = document.getElementById('signal-container');
+        
+        container.innerHTML = `
+          <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px; background: #f9f9f9;">
+            <h3>${signal.emoji || '📡'} ${signal.title}</h3>
+            <p><strong>Summary:</strong> ${signal.summary}</p>
+            <p><strong>Broadcast Time:</strong> ${new Date(signal.ts_utc).toLocaleString()}</p>
+            <p><strong>Rating:</strong> <span style="
+              background: ${signal.rating === 'critical' ? '#ff4444' : 
+                         signal.rating === 'high' ? '#ff8800' : 
+                         signal.rating === 'normal' ? '#4CAF50' : '#888'}; 
+              color: white; 
+              padding: 2px 8px; 
+              border-radius: 4px; 
+              font-size: 0.8em;">${signal.rating}</span></p>
+            ${signal.tags && signal.tags.length > 0 ? 
+              `<p><strong>Tags:</strong> ${signal.tags.map(tag => 
+                `<span style="background: #e1e8ed; padding: 2px 6px; border-radius: 12px; font-size: 0.8em; margin-right: 4px;">${tag}</span>`
+              ).join('')}</p>` : ''}
+            ${signal.payload && signal.payload.notes ? 
+              `<details>
+                <summary>📋 Additional Notes</summary>
+                <p style="margin-top: 0.5rem; padding: 0.5rem; background: white; border-radius: 4px;">${signal.payload.notes}</p>
+              </details>` : ''}
+          </div>
+        `;
+      } catch (error) {
+        document.getElementById('signal-container').innerHTML = 
+          '<p style="color: #888;"><em>Signal data not yet available. Generate signals/latest.json to see broadcast information.</em></p>';
       }
-
-      list.forEach(b => {
-        const wrap = document.createElement("article");
-        wrap.className = "card";
-        const ratingCls = badgeForRating(b.rating);
-        wrap.innerHTML = `
-          <h3>${b.origin?.emoji || "📡"} ${b.title}</h3>
-          <div class="meta">
-            <span class="badge ${ratingCls}">${b.rating||"normal"}</span>
-            <span>Module: <b>${b.module||""}</b></span>
-            <span>Repo: <span class="mono">${b.repo||""}</span></span>
-            <span>UTC: <span class="mono">${b.ts_utc||""}</span></span>
-          </div>
-          <p>${b.summary||""}</p>
-          <div class="mono" style="margin-top:8px;">
-            <a href="${b.links?.page||'#'}" target="_blank">Module page</a>
-            ${b.links?.readme ? ` · <a href="${b.links.readme}" target="_blank">README</a>` : ""}
-            ${b.links?.data ? ` · <a href="${b.links.data}" target="_blank">Data</a>` : ""}
-            ${b.links?.runbook ? ` · <a href="${b.links.runbook}" target="_blank">Runbook</a>` : ""}
-          </div>
-        `;
-        wrap.addEventListener("click", () => {
-          pushEvent("signal_broadcast_viewed", {
-            module: b.module,
-            repo: b.repo,
-            rating: b.rating
-          });
-        });
-        cards.appendChild(wrap);
-      });
     }
-
-    function renderKPIs() {
-      const box = el("#kpi-summary");
-      if (!state.kpis) { box.textContent = "No KPI data."; return; }
-      const today = state.kpis.today;
-      const repos = state.kpis.repos || [];
-      const stale = state.kpis.stale_repos || [];
-
-      const todays = state.broadcasts.filter(b => (b.date||"") === today);
-      const criticals = state.broadcasts.filter(b => b.rating === "critical");
-
-      box.innerHTML = `
-        <div class="row"><span>Broadcasts (today)</span><b>${todays.length}</b></div>
-        <div class="row"><span>Total (latest file)</span><b>${state.broadcasts.length}</b></div>
-        <div class="row"><span>Critical (latest file)</span><b>${criticals.length}</b></div>
-      `;
-
-      const critBox = el("#kpi-criticality");
-      critBox.innerHTML = "";
-      (repos || []).forEach(r => {
-        const dist = state.kpis.rating_distribution?.[r.repo];
-        const pctCrit = dist?.pct_critical ?? 0;
-        const row = document.createElement("div");
-        row.className = "row";
-        row.innerHTML = `
-          <span>${r.module||r.repo}</span>
-          <span>${pctCrit}% critical</span>
-        `;
-        critBox.appendChild(row);
-      });
-
-      const staleBox = el("#kpi-stale");
-      staleBox.innerHTML = "";
-      stale.slice(0, 5).forEach(s => {
-        const row = document.createElement("div");
-        row.className = "row";
-        row.innerHTML = `
-          <span>${s.module||s.repo}</span>
-          <span>${s.days_since_last ?? "—"} days</span>
-        `;
-        staleBox.appendChild(row);
-      });
-    }
-
-    async function boot() {
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      const [latest, kpis] = await Promise.all([
-        loadJSON("signals/master_history.json"),
-        loadJSON("signals/kpis.json")
-      ]);
-
-      state.broadcasts = Array.isArray(latest) ? latest : (latest || []);
-      state.kpis = kpis || null;
-
-      renderFilters();
-      renderCards();
-      renderKPIs();
-
-      el("#moduleFilter").addEventListener("change", () => {
-        pushEvent("signal_filter_changed", { filter: "module", value: el("#moduleFilter").value });
-        renderCards();
-      });
-      el("#dateFilter").addEventListener("change", () => {
-        pushEvent("signal_filter_changed", { filter: "date", value: el("#dateFilter").value });
-        renderCards();
-      });
-    }
-    boot();
+    
+    // Load signal data when page loads
+    loadSignalData();
   </script>
 </body>
 </html>
