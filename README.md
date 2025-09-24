@@ -7,7 +7,7 @@
 - **Module Key**: `signal_model`  
 - **Repository**: `signal-model`
 - **Orbit**: `core`
-- **Status**: `seed`
+- **Status**: `developing`
 - **Emoji**: 📡
 
 ## 🚀 Quick Start
