@@ -1,0 +1,28 @@
+name: Master of Scrolls
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run without committing/pushing changes"
+        required: false
+        type: boolean
+        default: true
+
+  # schedule:
+  #   - cron: "0 4 * * *" # ⏰ Nightly at 04:00 UTC — uncomment to activate
+
+jobs:
+  collect-constellations:
+    runs-on: ubuntu-latest
+    env:
+      HUB_PAT: ${{ secrets.HUB_PAT }}
+
+    steps:
+      - name: 🧭 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🌌 Run aggregate-constellation.sh
+        run: |
+          chmod +x ./signal-model/scripts/aggregate-constellation.sh
+          ./signal-model/scripts/aggregate-constellation.sh ${{ inputs.dry_run }}
