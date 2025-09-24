@@ -1,0 +1,25 @@
+{
+  "id": "20250924T045308Z-signal_aggregation",
+  "ts_utc": "2025-09-24T04:53:08Z",
+  "module": "Signal Model",
+  "repo": "signal-model",
+  "title": "The Signal aggregates constellation broadcasts",
+  "summary": "Each night, The Signal collects broadcast data for the constellation and aggregates this data locally for further analysis",
+  "rating": "critical",
+  "origin": {
+    "name": "Signal Model",
+    "url": "https://zbreeden.github.io/signal-model/",
+    "emoji": "📡"
+  },
+  "links": {
+    "readme": "https://github.com/zbreeden/signal-model#readme",
+    "page": "https://zbreeden.github.io/signal-model/"
+  },
+  "payload": {
+    "module_key": "signal_model",
+    "broadcast_key": "signal_aggregation",
+    "tags": [
+      "communication"
+    ]
+  }
+}

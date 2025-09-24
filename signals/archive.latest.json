@@ -1,0 +1,832 @@
+[
+  {
+    "id": "20250924T010343Z-signal-model-constellation_aggregation",
+    "ts_utc": "2025-09-24T01:03:43Z",
+    "date": "2025-09-24",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Constellation Signal Aggregation",
+    "summary": "Nightly aggregation of all constellation star signals - 20 signals from 20 stars",
+    "rating": "normal",
+    "origin": {
+      "name": "Signal Model Aggregator",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "constellation_aggregation",
+      "aggregation_run": "20250924T010343Z",
+      "stats": {
+        "stars_found": 20,
+        "signals_collected": 20,
+        "errors_encountered": 0
+      },
+      "signals": [
+        {
+          "id": "20250923T023350Z-accountant-model-genesis",
+          "ts_utc": "2025-09-23T02:33:50Z",
+          "date": "2025-09-23",
+          "module": "Accountant Model",
+          "repo": "accountant-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "ancillary-operations"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Accountant Model",
+            "url": "https://zbreeden.github.io/accountant-model/",
+            "emoji": "💰"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/accountant-model#readme",
+            "page": "https://zbreeden.github.io/accountant-model/",
+            "data": "https://github.com/zbreeden/accountant-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/accountant-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "ancillary-operations",
+            "status": "seed",
+            "module_key": "accountant_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022821Z-anchor-model-genesis",
+          "ts_utc": "2025-09-23T02:28:21Z",
+          "date": "2025-09-23",
+          "module": "Anchor Model",
+          "repo": "anchor-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "ancillary-operations"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Anchor Model",
+            "url": "https://zbreeden.github.io/anchor-model/",
+            "emoji": "⚓"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/anchor-model#readme",
+            "page": "https://zbreeden.github.io/anchor-model/",
+            "data": "https://github.com/zbreeden/anchor-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/anchor-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "ancillary-operations",
+            "status": "seed",
+            "module_key": "anchor_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T225940Z-nightly_pulse",
+          "ts_utc": "2025-09-23T22:59:40Z",
+          "module": "Archive Model",
+          "repo": "archive-model",
+          "title": "Nightly Heartbeats",
+          "summary": "The Archive heart is now beating; nightly pulses bring local seed data back to The Barycenter!!!",
+          "rating": "critical",
+          "origin": {
+            "name": "Archive Model",
+            "url": "https://zbreeden.github.io/archive-model/",
+            "emoji": "🫀"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/archive-model#readme",
+            "page": "https://zbreeden.github.io/archive-model/"
+          },
+          "payload": {
+            "module_key": "archive_model",
+            "broadcast_key": "nightly_pulse",
+            "tags": [
+              "puse"
+            ]
+          }
+        },
+        {
+          "id": "20250923T020436Z-bank-model-genesis",
+          "ts_utc": "2025-09-23T02:04:36Z",
+          "date": "2025-09-23",
+          "module": "Bank Model",
+          "repo": "bank-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "delivery-insight"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Bank Model",
+            "url": "https://zbreeden.github.io/bank-model/",
+            "emoji": "🏦"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/bank-model#readme",
+            "page": "https://zbreeden.github.io/bank-model/",
+            "data": "https://github.com/zbreeden/bank-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/bank-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "delivery-insight",
+            "status": "seed",
+            "module_key": "bank_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T020305Z-catalyst-model-genesis",
+          "ts_utc": "2025-09-23T02:03:05Z",
+          "date": "2025-09-23",
+          "module": "Catalyst Model",
+          "repo": "catalyst-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "delivery-insight"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Catalyst Model",
+            "url": "https://zbreeden.github.io/catalyst-model/",
+            "emoji": "⚡"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/catalyst-model#readme",
+            "page": "https://zbreeden.github.io/catalyst-model/",
+            "data": "https://github.com/zbreeden/catalyst-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/catalyst-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "delivery-insight",
+            "status": "seed",
+            "module_key": "catalyst_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022526Z-coach-model-genesis",
+          "ts_utc": "2025-09-23T02:25:27Z",
+          "date": "2025-09-23",
+          "module": "Coach Model",
+          "repo": "coach-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "growth-experiment"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Coach Model",
+            "url": "https://zbreeden.github.io/coach-model/",
+            "emoji": "💪"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/coach-model#readme",
+            "page": "https://zbreeden.github.io/coach-model/",
+            "data": "https://github.com/zbreeden/coach-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/coach-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "growth-experiment",
+            "status": "seed",
+            "module_key": "coach_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T015604Z-developer-model-genesis",
+          "ts_utc": "2025-09-23T01:56:04Z",
+          "date": "2025-09-23",
+          "module": "Developer Model",
+          "repo": "developer-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "core"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Developer Model",
+            "url": "https://zbreeden.github.io/developer-model/",
+            "emoji": "✨"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/developer-model#readme",
+            "page": "https://zbreeden.github.io/developer-model/",
+            "data": "https://github.com/zbreeden/developer-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/developer-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "core",
+            "status": "seed",
+            "module_key": "developer_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T020713Z-evaluator-model-genesis",
+          "ts_utc": "2025-09-23T02:07:13Z",
+          "date": "2025-09-23",
+          "module": "Evaluator Model",
+          "repo": "evaluator-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "delivery-insight"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Evaluator Model",
+            "url": "https://zbreeden.github.io/evaluator-model/",
+            "emoji": "🧠"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/evaluator-model#readme",
+            "page": "https://zbreeden.github.io/evaluator-model/",
+            "data": "https://github.com/zbreeden/evaluator-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/evaluator-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "delivery-insight",
+            "status": "seed",
+            "module_key": "evaluator_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022920Z-firm-model-genesis",
+          "ts_utc": "2025-09-23T02:29:20Z",
+          "date": "2025-09-23",
+          "module": "Firm Model",
+          "repo": "firm-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "ancillary-operations"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Firm Model",
+            "url": "https://zbreeden.github.io/firm-model/",
+            "emoji": "🏢"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/firm-model#readme",
+            "page": "https://zbreeden.github.io/firm-model/",
+            "data": "https://github.com/zbreeden/firm-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/firm-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "ancillary-operations",
+            "status": "seed",
+            "module_key": "firm_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022142Z-gambler-model-genesis",
+          "ts_utc": "2025-09-23T02:21:42Z",
+          "date": "2025-09-23",
+          "module": "Gambler Model",
+          "repo": "gambler-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "growth-experiment"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Gambler Model",
+            "url": "https://zbreeden.github.io/gambler-model/",
+            "emoji": "🎲"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/gambler-model#readme",
+            "page": "https://zbreeden.github.io/gambler-model/",
+            "data": "https://github.com/zbreeden/gambler-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/gambler-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "growth-experiment",
+            "status": "seed",
+            "module_key": "gambler_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T021412Z-grower-model-genesis",
+          "ts_utc": "2025-09-23T02:14:12Z",
+          "date": "2025-09-23",
+          "module": "Grower Model",
+          "repo": "grower-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "growth-experiment"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Grower Model",
+            "url": "https://zbreeden.github.io/grower-model/",
+            "emoji": "🌻"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/grower-model#readme",
+            "page": "https://zbreeden.github.io/grower-model/",
+            "data": "https://github.com/zbreeden/grower-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/grower-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "growth-experiment",
+            "status": "seed",
+            "module_key": "grower_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T015319Z-launch-model-genesis",
+          "ts_utc": "2025-09-23T01:53:19Z",
+          "date": "2025-09-23",
+          "module": "Launch Model",
+          "repo": "launch-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "core"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Launch Model",
+            "url": "https://zbreeden.github.io/launch-model/",
+            "emoji": "🚀"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/launch-model#readme",
+            "page": "https://zbreeden.github.io/launch-model/",
+            "data": "https://github.com/zbreeden/launch-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/launch-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "core",
+            "status": "seed",
+            "module_key": "launch_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T023006Z-mirror-model-genesis",
+          "ts_utc": "2025-09-23T02:30:06Z",
+          "date": "2025-09-23",
+          "module": "Mirror Model",
+          "repo": "mirror-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "ancillary-operations"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Mirror Model",
+            "url": "https://zbreeden.github.io/mirror-model/",
+            "emoji": "🪞"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/mirror-model#readme",
+            "page": "https://zbreeden.github.io/mirror-model/",
+            "data": "https://github.com/zbreeden/mirror-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/mirror-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "ancillary-operations",
+            "status": "seed",
+            "module_key": "mirror_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022631Z-orbiter-model-genesis",
+          "ts_utc": "2025-09-23T02:26:31Z",
+          "date": "2025-09-23",
+          "module": "Orbiter Model",
+          "repo": "orbiter-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "ancillary-operations"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Orbiter Model",
+            "url": "https://zbreeden.github.io/orbiter-model/",
+            "emoji": "🛰️"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/orbiter-model#readme",
+            "page": "https://zbreeden.github.io/orbiter-model/",
+            "data": "https://github.com/zbreeden/orbiter-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/orbiter-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "ancillary-operations",
+            "status": "seed",
+            "module_key": "orbiter_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022017Z-player-model-genesis",
+          "ts_utc": "2025-09-23T02:20:17Z",
+          "date": "2025-09-23",
+          "module": "Player Model",
+          "repo": "player-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "growth-experiment"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Player Model",
+            "url": "https://zbreeden.github.io/player-model/",
+            "emoji": "🎮"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/player-model#readme",
+            "page": "https://zbreeden.github.io/player-model/",
+            "data": "https://github.com/zbreeden/player-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/player-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "growth-experiment",
+            "status": "seed",
+            "module_key": "player_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T015505Z-protector-model-genesis",
+          "ts_utc": "2025-09-23T01:55:05Z",
+          "date": "2025-09-23",
+          "module": "Protector Model",
+          "repo": "protector-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "core"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Protector Model",
+            "url": "https://zbreeden.github.io/protector-model/",
+            "emoji": "🛡️"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/protector-model#readme",
+            "page": "https://zbreeden.github.io/protector-model/",
+            "data": "https://github.com/zbreeden/protector-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/protector-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "core",
+            "status": "seed",
+            "module_key": "protector_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T081215Z-broadcasting_system_active",
+          "ts_utc": "2025-09-23T08:12:15Z",
+          "module": "Signal Model",
+          "repo": "signal-model",
+          "title": "System Broadcasting System",
+          "summary": "The constellation's broadcasting system is online; the stars can communicate",
+          "rating": "critical",
+          "origin": {
+            "name": "Signal Model",
+            "url": "https://zbreeden.github.io/signal-model/",
+            "emoji": "📡"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/signal-model#readme",
+            "page": "https://zbreeden.github.io/signal-model/"
+          },
+          "payload": {
+            "module_key": "signal_model",
+            "broadcast_key": "broadcasting_system_active",
+            "tags": [
+              "signal"
+            ]
+          }
+        },
+        {
+          "id": "20250923T020831Z-story-model-genesis",
+          "ts_utc": "2025-09-23T02:08:31Z",
+          "date": "2025-09-23",
+          "module": "Story Model",
+          "repo": "story-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "delivery-insight"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Story Model",
+            "url": "https://zbreeden.github.io/story-model/",
+            "emoji": "📖"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/story-model#readme",
+            "page": "https://zbreeden.github.io/story-model/",
+            "data": "https://github.com/zbreeden/story-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/story-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "delivery-insight",
+            "status": "seed",
+            "module_key": "story_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T022412Z-trainer-model-genesis",
+          "ts_utc": "2025-09-23T02:24:12Z",
+          "date": "2025-09-23",
+          "module": "Trainer Model",
+          "repo": "trainer-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "growth-experiment"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Trainer Model",
+            "url": "https://zbreeden.github.io/trainer-model/",
+            "emoji": "🧭"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/trainer-model#readme",
+            "page": "https://zbreeden.github.io/trainer-model/",
+            "data": "https://github.com/zbreeden/trainer-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/trainer-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "growth-experiment",
+            "status": "seed",
+            "module_key": "trainer_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250923T020047Z-visualizer-model-genesis",
+          "ts_utc": "2025-09-23T02:00:47Z",
+          "date": "2025-09-23",
+          "module": "Visualizer Model",
+          "repo": "visualizer-model",
+          "title": "New constellation star initialized",
+          "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+          "tags": [
+            "genesis",
+            "scaffold",
+            "module",
+            "delivery-insight"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Visualizer Model",
+            "url": "https://zbreeden.github.io/visualizer-model/",
+            "emoji": "🎨"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/visualizer-model#readme",
+            "page": "https://zbreeden.github.io/visualizer-model/",
+            "data": "https://github.com/zbreeden/visualizer-model/tree/main/signals",
+            "runbook": "https://github.com/zbreeden/visualizer-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "orbit": "delivery-insight",
+            "status": "seed",
+            "module_key": "visualizer_model",
+            "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        }
+      ]
+    }
+  },
+  {
+    "id": "20250923T075746Z-test2",
+    "ts_utc": "2025-09-23T07:57:46Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Test2",
+    "summary": "This is test number two",
+    "rating": "normal",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "test2",
+      "tags": [
+        "testing"
+      ]
+    }
+  },
+  {
+    "id": "20250923T075401Z-test",
+    "ts_utc": "2025-09-23T07:54:01Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Test Broadcast",
+    "summary": "This is a test broadcast",
+    "rating": "normal",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "test",
+      "tags": [
+        "testing"
+      ]
+    }
+  },
+  {
+    "id": "2025-09-23T00:00:01Z-fourtwentyanalytics-big-bang",
+    "ts_utc": "2025-09-23T00:00:01Z",
+    "date": "2025-09-23",
+    "module": "fourtwenty_analytics",
+    "repo": "fourtwentyanalytics",
+    "title": "The Constellation is Born",
+    "summary": "From nothing came everything. The Genesis Machine has spoken the constellation into existence - schemas govern data flows, seeds provide canonical truth, signals enable communication across the void. The Big Bang of FourTwenty Analytics is complete.",
+    "tags": [
+      "genesis",
+      "big-bang",
+      "constellation"
+    ],
+    "rating": "critical",
+    "origin": {
+      "name": "FourTwenty Analytics",
+      "url": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "emoji": "🔘"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/FourTwentyAnalytics#readme",
+      "page": "https://zbreeden.github.io/FourTwentyAnalytics/",
+      "data": "https://github.com/zbreeden/FourTwentyAnalytics/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/FourTwentyAnalytics/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "orbit": "elemental-system",
+      "status": "active",
+      "module_key": "fourtwenty_analytics",
+      "notes": "Initial constellation created by new-module.sh script. Ready for customization and development!!"
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  },
+  {
+    "id": "20250923T013736Z-signal-model-genesis",
+    "ts_utc": "2025-09-23T01:37:36Z",
+    "date": "2025-09-23",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "New constellation star initialized",
+    "summary": "Generated module scaffold with seedset distribution and basic broadcast structure.",
+    "tags": [
+      "genesis",
+      "scaffold",
+      "module",
+      "core"
+    ],
+    "rating": "normal",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/",
+      "data": "https://github.com/zbreeden/signal-model/tree/main/signals",
+      "runbook": "https://github.com/zbreeden/signal-model/blob/main/RUNBOOK.md"
+    },
+    "payload": {
+      "orbit": "core",
+      "status": "seed",
+      "module_key": "signal_model",
+      "notes": "Initial scaffold created by new-module.sh script. Ready for customization and development."
+    },
+    "checksum": "",
+    "version": "1.0.0"
+  }
+]
