@@ -1,0 +1,54 @@
+[
+  {
+    "id": "20250925T192202Z-fix_signal",
+    "ts_utc": "2025-09-25T19:22:02Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Fixing Signals",
+    "summary": "I am working on fixing the constellation broadcasting system",
+    "rating": "critical",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "status": "developing",
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "fix_signal",
+      "tags": [
+        "fix"
+      ]
+    }
+  },
+  {
+    "id": "20250925T192028Z-reset_signals",
+    "ts_utc": "2025-09-25T19:20:28Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Updating Broadcast System",
+    "summary": "I am trying to fix the broadcasting system",
+    "rating": "critical",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "status": "developing",
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "reset_signals",
+      "tags": [
+        "teardown"
+      ]
+    }
+  }
+]
