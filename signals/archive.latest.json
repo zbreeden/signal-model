@@ -1,0 +1,733 @@
+[
+  {
+    "id": "20251015T143934Z-weekly_update",
+    "ts_utc": "2025-10-15T14:39:34Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "LinkedIn Post - Genesis",
+    "summary": "The Signal dropped a teaser for The Genesis in LinkedIn.",
+    "rating": "high",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "status": "developing",
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "weekly_update",
+      "tags": [
+        "promotion"
+      ]
+    }
+  },
+  {
+    "id": "20250925T195501Z-signal-model-constellation_aggregation",
+    "ts_utc": "2025-09-25T19:55:02Z",
+    "date": "2025-09-25",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Constellation Signal Aggregation",
+    "summary": "Nightly aggregation of all constellation star signals - 20 signals from 20 stars",
+    "rating": "normal",
+    "origin": {
+      "name": "Signal Model Aggregator",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "constellation_aggregation",
+      "aggregation_run": "20250925T195501Z",
+      "stats": {
+        "stars_found": 20,
+        "signals_collected": 20,
+        "errors_encountered": 0
+      },
+      "signals": [
+        {
+          "id": "20250925T184827Z-checking_in",
+          "ts_utc": "2025-09-25T18:48:27Z",
+          "module": "Accountant Model",
+          "repo": "accountant-model",
+          "title": "Checking In",
+          "summary": "The Accountant is checking in with the hub",
+          "rating": "normal",
+          "origin": {
+            "name": "Accountant Model",
+            "url": "https://zbreeden.github.io/accountant-model/",
+            "emoji": "💰"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/accountant-model#readme",
+            "page": "https://zbreeden.github.io/accountant-model/"
+          },
+          "payload": {
+            "module_key": "accountant_model",
+            "broadcast_key": "checking_in",
+            "tags": [
+              "check"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193002Z-checking_in",
+          "ts_utc": "2025-09-25T19:30:02Z",
+          "module": "Anchor Model",
+          "repo": "anchor-model",
+          "title": "Checking In",
+          "summary": "The Anchor is checking in with the hub",
+          "rating": "normal",
+          "origin": {
+            "name": "Anchor Model",
+            "url": "https://zbreeden.github.io/anchor-model/",
+            "emoji": "⚓️"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/anchor-model#readme",
+            "page": "https://zbreeden.github.io/anchor-model/"
+          },
+          "payload": {
+            "module_key": "anchor_model",
+            "broadcast_key": "checking_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T192541Z-adding_data",
+          "ts_utc": "2025-09-25T19:25:41Z",
+          "module": "Archive Model",
+          "repo": "archive-model",
+          "title": "Adding More Signal Data",
+          "summary": "The Archive is helping The Signal fix the broadcasting system",
+          "rating": "high",
+          "origin": {
+            "name": "Archive Model",
+            "url": "https://zbreeden.github.io/archive-model/",
+            "emoji": "🫀"
+          },
+          "status": "developing",
+          "links": {
+            "readme": "https://github.com/zbreeden/archive-model#readme",
+            "page": "https://zbreeden.github.io/archive-model/"
+          },
+          "payload": {
+            "module_key": "archive_model",
+            "broadcast_key": "adding_data",
+            "tags": [
+              "fix"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193200Z-check_in",
+          "ts_utc": "2025-09-25T19:32:00Z",
+          "module": "The Bank",
+          "repo": "bank-model",
+          "title": "Checking In",
+          "summary": "The Bank is checking in with the hub",
+          "rating": "normal",
+          "origin": {
+            "name": "The Bank",
+            "url": "https://zbreeden.github.io/bank-model/",
+            "emoji": "🏦"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/bank-model#readme",
+            "page": "https://zbreeden.github.io/bank-model/"
+          },
+          "payload": {
+            "module_key": "bank_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193355Z-checking_in",
+          "ts_utc": "2025-09-25T19:33:55Z",
+          "module": "Catalyst",
+          "repo": "catalyst-model",
+          "title": "Checking In",
+          "summary": "The Catalyst is checking in with the hub.",
+          "rating": "normal",
+          "origin": {
+            "name": "Catalyst",
+            "url": "https://zbreeden.github.io/catalyst-model/",
+            "emoji": "⚡"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/catalyst-model#readme",
+            "page": "https://zbreeden.github.io/catalyst-model/"
+          },
+          "payload": {
+            "module_key": "catalyst_model",
+            "broadcast_key": "checking_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193515Z-check_in",
+          "ts_utc": "2025-09-25T19:35:15Z",
+          "module": "The Coach (RoutineIQ)",
+          "repo": "coach-model",
+          "title": "Check In",
+          "summary": "The Coach is hoping to generate motivation soon!!",
+          "rating": "normal",
+          "origin": {
+            "name": "The Coach (RoutineIQ)",
+            "url": "https://zbreeden.github.io/coach-model/",
+            "emoji": "💪"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/coach-model#readme",
+            "page": "https://zbreeden.github.io/coach-model/"
+          },
+          "payload": {
+            "module_key": "coach_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250924T090947Z-protector_tether_synthesis",
+          "ts_utc": "2025-09-24T09:09:47Z",
+          "module": "Developer Model",
+          "repo": "developer-model",
+          "title": "Protector Tether Genesis: Synthetic Starlifecycle Data Streams Activate Sentinel Integration",
+          "summary": "The Developer ✨ has forged a critical tether to The Protector 🛡️ through synthetic starlifecycle data generation. With 18 realistic monitoring datasets covering 345 constellation health scenarios across all 20 modules, this breakthrough enables The Protector's sentinel workflows to validate against comprehensive test data, establishing the data circulatory pathways needed for constellation health monitoring and lifecycle oversight.",
+          "rating": "critical",
+          "origin": {
+            "name": "Developer Model",
+            "url": "https://zbreeden.github.io/developer-model/",
+            "emoji": "✨"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/developer-model#readme",
+            "page": "https://zbreeden.github.io/developer-model/"
+          },
+          "payload": {
+            "module_key": "developer_model",
+            "broadcast_key": "protector_tether_synthesis",
+            "tags": [
+              "protector-integration",
+              "starlifecycle-synthesis",
+              "sentinel-testing",
+              "constellation-health",
+              "data-tether"
+            ],
+            "protector_tether_established": {
+              "synthetic_data_type": "starlifecycle_monitoring_datasets",
+              "total_datasets": 18,
+              "total_health_scenarios": 345,
+              "module_coverage": 20,
+              "monitoring_scenarios": [
+                "health_check",
+                "lifecycle_progression",
+                "stress_testing"
+              ]
+            },
+            "starlifecycle_data_generation": {
+              "csv_schema_compliance": "protector-model/data/internal/*.csv format",
+              "realistic_progression_patterns": "seed → developing → active lifecycle states",
+              "contextual_ratings": [
+                "critical",
+                "high",
+                "normal",
+                "mundane"
+              ],
+              "module_specific_notes": "Generated based on constellation module maturity levels",
+              "temporal_distribution": "30-day historical scan timestamps with realistic intervals"
+            },
+            "sentinel_integration_capabilities": {
+              "test_data_foundation": "Comprehensive datasets for validating Protector monitoring workflows",
+              "health_scenario_simulation": "Critical, developing, and stable constellation states",
+              "cross_module_monitoring": "All 20 constellation modules represented with realistic status patterns",
+              "stress_testing_support": "High-frequency monitoring datasets for performance validation",
+              "lifecycle_drift_detection": "Realistic progression patterns for testing sentinel algorithms"
+            },
+            "data_circulatory_pathways": {
+              "developer_synthesis": "scripts/generate_protector_starlifecycle.py - synthetic data generation engine",
+              "external_data_storage": "data/external/starlifecycle_*.csv - 18 monitoring datasets ready for integration",
+              "protector_integration": "Direct pathway to protector-model/data/internal/ for sentinel testing",
+              "cross_system_validation": "Enables testing of constellation health monitoring across all orbital systems"
+            },
+            "technical_achievement": {
+              "schema_driven_synthesis": "CSV generation matching Protector's internal data format requirements",
+              "realistic_data_patterns": "Contextual notes, ratings, and progression states based on module maturity",
+              "temporal_accuracy": "Proper timestamp formatting and realistic scan intervals",
+              "comprehensive_coverage": "All constellation modules with appropriate status distributions"
+            },
+            "constellation_narrative": {
+              "developer_protector_symbiosis": "The Developer creates the test data that enables The Protector's sentinel capabilities",
+              "data_tether_significance": "First cross-system synthetic data integration between core constellation modules",
+              "testing_foundation": "Establishes comprehensive testing infrastructure for constellation health monitoring",
+              "sentinel_validation": "Enables The Protector to validate monitoring algorithms against realistic constellation scenarios"
+            }
+          }
+        },
+        {
+          "id": "20250925T193647Z-check_in",
+          "ts_utc": "2025-09-25T19:36:47Z",
+          "module": "Evaluator Model",
+          "repo": "evaluator-model",
+          "title": "Check In",
+          "summary": "The Evaluator is hoping to begin evaluating the situation soon!!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Evaluator Model",
+            "url": "https://zbreeden.github.io/evaluator-model/",
+            "emoji": "🧠"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/evaluator-model#readme",
+            "page": "https://zbreeden.github.io/evaluator-model/"
+          },
+          "payload": {
+            "module_key": "evaluator_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193811Z-check_in",
+          "ts_utc": "2025-09-25T19:38:11Z",
+          "module": "Firm Model",
+          "repo": "firm-model",
+          "title": "Check In",
+          "summary": "The Firm is hoping to start governing soon!!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Firm Model",
+            "url": "https://zbreeden.github.io/firm-model/",
+            "emoji": "🏢"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/firm-model#readme",
+            "page": "https://zbreeden.github.io/firm-model/"
+          },
+          "payload": {
+            "module_key": "firm_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T193928Z-check_in",
+          "ts_utc": "2025-09-25T19:39:28Z",
+          "module": "Gambler",
+          "repo": "gambler-model",
+          "title": "Check In",
+          "summary": "The Gambler is ready to start placing some bets!!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Gambler",
+            "url": "https://zbreeden.github.io/gambler-model/",
+            "emoji": "🎲"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/gambler-model#readme",
+            "page": "https://zbreeden.github.io/gambler-model/"
+          },
+          "payload": {
+            "module_key": "gambler_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T194042Z-check_in",
+          "ts_utc": "2025-09-25T19:40:42Z",
+          "module": "Grower Model",
+          "repo": "grower-model",
+          "title": "Check In",
+          "summary": "The Grower is ready to start smoking some weed!!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Grower Model",
+            "url": "https://zbreeden.github.io/grower-model/",
+            "emoji": "🌻"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/grower-model#readme",
+            "page": "https://zbreeden.github.io/grower-model/"
+          },
+          "payload": {
+            "module_key": "grower_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250924T104138Z-launch-model-workflow_analysis",
+          "ts_utc": "2025-09-24T10:41:38Z",
+          "date": "2025-09-24",
+          "module": "Launch Model",
+          "repo": "launch-model",
+          "title": "Workflow Funnel Analysis Complete",
+          "summary": "Constellation workflow intelligence analysis complete - processed 0 signals with funnel categorization and performance diagnostics",
+          "rating": "normal",
+          "origin": {
+            "name": "Launch Model Intelligence",
+            "url": "https://zbreeden.github.io/launch-model/",
+            "emoji": "🚀"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/launch-model#readme",
+            "page": "https://zbreeden.github.io/launch-model/",
+            "data": "https://github.com/zbreeden/launch-model/tree/main/data/internal",
+            "diagnostics": "https://github.com/zbreeden/launch-model/blob/main/data/internal/diagnostics-20250924T104138Z.txt"
+          },
+          "payload": {
+            "module_key": "launch_model",
+            "broadcast_key": "workflow_analysis",
+            "analysis_run": "20250924T104138Z",
+            "source_aggregation": "20250924T103314Z.latest.json",
+            "diagnostics": {
+              "total_signals_processed": 0,
+              "funnel_distribution": {},
+              "module_activity": {},
+              "rating_distribution": {},
+              "analysis_duration_seconds": "auto_calculated",
+              "files_generated": {
+                "analysis_csv": "workflow-analysis-20250924T104138Z.csv",
+                "diagnostics_report": "diagnostics-20250924T104138Z.txt"
+              }
+            },
+            "system_health": {
+              "constellation_coverage": "0",
+              "workflow_diversity": "0",
+              "data_quality": "validated",
+              "processing_status": "success"
+            },
+            "tags": [
+              "workflow_analysis",
+              "operational_intelligence",
+              "constellation_health",
+              "performance_metrics"
+            ]
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250925T194204Z-check_in",
+          "ts_utc": "2025-09-25T19:42:04Z",
+          "module": "Mirror Model",
+          "repo": "mirror-model",
+          "title": "Check In",
+          "summary": "The Mirror is ready to start showing some metrics soon!!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Mirror Model",
+            "url": "https://zbreeden.github.io/mirror-model/",
+            "emoji": "🪞"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/mirror-model#readme",
+            "page": "https://zbreeden.github.io/mirror-model/"
+          },
+          "payload": {
+            "module_key": "mirror_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T194853Z-check_in",
+          "ts_utc": "2025-09-25T19:48:53Z",
+          "module": "Orbiter",
+          "repo": "orbiter-model",
+          "title": "Check In",
+          "summary": "The Orbiter is ready and waiting!!",
+          "rating": "normal",
+          "origin": {
+            "name": "Orbiter",
+            "url": "https://zbreeden.github.io/orbiter-model/",
+            "emoji": "🛰️"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/orbiter-model#readme",
+            "page": "https://zbreeden.github.io/orbiter-model/"
+          },
+          "payload": {
+            "module_key": "orbiter_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T194958Z-check_in",
+          "ts_utc": "2025-09-25T19:49:58Z",
+          "module": "The Player",
+          "repo": "player-model",
+          "title": "Check In",
+          "summary": "The Player gonna play..",
+          "rating": "normal",
+          "origin": {
+            "name": "The Player",
+            "url": "https://zbreeden.github.io/player-model/",
+            "emoji": "🎮"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/player-model#readme",
+            "page": "https://zbreeden.github.io/player-model/"
+          },
+          "payload": {
+            "module_key": "player_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250924T082715Z-constellation_health",
+          "ts_utc": "2025-09-24T08:27:15Z",
+          "date": "2025-09-24",
+          "module": "Protector Model",
+          "repo": "protector-model",
+          "title": "🛡️ Constellation Health Monitor: HEALTHY",
+          "summary": "Constellation health optimal with 19 modules showing strong active progression (14 active).",
+          "tags": [
+            "health",
+            "monitoring",
+            "lifecycle",
+            "protector",
+            "HEALTHY"
+          ],
+          "rating": "normal",
+          "origin": {
+            "name": "Protector Model",
+            "url": "https://zbreeden.github.io/protector-model/",
+            "emoji": "🛡️"
+          },
+          "links": {
+            "readme": "https://github.com/zbreeden/protector-model#readme",
+            "page": "https://zbreeden.github.io/protector-model/",
+            "data": "https://github.com/zbreeden/protector-model/tree/main/data/internal",
+            "runbook": "https://github.com/zbreeden/protector-model/blob/main/RUNBOOK.md"
+          },
+          "payload": {
+            "module_key": "protector_model",
+            "broadcast_key": "constellation_health",
+            "analysis_timestamp": "20250924T082651Z",
+            "health_status": "HEALTHY",
+            "metrics": {
+              "total_modules_monitored": 19,
+              "status_breakdown": {
+                "seed": 3,
+                "developing": 2,
+                "active": 14
+              }
+            },
+            "diagnostic_file": "20250924T082651Z.slc.diagnostic",
+            "monitoring_scope": [
+              "seed",
+              "developing",
+              "active"
+            ],
+            "notes": "Automated nightly constellation health monitoring by Protector Model. Scans launch-model workflow analysis for module status progression and generates health diagnostics."
+          },
+          "checksum": "",
+          "version": "1.0.0"
+        },
+        {
+          "id": "20250925T192202Z-fix_signal",
+          "ts_utc": "2025-09-25T19:22:02Z",
+          "module": "Signal Model",
+          "repo": "signal-model",
+          "title": "Fixing Signals",
+          "summary": "I am working on fixing the constellation broadcasting system",
+          "rating": "critical",
+          "origin": {
+            "name": "Signal Model",
+            "url": "https://zbreeden.github.io/signal-model/",
+            "emoji": "📡"
+          },
+          "status": "developing",
+          "links": {
+            "readme": "https://github.com/zbreeden/signal-model#readme",
+            "page": "https://zbreeden.github.io/signal-model/"
+          },
+          "payload": {
+            "module_key": "signal_model",
+            "broadcast_key": "fix_signal",
+            "tags": [
+              "fix"
+            ]
+          }
+        },
+        {
+          "id": "20250925T195209Z-check_in",
+          "ts_utc": "2025-09-25T19:52:09Z",
+          "module": "The Story",
+          "repo": "story-model",
+          "title": "Check In",
+          "summary": "The Story be narrating..",
+          "rating": "normal",
+          "origin": {
+            "name": "The Story",
+            "url": "https://zbreeden.github.io/story-model/",
+            "emoji": "📖"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/story-model#readme",
+            "page": "https://zbreeden.github.io/story-model/"
+          },
+          "payload": {
+            "module_key": "story_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        },
+        {
+          "id": "20250925T185203Z-checking_in",
+          "ts_utc": "2025-09-25T18:52:03Z",
+          "module": "Trainer",
+          "repo": "trainer-model",
+          "title": "The Trainer Checking In",
+          "summary": "Funnel capabilities for various training scrolls (e.g. SQL training, PBI training, Certification Training)",
+          "rating": "high",
+          "origin": {
+            "name": "Trainer",
+            "url": "https://zbreeden.github.io/trainer-model/",
+            "emoji": "🏋️"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/trainer-model#readme",
+            "page": "https://zbreeden.github.io/trainer-model/"
+          },
+          "payload": {
+            "module_key": "trainer_model",
+            "broadcast_key": "checking_in",
+            "tags": [
+              "holla"
+            ]
+          }
+        },
+        {
+          "id": "20250925T195320Z-check_in",
+          "ts_utc": "2025-09-25T19:53:20Z",
+          "module": "Visualizer Model",
+          "repo": "visualizer-model",
+          "title": "Check In",
+          "summary": "The Visualizer is ready for visualizations.",
+          "rating": "normal",
+          "origin": {
+            "name": "Visualizer Model",
+            "url": "https://zbreeden.github.io/visualizer-model/",
+            "emoji": "🎨"
+          },
+          "status": "seed",
+          "links": {
+            "readme": "https://github.com/zbreeden/visualizer-model#readme",
+            "page": "https://zbreeden.github.io/visualizer-model/"
+          },
+          "payload": {
+            "module_key": "visualizer_model",
+            "broadcast_key": "check_in",
+            "tags": [
+              "check_in"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "20250925T192202Z-fix_signal",
+    "ts_utc": "2025-09-25T19:22:02Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Fixing Signals",
+    "summary": "I am working on fixing the constellation broadcasting system",
+    "rating": "critical",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "status": "developing",
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "fix_signal",
+      "tags": [
+        "fix"
+      ]
+    }
+  },
+  {
+    "id": "20250925T192028Z-reset_signals",
+    "ts_utc": "2025-09-25T19:20:28Z",
+    "module": "Signal Model",
+    "repo": "signal-model",
+    "title": "Updating Broadcast System",
+    "summary": "I am trying to fix the broadcasting system",
+    "rating": "critical",
+    "origin": {
+      "name": "Signal Model",
+      "url": "https://zbreeden.github.io/signal-model/",
+      "emoji": "📡"
+    },
+    "status": "developing",
+    "links": {
+      "readme": "https://github.com/zbreeden/signal-model#readme",
+      "page": "https://zbreeden.github.io/signal-model/"
+    },
+    "payload": {
+      "module_key": "signal_model",
+      "broadcast_key": "reset_signals",
+      "tags": [
+        "teardown"
+      ]
+    }
+  }
+]
