@@ -1,0 +1,26 @@
+{
+  "id": "20251022T003944Z-weekly_update",
+  "ts_utc": "2025-10-22T00:39:44Z",
+  "module": "Signal Model",
+  "repo": "signal-model",
+  "title": "Model Update",
+  "summary": "Current Model status: 5 models in development (core system), 4 models sprouted (Coach, Trainer, Firm, Catalyst), 11 models seeded and waiting for calls to sprout.",
+  "rating": "high",
+  "origin": {
+    "name": "Signal Model",
+    "url": "https://zbreeden.github.io/signal-model/",
+    "emoji": "📡"
+  },
+  "status": "developing",
+  "links": {
+    "readme": "https://github.com/zbreeden/signal-model#readme",
+    "page": "https://zbreeden.github.io/signal-model/"
+  },
+  "payload": {
+    "module_key": "signal_model",
+    "broadcast_key": "weekly_update",
+    "tags": [
+      "update"
+    ]
+  }
+}
